@@ -47,12 +47,12 @@ Plans:
   1. All triads (major, minor, diminished, augmented) and 7th chords (maj7, min7, dom7, dim7, half-dim7) can be constructed from any root note
   2. Every constructed chord produces a correct human-readable name (e.g., "Dm7", "F#aug")
   3. Catch2 test suite covers all chord types, all 12 root notes, and enharmonic edge cases
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: Interval arithmetic, note representation, and enharmonic handling
-- [ ] 02-02: Chord construction (triads + 7ths) and chord name generation
-- [ ] 02-03: Catch2 test suite for theory engine
+- [ ] 02-01-PLAN.md — Engine library scaffold (ChordPumperEngine static lib) + Catch2 v3 test infrastructure
+- [ ] 02-02-PLAN.md — PitchClass TDD (note representation, semitone arithmetic, naming, MIDI conversion)
+- [ ] 02-03-PLAN.md — Chord TDD (construction, interval application, MIDI generation, naming for all 108 combinations)
 
 ### Phase 3: Playable Grid
 **Goal**: User sees 32 labeled chord pads and can click any pad to hear that chord through their DAW instrument
