@@ -11,15 +11,18 @@ ChordPumperProcessor::ChordPumperProcessor()
 
 void ChordPumperProcessor::prepareToPlay(double /*sampleRate*/, int /*samplesPerBlock*/)
 {
+    keyboardState.reset();
 }
 
 void ChordPumperProcessor::releaseResources()
 {
 }
 
-void ChordPumperProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& /*midiMessages*/)
+void ChordPumperProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
     buffer.clear();
+    midiMessages.clear();
+    keyboardState.processNextMidiBuffer(midiMessages, 0, buffer.getNumSamples(), true);
 }
 
 juce::AudioProcessorEditor* ChordPumperProcessor::createEditor()
