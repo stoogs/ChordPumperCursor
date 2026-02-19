@@ -68,6 +68,7 @@ target_sources(ChordPumper PRIVATE
     src/ui/PadComponent.cpp
     src/ui/GridPanel.cpp
     src/ui/ProgressionStrip.cpp
+    src/midi/MidiFileBuilder.cpp
     cmake/glibc_compat_math.c
 )
 
@@ -133,10 +134,18 @@ if(CHORDPUMPER_BUILD_TESTS)
         tests/test_voice_leader.cpp
         tests/test_roman_numeral.cpp
         tests/test_morph_engine.cpp
+        tests/test_midi_file_builder.cpp
+        src/midi/MidiFileBuilder.cpp
+    )
+    target_include_directories(ChordPumperTests PRIVATE src)
+    target_compile_definitions(ChordPumperTests PRIVATE
+        JUCE_WEB_BROWSER=0
+        JUCE_USE_CURL=0
     )
     target_link_libraries(ChordPumperTests PRIVATE
         ChordPumperEngine
         Catch2::Catch2WithMain
+        juce::juce_audio_basics
     )
     catch_discover_tests(ChordPumperTests)
 endif()
