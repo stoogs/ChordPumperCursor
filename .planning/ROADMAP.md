@@ -35,7 +35,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Repository scaffold, git submodules (JUCE 8.0.12 + clap-juce-extensions), CMake build configuration
+- [x] 01-01-PLAN.md — Repository scaffold, git submodules (JUCE 8.0.12 + clap-juce-extensions), CMake build configuration
 - [ ] 01-02-PLAN.md — Plugin source shell (Processor, Editor, LookAndFeel) and first build of all formats
 - [ ] 01-03-PLAN.md — pluginval + clap-validator validation, Bitwig host loading verification
 
@@ -126,7 +126,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Plugin Foundation | 0/3 | Planned | - |
+| 1. Plugin Foundation | 1/3 | In Progress | - |
 | 2. Chord Engine | 0/3 | Not started | - |
 | 3. Playable Grid | 0/4 | Not started | - |
 | 4. Morphing Suggestions | 0/4 | Not started | - |

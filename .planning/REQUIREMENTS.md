@@ -35,11 +35,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Platform & Build
 
-- [ ] **PLAT-01**: Plugin builds and runs on Linux x86_64 (CachyOS)
+- [x] **PLAT-01**: Plugin builds and runs on Linux x86_64 (CachyOS)
 - [ ] **PLAT-02**: Plugin available as VST3 format, loadable in Bitwig Studio 5+
 - [ ] **PLAT-03**: Plugin available as CLAP format via clap-juce-extensions, loadable in Bitwig Studio 5+
 - [ ] **PLAT-04**: Plugin available as standalone application
-- [ ] **PLAT-05**: Build system uses CMake with juce_add_plugin
+- [x] **PLAT-05**: Build system uses CMake with juce_add_plugin
 - [ ] **PLAT-06**: Plugin state saves and restores correctly when DAW session is reloaded
 - [ ] **PLAT-07**: Plugin passes pluginval validation at reasonable strictness level
 
@@ -109,11 +109,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CAPT-01 | Phase 5 | Pending |
 | CAPT-02 | Phase 5 | Pending |
 | CAPT-03 | Phase 5 | Pending |
-| PLAT-01 | Phase 1 | Pending |
+| PLAT-01 | Phase 1 | Complete |
 | PLAT-02 | Phase 1 | Pending |
 | PLAT-03 | Phase 1 | Pending |
 | PLAT-04 | Phase 1 | Pending |
-| PLAT-05 | Phase 1 | Pending |
+| PLAT-05 | Phase 1 | Complete |
 | PLAT-06 | Phase 6 | Pending |
 | PLAT-07 | Phase 6 | Pending |
 
