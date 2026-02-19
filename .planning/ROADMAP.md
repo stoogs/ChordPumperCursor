@@ -50,7 +50,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Engine library scaffold (ChordPumperEngine static lib) + Catch2 v3 test infrastructure
+- [x] 02-01-PLAN.md — Engine library scaffold (ChordPumperEngine static lib) + Catch2 v3 test infrastructure
 - [ ] 02-02-PLAN.md — PitchClass TDD (note representation, semitone arithmetic, naming, MIDI conversion)
 - [ ] 02-03-PLAN.md — Chord TDD (construction, interval application, MIDI generation, naming for all 108 combinations)
 
@@ -127,7 +127,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Plugin Foundation | 3/3 | Complete | 2026-02-19 |
-| 2. Chord Engine | 0/3 | Not started | - |
+| 2. Chord Engine | 1/3 | In progress | - |
 | 3. Playable Grid | 0/4 | Not started | - |
 | 4. Morphing Suggestions | 0/4 | Not started | - |
 | 5. Capture & Export | 0/3 | Not started | - |

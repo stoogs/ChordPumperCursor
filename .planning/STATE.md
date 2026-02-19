@@ -10,27 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-19)
 ## Current Position
 
 Phase: 2 of 6 (Chord Engine)
-Plan: 0 of 3 in current phase
-Status: Ready to plan
-Last activity: 2026-02-19 — Phase 1 verified and complete
+Plan: 1 of 3 in current phase
+Status: Executing
+Last activity: 2026-02-19 — Completed 02-01 (Engine library scaffold + Catch2 test infra)
 
-Progress: [██░░░░░░░░] 17%
+Progress: [███░░░░░░░] 20%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
-- Average duration: ~10 min
-- Total execution time: ~0.5 hours
+- Total plans completed: 4
+- Average duration: ~9 min
+- Total execution time: ~0.6 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1. Plugin Foundation | 3 | ~30 min | ~10 min |
+| 2. Chord Engine | 1 | 7 min | 7 min |
 
 **Recent Trend:**
-- Last 5 plans: 7min, 8min, ~15min
+- Last 5 plans: 7min, 8min, ~15min, 7min
 - Trend: —
 
 *Updated after each plan completion*
@@ -52,6 +53,9 @@ Recent decisions affecting current work:
 - [01-02]: Used FontOptions constructor for juce::Font — deprecated float constructor in JUCE 8
 - [01-02]: LookAndFeel member declared before Component members — C++ reverse destruction order ensures safe lifetime
 - [01-03]: glibc symbol version pinning (cmake/glibc-compat/) for Bitwig sandbox — CachyOS glibc 2.43 emits GLIBC_2.35+/2.38/2.43; Bitwig runtime ~2.34 rejects; header interception + --wrap/.symver pins math symbols to 2.2.5
+- [02-01]: Engine as static library (ChordPumperEngine) decoupled from JUCE — enables fast test compilation
+- [02-01]: Catch2 v3.13.0 via FetchContent with GIT_SHALLOW — keeps test deps separate from plugin deps
+- [02-01]: Test build guarded by CHORDPUMPER_BUILD_TESTS option — tests don't slow plugin builds
 
 ### Pending Todos
 
@@ -65,5 +69,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-19
-Stopped at: Completed 01-03-PLAN.md (plugin validation + Bitwig host loading)
+Stopped at: Completed 02-01-PLAN.md (engine library scaffold + Catch2 test infra)
 Resume file: None
