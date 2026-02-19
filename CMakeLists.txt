@@ -9,7 +9,21 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 find_program(CCACHE ccache)
 if(CCACHE)
     set(CMAKE_CXX_COMPILER_LAUNCHER ${CCACHE})
+    set(CMAKE_C_COMPILER_LAUNCHER ${CCACHE})
 endif()
+
+# Pin glibc symbol versions for DAW host compatibility.
+# CachyOS glibc 2.43 redirects math/string functions to newer symbol
+# versions via IEC 60559 / C23 feature macros.  Bitwig's plugin sandbox
+# bundles an older glibc that lacks them.
+#
+# Two-layer fix:
+#  1. Compile-time: cmake/glibc-compat/bits/libc-header-start.h intercepts
+#     every system header and zeros the feature macros so object files emit
+#     unversioned or classic symbol references.
+#  2. Link-time: cmake/glibc_compat_math.c + --wrap flags pin unversioned
+#     math symbols to GLIBC_2.2.5 instead of the linker's default (newest).
+add_compile_options(-isystem ${CMAKE_SOURCE_DIR}/cmake/glibc-compat)
 
 add_subdirectory(libs/JUCE)
 
@@ -40,6 +54,7 @@ clap_juce_extensions_plugin(
 target_sources(ChordPumper PRIVATE
     src/PluginProcessor.cpp
     src/ui/PluginEditor.cpp
+    cmake/glibc_compat_math.c
 )
 
 target_include_directories(ChordPumper PRIVATE src)
@@ -64,6 +79,15 @@ target_link_libraries(ChordPumper
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags
 )
+
+# Link-time: --wrap redirects unversioned math calls through our pinned wrappers
+set(GLIBC_WRAP_FLAGS
+    -Wl,--wrap=sqrtf,--wrap=atan2f,--wrap=fmod,--wrap=hypot,--wrap=hypotf)
+foreach(_target ChordPumper_VST3 ChordPumper_Standalone ChordPumper_CLAP)
+    if(TARGET ${_target})
+        target_link_options(${_target} PRIVATE ${GLIBC_WRAP_FLAGS})
+    endif()
+endforeach()
 
 add_custom_command(TARGET ChordPumper_CLAP POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory "$ENV{HOME}/.clap"
