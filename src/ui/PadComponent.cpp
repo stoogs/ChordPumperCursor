@@ -8,6 +8,12 @@ void PadComponent::setChord(const Chord& c)
     repaint();
 }
 
+void PadComponent::setRomanNumeral(const std::string& rn)
+{
+    romanNumeral_ = rn;
+    repaint();
+}
+
 const Chord& PadComponent::getChord() const
 {
     return chord;
@@ -30,10 +36,30 @@ void PadComponent::paint(juce::Graphics& g)
     g.setColour(juce::Colour(0xff4a4a5a));
     g.drawRoundedRectangle(bounds, cornerSize, 1.0f);
 
-    g.setColour(juce::Colour(0xffe0e0e0));
-    g.setFont(juce::Font(juce::FontOptions(14.0f)));
-    g.drawText(juce::String(chord.name()), getLocalBounds(),
-               juce::Justification::centred);
+    auto textArea = getLocalBounds();
+
+    if (romanNumeral_.empty())
+    {
+        g.setColour(juce::Colour(0xffe0e0e0));
+        g.setFont(juce::Font(juce::FontOptions(14.0f)));
+        g.drawText(juce::String(chord.name()), textArea,
+                   juce::Justification::centred);
+    }
+    else
+    {
+        auto topHalf = textArea.removeFromTop(textArea.getHeight() / 2);
+        auto bottomHalf = textArea;
+
+        g.setColour(juce::Colour(0xffe0e0e0));
+        g.setFont(juce::Font(juce::FontOptions(14.0f)));
+        g.drawText(juce::String(chord.name()), topHalf,
+                   juce::Justification::centredBottom);
+
+        g.setColour(juce::Colour(0xffaaaaaa));
+        g.setFont(juce::Font(juce::FontOptions(11.0f)));
+        g.drawText(juce::String(romanNumeral_), bottomHalf,
+                   juce::Justification::centredTop);
+    }
 }
 
 void PadComponent::mouseDown(const juce::MouseEvent&)

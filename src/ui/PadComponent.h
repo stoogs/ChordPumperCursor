@@ -3,6 +3,7 @@
 #include "engine/Chord.h"
 #include <juce_gui_basics/juce_gui_basics.h>
 #include <functional>
+#include <string>
 
 namespace chordpumper {
 
@@ -10,6 +11,7 @@ class PadComponent : public juce::Component
 {
 public:
     void setChord(const Chord& c);
+    void setRomanNumeral(const std::string& rn);
     const Chord& getChord() const;
 
     std::function<void(const Chord&)> onClick;
@@ -22,6 +24,7 @@ public:
 
 private:
     Chord chord{};
+    std::string romanNumeral_;
     bool isPressed = false;
     bool isHovered = false;
 };
