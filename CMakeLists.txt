@@ -28,6 +28,8 @@ add_compile_options(-isystem ${CMAKE_SOURCE_DIR}/cmake/glibc-compat)
 add_library(ChordPumperEngine STATIC
     src/engine/PitchClass.cpp
     src/engine/Chord.cpp
+    src/engine/VoiceLeader.cpp
+    src/engine/RomanNumeral.cpp
 )
 set_target_properties(ChordPumperEngine PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_include_directories(ChordPumperEngine PUBLIC src)
@@ -125,6 +127,9 @@ if(CHORDPUMPER_BUILD_TESTS)
         tests/test_pitch_class.cpp
         tests/test_chord.cpp
         tests/test_chord_naming.cpp
+        tests/test_pitch_class_set.cpp
+        tests/test_voice_leader.cpp
+        tests/test_roman_numeral.cpp
     )
     target_link_libraries(ChordPumperTests PRIVATE
         ChordPumperEngine
