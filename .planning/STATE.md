@@ -5,7 +5,7 @@
 See: .planning/PROJECT.md (updated 2026-02-19)
 
 **Core value:** The morphing grid — play a chord, see what comes next, follow the thread.
-**Current focus:** Phase 2: Chord Engine
+**Current focus:** Phase 3: Playable Grid
 
 ## Current Position
 
