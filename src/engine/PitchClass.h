@@ -10,7 +10,10 @@ struct PitchClass {
     NoteLetter letter;
     int8_t accidental;
 
-    constexpr int semitone() const { return 0; }
+    constexpr int semitone() const {
+        int base = kNaturalSemitones[static_cast<int>(letter)];
+        return ((base + accidental) % 12 + 12) % 12;
+    }
     std::string name() const;
     int midiNote(int octave) const;
 
