@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-19)
 ## Current Position
 
 Phase: 5 of 6 (Capture & Export)
-Plan: 3 of 3 in current phase
-Status: Phase 5 plan 3 complete — ProgressionStrip wired to pad clicks
-Last activity: 2026-02-19 — Completed 05-03 ProgressionStrip component
+Plan: 2 of 3 complete in current phase (05-01, 05-03 done; 05-02 remaining)
+Status: Plan 05-01 complete (MidiFileBuilder TDD), 05-02 remaining
+Last activity: 2026-02-19 — MidiFileBuilder TDD complete (10 tests, 2 commits)
 
 Progress: [█████████░] 87%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
+- Total plans completed: 12
 - Average duration: ~7 min
-- Total execution time: ~1.3 hours
+- Total execution time: ~1.4 hours
 
 **By Phase:**
 
@@ -32,11 +32,11 @@ Progress: [█████████░] 87%
 
 | 3. Playable Grid | 2 | 4 min | 2 min |
 | 4. Morphing Suggestions | 3 | ~52 min | ~17 min |
-| 5. Capture & Export | 1 | ~2 min | ~2 min |
+| 5. Capture & Export | 2 | ~7 min | ~4 min |
 
 **Recent Trend:**
-- Last 5 plans: 2min, 2min, 17min, 15min, 2min
-- Trend: → (fast for UI wiring tasks)
+- Last 5 plans: 2min, 17min, 15min, 2min, 5min
+- Trend: → (steady for TDD plans)
 
 *Updated after each plan completion*
 
@@ -80,6 +80,9 @@ Recent decisions affecting current work:
 - [05-03]: onChordPlayed callback fires before morph — strip captures the chord the user clicked, not the suggestion
 - [05-03]: FIFO erase-front for overflow keeps most recent 8 chords visible
 - [05-03]: Sibling component wiring via parent lambda: PluginEditor connects GridPanel.onChordPlayed to ProgressionStrip.addChord
+- [05-01]: juce_audio_basics linked to ChordPumperTests for MIDI readback — minimal JUCE surface in test binary
+- [05-01]: Temp file naming with random hex suffix to avoid collisions in concurrent use
+- [05-01]: No refactor phase needed — implementation was minimal from the start
 
 ### Pending Todos
 
@@ -93,5 +96,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-19
-Stopped at: Completed 05-03-PLAN.md (ProgressionStrip component)
+Stopped at: Completed 05-01-PLAN.md (MidiFileBuilder TDD)
 Resume file: None

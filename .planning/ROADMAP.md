@@ -97,7 +97,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 05-01-PLAN.md — MidiFileBuilder TDD: Chord-to-MIDI-file conversion with Catch2 tests
+- [x] 05-01-PLAN.md — MidiFileBuilder TDD: Chord-to-MIDI-file conversion with Catch2 tests
 - [ ] 05-02-PLAN.md — Drag-to-DAW with Linux DnD feasibility spike, click/drag disambiguation, file-export fallback
 - [x] 05-03-PLAN.md — ProgressionStrip UI: horizontal chord sequence display (up to 8), clear button, wired to pad clicks
 
@@ -127,5 +127,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6
 | 2. Chord Engine | 3/3 | Complete | 2026-02-19 |
 | 3. Playable Grid | 2/2 | Complete | 2026-02-19 |
 | 4. Morphing Suggestions | 3/3 | Complete | 2026-02-19 |
-| 5. Capture & Export | 1/3 | In progress | - |
+| 5. Capture & Export | 2/3 | In progress | - |
 | 6. State Persistence & Validation | 0/3 | Not started | - |
