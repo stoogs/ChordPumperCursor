@@ -29,6 +29,7 @@ add_library(ChordPumperEngine STATIC
     src/engine/PitchClass.cpp
     src/engine/Chord.cpp
 )
+set_target_properties(ChordPumperEngine PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_include_directories(ChordPumperEngine PUBLIC src)
 target_compile_features(ChordPumperEngine PUBLIC cxx_std_20)
 
