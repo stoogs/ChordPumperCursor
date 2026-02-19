@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Plugin Foundation** - Buildable VST3/CLAP/Standalone plugin that loads in Bitwig on Linux
 - [x] **Phase 2: Chord Engine** - Music theory primitives: chord construction, naming, and querying
 - [x] **Phase 3: Playable Grid** - 8x4 pad grid with chromatic palette, click-to-play via MIDI output
-- [ ] **Phase 4: Morphing Suggestions** - Grid morphs after each chord with voice-led transitions and Roman numerals
+- [x] **Phase 4: Morphing Suggestions** - Grid morphs after each chord with voice-led transitions and Roman numerals
 - [ ] **Phase 5: Capture & Export** - Drag chords to DAW as MIDI clips, progression strip
 - [ ] **Phase 6: State Persistence & Validation** - Session recall, pluginval, real-time safety verification
 
@@ -84,7 +84,7 @@ Plans:
 Plans:
 - [x] 04-01-PLAN.md — Foundation engine classes (PitchClassSet, ScaleDatabase, VoiceLeader, RomanNumeral) + Catch2 tests
 - [x] 04-02-PLAN.md — MorphEngine TDD: hybrid scoring algorithm (diatonic + common tones + voice leading), top-32 selection, variety filter
-- [ ] 04-03-PLAN.md — Integration: morph on pad click, Roman numeral display, voice-led MIDI, batch grid update
+- [x] 04-03-PLAN.md — Integration: morph on pad click, Roman numeral display, voice-led MIDI, batch grid update
 
 ### Phase 5: Capture & Export
 **Goal**: User can capture explored chord progressions and export individual chords to the DAW as MIDI clips
@@ -126,6 +126,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6
 | 1. Plugin Foundation | 3/3 | Complete | 2026-02-19 |
 | 2. Chord Engine | 3/3 | Complete | 2026-02-19 |
 | 3. Playable Grid | 2/2 | Complete | 2026-02-19 |
-| 4. Morphing Suggestions | 2/3 | In progress | - |
+| 4. Morphing Suggestions | 3/3 | Complete | 2026-02-19 |
 | 5. Capture & Export | 0/3 | Not started | - |
 | 6. State Persistence & Validation | 0/3 | Not started | - |

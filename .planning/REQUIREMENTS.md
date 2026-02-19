@@ -14,13 +14,13 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **GRID-03**: After user clicks a pad, grid morphs to show 32 contextually related chord suggestions
 - [x] **GRID-04**: Suggestions use a hybrid algorithm combining music theory rules (diatonic, modal interchange) and harmonic proximity (common tones, voice-leading distance)
 - [x] **GRID-05**: User can start exploring from any chord — no key or scale selection required
-- [ ] **GRID-06**: Each pad displays a contextual Roman numeral relative to the last-played chord (e.g., clicking C major makes F major show as "IV")
+- [x] **GRID-06**: Each pad displays a contextual Roman numeral relative to the last-played chord (e.g., clicking C major makes F major show as "IV")
 
 ### Chord Engine
 
 - [x] **CHRD-01**: Plugin supports triads (major, minor, diminished, augmented) and 7th chords (maj7, min7, dom7, dim7, half-dim7)
 - [x] **CHRD-02**: Each pad displays the chord name (e.g., "Dm7", "F#aug")
-- [ ] **CHRD-03**: Chord transitions use smart voice leading that minimizes note movement between consecutive chords
+- [x] **CHRD-03**: Chord transitions use smart voice leading that minimizes note movement between consecutive chords
 
 ### MIDI
 
@@ -100,10 +100,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | GRID-03 | Phase 4 | Complete |
 | GRID-04 | Phase 4 | Complete |
 | GRID-05 | Phase 4 | Complete |
-| GRID-06 | Phase 4 | Pending |
+| GRID-06 | Phase 4 | Complete |
 | CHRD-01 | Phase 2 | Complete |
 | CHRD-02 | Phase 2 | Complete |
-| CHRD-03 | Phase 4 | Pending |
+| CHRD-03 | Phase 4 | Complete |
 | MIDI-01 | Phase 3 | Complete |
 | MIDI-02 | Phase 3 | Complete |
 | CAPT-01 | Phase 5 | Pending |
