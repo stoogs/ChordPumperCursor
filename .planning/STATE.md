@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-19)
 ## Current Position
 
 Phase: 5 of 6 (Capture & Export)
-Plan: 0 of 3 in current phase
-Status: Phase 4 verified and complete, ready for Phase 5
-Last activity: 2026-02-19 — Phase 4 verified (16/16 must-haves, all tests pass), advancing to Phase 5
+Plan: 3 of 3 in current phase
+Status: Phase 5 plan 3 complete — ProgressionStrip wired to pad clicks
+Last activity: 2026-02-19 — Completed 05-03 ProgressionStrip component
 
-Progress: [████████░░] 67%
+Progress: [█████████░] 87%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 10
+- Total plans completed: 11
 - Average duration: ~7 min
-- Total execution time: ~1.25 hours
+- Total execution time: ~1.3 hours
 
 **By Phase:**
 
@@ -32,10 +32,11 @@ Progress: [████████░░] 67%
 
 | 3. Playable Grid | 2 | 4 min | 2 min |
 | 4. Morphing Suggestions | 3 | ~52 min | ~17 min |
+| 5. Capture & Export | 1 | ~2 min | ~2 min |
 
 **Recent Trend:**
-- Last 5 plans: 2min, 2min, 2min, 17min, 15min
-- Trend: → (steady for complex engine work)
+- Last 5 plans: 2min, 2min, 17min, 15min, 2min
+- Trend: → (fast for UI wiring tasks)
 
 *Updated after each plan completion*
 
@@ -76,6 +77,9 @@ Recent decisions affecting current work:
 - [04-02]: PCS deduplication for symmetric chords (aug triads, dim7ths) — keep closest-to-I representative
 - [04-02]: Diatonic ranking: vi in top 10, IV/V in top 20 (same-root variants outscore on VL dimension)
 - [04-03]: PadComponent two-line layout for chord name + Roman numeral; morph on GUI thread, batch repaint for atomic grid update
+- [05-03]: onChordPlayed callback fires before morph — strip captures the chord the user clicked, not the suggestion
+- [05-03]: FIFO erase-front for overflow keeps most recent 8 chords visible
+- [05-03]: Sibling component wiring via parent lambda: PluginEditor connects GridPanel.onChordPlayed to ProgressionStrip.addChord
 
 ### Pending Todos
 
@@ -89,5 +93,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-19
-Stopped at: Phase 4 verified and complete. Advancing to Phase 5: Capture & Export.
+Stopped at: Completed 05-03-PLAN.md (ProgressionStrip component)
 Resume file: None

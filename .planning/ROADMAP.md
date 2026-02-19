@@ -94,12 +94,12 @@ Plans:
   1. User can drag any individual pad to Bitwig and it appears as a MIDI clip in the arrangement
   2. A progression strip displays the sequence of chords the user has triggered (up to 8 chords)
   3. User can clear the progression strip and start a new exploration sequence
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 05-01: MIDI file creation from chord data
-- [ ] 05-02: Drag-to-DAW implementation with Linux DnD feasibility and fallback
-- [ ] 05-03: Progression strip UI (display, clear, chord sequence tracking)
+- [ ] 05-01-PLAN.md — MidiFileBuilder TDD: Chord-to-MIDI-file conversion with Catch2 tests
+- [ ] 05-02-PLAN.md — Drag-to-DAW with Linux DnD feasibility spike, click/drag disambiguation, file-export fallback
+- [x] 05-03-PLAN.md — ProgressionStrip UI: horizontal chord sequence display (up to 8), clear button, wired to pad clicks
 
 ### Phase 6: State Persistence & Validation
 **Goal**: Plugin state survives DAW session reload and meets production quality standards
@@ -127,5 +127,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6
 | 2. Chord Engine | 3/3 | Complete | 2026-02-19 |
 | 3. Playable Grid | 2/2 | Complete | 2026-02-19 |
 | 4. Morphing Suggestions | 3/3 | Complete | 2026-02-19 |
-| 5. Capture & Export | 0/3 | Not started | - |
+| 5. Capture & Export | 1/3 | In progress | - |
 | 6. State Persistence & Validation | 0/3 | Not started | - |
