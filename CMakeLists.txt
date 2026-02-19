@@ -67,6 +67,7 @@ target_sources(ChordPumper PRIVATE
     src/ui/PluginEditor.cpp
     src/ui/PadComponent.cpp
     src/ui/GridPanel.cpp
+    src/ui/ProgressionStrip.cpp
     cmake/glibc_compat_math.c
 )
 
