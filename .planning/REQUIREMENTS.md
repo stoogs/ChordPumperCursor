@@ -24,8 +24,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### MIDI
 
-- [ ] **MIDI-01**: Clicking a pad sends that chord's MIDI notes to the plugin's MIDI output (downstream instruments in DAW)
-- [ ] **MIDI-02**: MIDI output includes proper note-on/note-off messages with configurable velocity
+- [x] **MIDI-01**: Clicking a pad sends that chord's MIDI notes to the plugin's MIDI output (downstream instruments in DAW)
+- [x] **MIDI-02**: MIDI output includes proper note-on/note-off messages with configurable velocity
 
 ### Capture & Export
 
@@ -104,8 +104,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CHRD-01 | Phase 2 | Complete |
 | CHRD-02 | Phase 2 | Complete |
 | CHRD-03 | Phase 4 | Pending |
-| MIDI-01 | Phase 3 | Pending |
-| MIDI-02 | Phase 3 | Pending |
+| MIDI-01 | Phase 3 | Complete |
+| MIDI-02 | Phase 3 | Complete |
 | CAPT-01 | Phase 5 | Pending |
 | CAPT-02 | Phase 5 | Pending |
 | CAPT-03 | Phase 5 | Pending |
