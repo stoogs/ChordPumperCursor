@@ -82,8 +82,8 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — Foundation engine classes (PitchClassSet, ScaleDatabase, VoiceLeader, RomanNumeral) + Catch2 tests
-- [ ] 04-02-PLAN.md — MorphEngine TDD: hybrid scoring algorithm (diatonic + common tones + voice leading), top-32 selection, variety filter
+- [x] 04-01-PLAN.md — Foundation engine classes (PitchClassSet, ScaleDatabase, VoiceLeader, RomanNumeral) + Catch2 tests
+- [x] 04-02-PLAN.md — MorphEngine TDD: hybrid scoring algorithm (diatonic + common tones + voice leading), top-32 selection, variety filter
 - [ ] 04-03-PLAN.md — Integration: morph on pad click, Roman numeral display, voice-led MIDI, batch grid update
 
 ### Phase 5: Capture & Export
@@ -126,6 +126,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6
 | 1. Plugin Foundation | 3/3 | Complete | 2026-02-19 |
 | 2. Chord Engine | 3/3 | Complete | 2026-02-19 |
 | 3. Playable Grid | 2/2 | Complete | 2026-02-19 |
-| 4. Morphing Suggestions | 1/3 | In progress | - |
+| 4. Morphing Suggestions | 2/3 | In progress | - |
 | 5. Capture & Export | 0/3 | Not started | - |
 | 6. State Persistence & Validation | 0/3 | Not started | - |
