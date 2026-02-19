@@ -3,7 +3,8 @@
 
 namespace chordpumper {
 
-GridPanel::GridPanel()
+GridPanel::GridPanel(juce::MidiKeyboardState& state)
+    : keyboardState(state)
 {
     auto palette = chromaticPalette();
 
@@ -11,13 +12,40 @@ GridPanel::GridPanel()
     {
         auto* pad = pads.add(new PadComponent());
         pad->setChord(palette[static_cast<size_t>(i)]);
-        pad->onClick = [this](const Chord& chord)
-        {
-            if (onPadClicked)
-                onPadClicked(chord);
-        };
+        pad->onClick = [this](const Chord& chord) { padClicked(chord); };
         addAndMakeVisible(pad);
     }
+}
+
+GridPanel::~GridPanel()
+{
+    releaseCurrentChord();
+}
+
+void GridPanel::padClicked(const Chord& chord)
+{
+    releaseCurrentChord();
+
+    auto notes = chord.midiNotes(defaultOctave);
+    for (auto note : notes)
+        keyboardState.noteOn(midiChannel, note, velocity);
+
+    activeNotes.assign(notes.begin(), notes.end());
+    startTimer(noteDurationMs);
+}
+
+void GridPanel::releaseCurrentChord()
+{
+    for (auto note : activeNotes)
+        keyboardState.noteOff(midiChannel, note, 0.0f);
+
+    activeNotes.clear();
+}
+
+void GridPanel::timerCallback()
+{
+    releaseCurrentChord();
+    stopTimer();
 }
 
 void GridPanel::resized()
