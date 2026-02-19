@@ -9,7 +9,8 @@ namespace chordpumper {
 
 class ChordPumperProcessor;
 
-class ChordPumperEditor : public juce::AudioProcessorEditor
+class ChordPumperEditor : public juce::AudioProcessorEditor,
+                          public juce::DragAndDropContainer
 {
 public:
     explicit ChordPumperEditor(ChordPumperProcessor& processor);

@@ -1,4 +1,5 @@
 #include "PadComponent.h"
+#include "midi/MidiFileBuilder.h"
 
 namespace chordpumper {
 
@@ -62,12 +63,57 @@ void PadComponent::paint(juce::Graphics& g)
     }
 }
 
-void PadComponent::mouseDown(const juce::MouseEvent&)
+void PadComponent::mouseDown(const juce::MouseEvent& event)
 {
+    if (event.mods.isPopupMenu())
+    {
+        auto exportDir = juce::File::getSpecialLocation(juce::File::userHomeDirectory)
+                             .getChildFile("ChordPumper-Export");
+        MidiFileBuilder::exportToDirectory(chord, 4, exportDir);
+
+        // Brief visual flash to confirm export
+        isPressed = true;
+        repaint();
+        juce::Timer::callAfterDelay(200, [safeThis = juce::Component::SafePointer<PadComponent>(this)]() {
+            if (safeThis != nullptr)
+            {
+                safeThis->isPressed = false;
+                safeThis->repaint();
+            }
+        });
+        return;
+    }
+
     isPressed = true;
     repaint();
     if (onClick)
         onClick(chord);
+}
+
+void PadComponent::mouseDrag(const juce::MouseEvent& event)
+{
+    if (event.getDistanceFromDragStart() < 6)
+        return;
+
+    if (isDragInProgress)
+        return;
+
+    auto midiFile = MidiFileBuilder::createMidiFile(chord, 4);
+    if (!midiFile.existsAsFile())
+        return;
+
+    isDragInProgress = true;
+    juce::DragAndDropContainer::performExternalDragDropOfFiles(
+        { midiFile.getFullPathName() },
+        false,
+        this,
+        [this, midiFile]() {
+            isDragInProgress = false;
+            juce::Timer::callAfterDelay(2000, [midiFile]() {
+                midiFile.deleteFile();
+            });
+        }
+    );
 }
 
 void PadComponent::mouseUp(const juce::MouseEvent&)
