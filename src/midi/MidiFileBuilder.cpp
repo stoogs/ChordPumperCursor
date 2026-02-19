@@ -2,24 +2,68 @@
 
 namespace chordpumper {
 
-juce::File MidiFileBuilder::createMidiFile(const Chord& /*chord*/, int /*octave*/,
-                                            float /*velocity*/) {
-    return {};
+void MidiFileBuilder::buildSequence(juce::MidiMessageSequence& seq,
+                                     const Chord& chord, int octave,
+                                     float velocity) {
+    seq.addEvent(juce::MidiMessage::tempoMetaEvent(kTempoMicrosecondsPerBeat), 0.0);
+
+    for (int note : chord.midiNotes(octave)) {
+        seq.addEvent(juce::MidiMessage::noteOn(kChannel, note, velocity), 0.0);
+        seq.addEvent(juce::MidiMessage::noteOff(kChannel, note, 0.0f),
+                     static_cast<double>(kBarLengthTicks));
+    }
+
+    seq.updateMatchedPairs();
 }
 
-juce::File MidiFileBuilder::exportToDirectory(const Chord& /*chord*/, int /*octave*/,
-                                               const juce::File& /*directory*/,
-                                               float /*velocity*/) {
-    return {};
+bool MidiFileBuilder::writeToFile(const juce::MidiMessageSequence& seq,
+                                   const juce::File& file) {
+    juce::MidiFile midi;
+    midi.setTicksPerQuarterNote(kTicksPerQuarterNote);
+    midi.addTrack(seq);
+
+    file.deleteFile();
+    auto stream = file.createOutputStream();
+    if (stream == nullptr)
+        return false;
+
+    bool ok = midi.writeTo(*stream);
+    stream->flush();
+    stream.reset();
+    return ok;
 }
 
-void MidiFileBuilder::buildSequence(juce::MidiMessageSequence& /*seq*/,
-                                     const Chord& /*chord*/, int /*octave*/,
-                                     float /*velocity*/) {}
+juce::File MidiFileBuilder::createMidiFile(const Chord& chord, int octave,
+                                            float velocity) {
+    auto tempDir = juce::File::getSpecialLocation(juce::File::tempDirectory);
+    auto file = tempDir.getChildFile(
+        "chordpumper_" + juce::String::toHexString(
+            juce::Random::getSystemRandom().nextInt64()) + ".mid");
 
-bool MidiFileBuilder::writeToFile(const juce::MidiMessageSequence& /*seq*/,
-                                   const juce::File& /*file*/) {
-    return false;
+    juce::MidiMessageSequence seq;
+    buildSequence(seq, chord, octave, velocity);
+
+    if (!writeToFile(seq, file))
+        return {};
+
+    return file;
+}
+
+juce::File MidiFileBuilder::exportToDirectory(const Chord& chord, int octave,
+                                               const juce::File& directory,
+                                               float velocity) {
+    directory.createDirectory();
+
+    auto file = directory.getChildFile(
+        juce::String(chord.name()) + ".mid");
+
+    juce::MidiMessageSequence seq;
+    buildSequence(seq, chord, octave, velocity);
+
+    if (!writeToFile(seq, file))
+        return {};
+
+    return file;
 }
 
 } // namespace chordpumper
