@@ -1,0 +1,297 @@
+Access More than 8 device parameters at once from a TrackBank - Controller Scripting Forum - KVR Audio
+
+[Sign In](https://www.kvraudio.com/forum/ucp.php?mode=login) [Create Account](https://www.kvraudio.com/forum/ucp.php?mode=register)
+
+[News](https://www.kvraudio.com/)
+
+[#KVRDeals & Giveaways](https://www.kvraudio.com/deals-tracker) [Instruments](https://www.kvraudio.com/news/about/instruments) [Effects](https://www.kvraudio.com/news/about/effects) [Hosts](https://www.kvraudio.com/news/about/hosts) [Soundware](https://www.kvraudio.com/news/about/sounds) [Mobile](https://www.kvraudio.com/news/about/mobile) [Hardware](https://www.kvraudio.com/news/about/hardware) [Free](https://www.kvraudio.com/news/about/free) [Developer Tools](https://www.kvraudio.com/news/about/developers) [Education, Training, Tutorials, etc.](https://www.kvraudio.com/news/about/edu) [Offers, Competitions & Events](https://www.kvraudio.com/news/about/offers) [NAMM](https://www.kvraudio.com/namm)
+
+---
+
+[News Archive (by month)](https://www.kvraudio.com/news-archive.php)
+
+[Plugins, Apps, Sounds, etc.](https://www.kvraudio.com/plugins)
+
+[KVR Marketplace](https://www.kvraudio.com/marketplace/) [What's New?](https://www.kvraudio.com/plugins) [Search Developers / Brands](https://www.kvraudio.com/developer/) [Product Reviews](https://www.kvraudio.com/reviews.php) [Product Rankings](https://www.kvraudio.com/plugin-ranks.php) [Product Ratings](https://www.kvraudio.com/ratings.php) [Groups: Whats's in?](https://www.kvraudio.com/groups/) [Patches & Presets Downloads & Uploads](https://www.kvraudio.com/banks.php)
+
+[Marketplace](https://www.kvraudio.com/marketplace/)
+
+[Forum](https://www.kvraudio.com/forum/) My
+
+[My Forums](https://www.kvraudio.com/account/#myforums) [Edit](https://www.kvraudio.com/account/#myforums)
+
+[LP](https://www.kvraudio.com/forum/latest-posts/index.php?mode=mylt) [All](https://www.kvraudio.com/inc/a.php?w=kvr-forums)
+
+[Search the forum](https://www.kvraudio.com/forum/search.php) [Unanswered Posts](https://www.kvraudio.com/forum/search.php?search_id=unanswered)
+
+[MyKVR 0](https://www.kvraudio.com/mykvr/) [KVR Studio Manager (Beta)](https://www.kvraudio.com/kvr-studio-manager) [Articles, Interviews, Reviews & More](https://www.kvraudio.com/articles)
+
+Newsletters, Giveaways, Social & RSS
+
+[KVR Marketplace News](https://www.kvraudio.com/marketplace/kvr-marketplace-news) [KVR Audio Weekly Newsletter](https://www.kvraudio.com/newsletter.php) [KVRDeals Newsletter](https://www.kvraudio.com/kvrdeals-newsletter.php) [Giveaways](https://www.kvraudio.com/giveaways) [Facebook](https://www.facebook.com/pages/KVR-Audio-News/207641972591939) [Bluesky](https://bsky.app/profile/kvraudio.bsky.social) [Instagram](https://www.instagram.com/kvraudio/) [YouTube](https://www.youtube.com/c/KVRAudioNews) [X / Twitter](https://x.com/kvraudio) [RSS Feeds](https://www.kvraudio.com/news-feed.php)
+
+Special Events
+
+[KVR Developer Challenge](https://www.kvraudio.com/kvr-developer-challenge/) [KVR Readers' Choice Awards](https://www.kvraudio.com/readers-choice-awards/) [KVR Guitar Month](https://www.kvraudio.com/kvr-guitar-month) [Polls & Surveys](https://www.kvraudio.com/polls.php) [KVR Celebrates 10 Years (2010)](https://www.kvraudio.com/kvr-is-10)
+
+[Videos](https://www.kvraudio.com/video/) [Music by KVR Members](https://www.kvraudio.com/music.php)
+
+Contact, About, Submit & More
+
+[Are you an Audio Software or Plugin Developer? Take control of your brand at KVR!](https://www.kvraudio.com/devs) [How to Submit News, Plugins, etc.](https://www.kvraudio.com/submissions) [Advertise @ KVR Audio](https://partnerservices.kvraudio.com/) [About / Contact Us](https://www.kvraudio.com/about-kvr) [Rules & FAQ](https://www.kvraudio.com/forum/viewtopic.php?t=44705) [Privacy Statement](https://www.kvraudio.com/privacy)
+
+[ProductsPDB](https://www.kvraudio.com/plugins) [ForumFRM](https://www.kvraudio.com/forum/) [LP](https://www.kvraudio.com/forum/latest-posts/index.php?mode=mylt) [MarketplaceMP](https://www.kvraudio.com/marketplace/) [Deals](https://www.kvraudio.com/deals) [What's New](https://www.kvraudio.com/whats-new-at-kvr.php)
+
+[0](https://www.kvraudio.com/marketplace/kvr-points) 0 items | $0.00 [CHECKOUT](https://www.kvraudio.com/marketplace/checkout/)
+
+[Log In](https://www.kvraudio.com/forum/ucp.php?mode=login) [Create An Account](https://www.kvraudio.com/forum/ucp.php?mode=register)
+
+# Bitwig
+
+[www.bitwig.com](https://www.bitwig.com/)
+
+[Products @ KVR](https://www.kvraudio.com/inc/a.php?w=productsbydev&amp;id=1625)
+
+Latest News: [Bitwig Launches Bitwig Studio 6.0 Beta](https://www.kvraudio.com/news/bitwig-launches-bitwig-studio-6-0-beta-64649)
+
+# Access More than 8 device parameters at once from a TrackBank
+
+[Post Reply](https://www.kvraudio.com/forum/posting.php?mode=reply&amp;t=582223&amp;sid=7420c5b3dbeb98130baf01987b342808) [New Topic](https://www.kvraudio.com/forum/posting.php?mode=post&amp;f=268&amp;sid=7420c5b3dbeb98130baf01987b342808)
+
+RELATEDPRODUCTS
+
+Products related to this topic can be added here
+
+Access More than 8 device parameters at once from a TrackBank 2022-05-23T18:11:57+00:00 I'm wanting to get access to more than 8 device parameters at once on a device derived from TrackBank. From what I found a cursorRemoteControlsPage is limited to 8 controls. So I attempted to create two cursor Remote pages on the device but get an error. one set of main remote controls.png trackbank = CreateTrackBank(...) devicebank = trackbank.createDeviceBank(1); device = devicebank.getItemAt(0); controls_2 = device.createCursorRemoteControlsPage(8); controls_2 = device.createCursorRemoteControlsPage(8); Any suggestions here? I had done this in the past by creating cursor tracks/cursor devices/cursor remotes. and having a script that assigns them to the proper position. It would be way more convenient and simpler if i could just use the track bank here. Thoughts? Should I ask bitwig why we can't create a remote page bigger than 8? Kirkwood West https://www.kvraudio.com/forum/memberlist.php?mode=viewprofile&u=462047
+
+[Kirkwood West](https://www.kvraudio.com/forum/memberlist.php?mode=viewprofile&amp;u=462047&amp;sid=7420c5b3dbeb98130baf01987b342808) Kirkwood West https://www.kvraudio.com/forum/memberlist.php?mode=viewprofile&u=462047
+
+KVRist 389 posts since 12 Apr, 2020
+
+- 0
+
+I'm wanting to get access to more than 8 device parameters at once on a device derived from TrackBank. From what I found a cursorRemoteControlsPage is limited to 8 controls. So I attempted to create two cursor Remote pages on the device but get an error.
+
+one set of main remote controls.png
+
+trackbank = CreateTrackBank(...) devicebank = trackbank.createDeviceBank(1); device = devicebank.getItemAt(0); controls_2 = device.createCursorRemoteControlsPage(8); controls_2 = device.createCursorRemoteControlsPage(8); Any suggestions here? I had done this in the past by creating cursor tracks/cursor devices/cursor remotes. and having a script that assigns them to the proper position. It would be way more convenient and simpler if i could just use the track bank here. Thoughts? Should I ask bitwig why we can't create a remote page bigger than 8?
+
+You do not have the required permissions to view the files attached to this post.
+
+---------------------------------------------------------------------- /CTRL → [http://slashctrl.io](http://slashctrl.io/) Music & mixes → [http://soundcloud.com/kirkwoodwest](https://soundcloud.com/kirkwoodwest)
+
+---
+
+[Tj Shredder](https://www.kvraudio.com/forum/memberlist.php?mode=viewprofile&amp;u=391417&amp;sid=7420c5b3dbeb98130baf01987b342808) Tj Shredder https://www.kvraudio.com/forum/memberlist.php?mode=viewprofile&u=391417
+
+KVRAF
+
+[SoundCloud](https://soundcloud.com/ondes-memorielles) [Website](http://www.tj-shredder.de/) [Facebook](https://facebook.com/StefanTiedje/)
+
+9440 posts since 6 Jan, 2017 from Outer Space
+
+- 0
+
+This is pretty crucial, I would ask Bitwig to enhance that. Most of my controllers with encoders have 16, and I have multiple of those. I don‘t know why this isn‘t implemented already…
+
+---
+
+[Kirkwood West](https://www.kvraudio.com/forum/memberlist.php?mode=viewprofile&amp;u=462047&amp;sid=7420c5b3dbeb98130baf01987b342808) Kirkwood West https://www.kvraudio.com/forum/memberlist.php?mode=viewprofile&u=462047
+
+KVRist Topic Starter 389 posts since 12 Apr, 2020
+
+- 0
+
+[Tj Shredder](https://www.kvraudio.com/forum/memberlist.php?mode=viewprofile&amp;u=391417&amp;sid=7420c5b3dbeb98130baf01987b342808) wrote: [↑](https://www.kvraudio.com/forum/viewtopic.php?p=8436661&amp;sid=7420c5b3dbeb98130baf01987b342808#p8436661) Wed May 25, 2022 11:57 am This is pretty crucial, I would ask Bitwig to enhance that. Most of my controllers with encoders have 16, and I have multiple of those. I don‘t know why this isn‘t implemented already…
+
+I fully agree and would simplify much of my codes. Thanks for your vote. I’ll send it in.
+
+---------------------------------------------------------------------- /CTRL → [http://slashctrl.io](http://slashctrl.io/) Music & mixes → [http://soundcloud.com/kirkwoodwest](https://soundcloud.com/kirkwoodwest)
+
+---
+
+[Post Reply](https://www.kvraudio.com/forum/posting.php?mode=reply&amp;t=582223&amp;sid=7420c5b3dbeb98130baf01987b342808)
+
+Display: All posts1 day7 days2 weeks1 month3 months6 months1 year Sort by: AuthorPost timeSubject Direction: AscendingDescending
+
+---
+
+[Return to “Controller Scripting”](https://www.kvraudio.com/forum/viewforum.php?f=268&amp;sid=7420c5b3dbeb98130baf01987b342808)
+
+Jump to
+
+- [↳ Soundemote](https://www.kvraudio.com/forum/viewforum.php?f=238&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Signaldust](https://www.kvraudio.com/forum/viewforum.php?f=246&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ solar3d-software](https://www.kvraudio.com/forum/viewforum.php?f=261&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ RaXnTraX](https://www.kvraudio.com/forum/viewforum.php?f=250&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ OverTone DSP](https://www.kvraudio.com/forum/viewforum.php?f=212&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Futucraft](https://www.kvraudio.com/forum/viewforum.php?f=233&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Drumdrops](https://www.kvraudio.com/forum/viewforum.php?f=235&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Krakli](https://www.kvraudio.com/forum/viewforum.php?f=130&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Inspire Audio](https://www.kvraudio.com/forum/viewforum.php?f=204&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ audioD3CK](https://www.kvraudio.com/forum/viewforum.php?f=171&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Skytopia](https://www.kvraudio.com/forum/viewforum.php?f=219&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Livelab.dk](https://www.kvraudio.com/forum/viewforum.php?f=72&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Back In Time Records](https://www.kvraudio.com/forum/viewforum.php?f=67&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ CFA-Sound](https://www.kvraudio.com/forum/viewforum.php?f=158&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Sonigen](https://www.kvraudio.com/forum/viewforum.php?f=178&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Squaredheads](https://www.kvraudio.com/forum/viewforum.php?f=270&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Westgatesounds.net](https://www.kvraudio.com/forum/viewforum.php?f=201&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Muon Software](https://www.kvraudio.com/forum/viewforum.php?f=11&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Sennheiser AMBEO](https://www.kvraudio.com/forum/viewforum.php?f=294&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ CK Modules & VST](https://www.kvraudio.com/forum/viewforum.php?f=184&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Valhalla DSP](https://www.kvraudio.com/forum/viewforum.php?f=146&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Topten Software](https://www.kvraudio.com/forum/viewforum.php?f=136&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Soniccouture](https://www.kvraudio.com/forum/viewforum.php?f=90&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ SoHa Sound Design](https://www.kvraudio.com/forum/viewforum.php?f=69&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Shuriken](https://www.kvraudio.com/forum/viewforum.php?f=101&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Muse Research and Development](https://www.kvraudio.com/forum/viewforum.php?f=45&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ LinPlug](https://www.kvraudio.com/forum/viewforum.php?f=10&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Hollow Sun](https://www.kvraudio.com/forum/viewforum.php?f=151&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Elevayta](https://www.kvraudio.com/forum/viewforum.php?f=53&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ easytoolz](https://www.kvraudio.com/forum/viewforum.php?f=128&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ AlgoMusic](https://www.kvraudio.com/forum/viewforum.php?f=44&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [Archived Forums](https://www.kvraudio.com/forum/viewforum.php?f=262&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Site Stuff](https://www.kvraudio.com/forum/viewforum.php?f=2&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [Site Stuff](https://www.kvraudio.com/forum/viewforum.php?f=256&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ ZynAddSubFX](https://www.kvraudio.com/forum/viewforum.php?f=47&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ XSRDO - SynthCraft](https://www.kvraudio.com/forum/viewforum.php?f=312&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ xoxos](https://www.kvraudio.com/forum/viewforum.php?f=125&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Wolfgang Palm](https://www.kvraudio.com/forum/viewforum.php?f=251&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Virharmonic](https://www.kvraudio.com/forum/viewforum.php?f=252&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ VAZ Synths](https://www.kvraudio.com/forum/viewforum.php?f=147&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ United Plugins](https://www.kvraudio.com/forum/viewforum.php?f=303&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ UJAM](https://www.kvraudio.com/forum/viewforum.php?f=314&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ u-he Linux support](https://www.kvraudio.com/forum/viewforum.php?f=292&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ u-he](https://www.kvraudio.com/forum/viewforum.php?f=31&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Tweakbench](https://www.kvraudio.com/forum/viewforum.php?f=89&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Tracktion](https://www.kvraudio.com/forum/viewforum.php?f=22&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Tokyo Dawn Labs](https://www.kvraudio.com/forum/viewforum.php?f=210&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ TAL Software](https://www.kvraudio.com/forum/viewforum.php?f=165&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Sugar Bytes](https://www.kvraudio.com/forum/viewforum.php?f=108&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ SPC Plugins](https://www.kvraudio.com/forum/viewforum.php?f=291&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Soundiron](https://www.kvraudio.com/forum/viewforum.php?f=202&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Sonic Reality / eSoundz.com](https://www.kvraudio.com/forum/viewforum.php?f=9&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ SonicBirth](https://www.kvraudio.com/forum/viewforum.php?f=124&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ sonible](https://www.kvraudio.com/forum/viewforum.php?f=286&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Smart Electronix](https://www.kvraudio.com/forum/viewforum.php?f=24&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ SaschArt](https://www.kvraudio.com/forum/viewforum.php?f=282&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ S3A: Spatial Audio](https://www.kvraudio.com/forum/viewforum.php?f=301&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ rs-met](https://www.kvraudio.com/forum/viewforum.php?f=129&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Roger Linn Design](https://www.kvraudio.com/forum/viewforum.php?f=263&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Reveal Sound](https://www.kvraudio.com/forum/viewforum.php?f=248&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Resonance-Sound](https://www.kvraudio.com/forum/viewforum.php?f=190&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Realitone](https://www.kvraudio.com/forum/viewforum.php?f=243&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Psychic Modulation](https://www.kvraudio.com/forum/viewforum.php?f=78&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Premier Sound Factory](https://www.kvraudio.com/forum/viewforum.php?f=288&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Precisionsound](https://www.kvraudio.com/forum/viewforum.php?f=65&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Polyverse Music](https://www.kvraudio.com/forum/viewforum.php?f=297&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ PlugInGuru](https://www.kvraudio.com/forum/viewforum.php?f=205&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Photosounder](https://www.kvraudio.com/forum/viewforum.php?f=155&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ patchpool](https://www.kvraudio.com/forum/viewforum.php?f=200&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Orange Tree Samples](https://www.kvraudio.com/forum/viewforum.php?f=139&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Oli Larkin Plugins](https://www.kvraudio.com/forum/viewforum.php?f=186&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ NUSofting](https://www.kvraudio.com/forum/viewforum.php?f=29&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ New Sonic Arts](https://www.kvraudio.com/forum/viewforum.php?f=300&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ MuTools](https://www.kvraudio.com/forum/viewforum.php?f=79&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ MusicLab](https://www.kvraudio.com/forum/viewforum.php?f=181&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Tips & Tricks](https://www.kvraudio.com/forum/viewforum.php?f=285&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ MusicDevelopments](https://www.kvraudio.com/forum/viewforum.php?f=168&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ mucoder](https://www.kvraudio.com/forum/viewforum.php?f=163&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Mozaic Beats](https://www.kvraudio.com/forum/viewforum.php?f=269&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ moForte](https://www.kvraudio.com/forum/viewforum.php?f=310&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ MIDIMood](https://www.kvraudio.com/forum/viewforum.php?f=289&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Mellowmuse](https://www.kvraudio.com/forum/viewforum.php?f=305&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ MeldaProduction](https://www.kvraudio.com/forum/viewforum.php?f=138&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Media Overkill (MOK)](https://www.kvraudio.com/forum/viewforum.php?f=313&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Manytone Music](https://www.kvraudio.com/forum/viewforum.php?f=56&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Maizesoft](https://www.kvraudio.com/forum/viewforum.php?f=113&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ LVC-Audio](https://www.kvraudio.com/forum/viewforum.php?f=223&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Loomer](https://www.kvraudio.com/forum/viewforum.php?f=141&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Liqube Audio](https://www.kvraudio.com/forum/viewforum.php?f=236&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Les Productions Zvon](https://www.kvraudio.com/forum/viewforum.php?f=58&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ LennarDigital](https://www.kvraudio.com/forum/viewforum.php?f=94&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ KV331 Audio](https://www.kvraudio.com/forum/viewforum.php?f=98&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Kuassa](https://www.kvraudio.com/forum/viewforum.php?f=160&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Krotos](https://www.kvraudio.com/forum/viewforum.php?f=249&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Kong Audio](https://www.kvraudio.com/forum/viewforum.php?f=64&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Kirnu](https://www.kvraudio.com/forum/viewforum.php?f=229&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Kirk Hunter Studios](https://www.kvraudio.com/forum/viewforum.php?f=225&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Ju-X](https://www.kvraudio.com/forum/viewforum.php?f=280&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Insert Piz Here](https://www.kvraudio.com/forum/viewforum.php?f=148&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Indiginus](https://www.kvraudio.com/forum/viewforum.php?f=157&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Impact Soundworks](https://www.kvraudio.com/forum/viewforum.php?f=176&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Image Line](https://www.kvraudio.com/forum/viewforum.php?f=86&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Ilya Efimov Production](https://www.kvraudio.com/forum/viewforum.php?f=226&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ HoRNet Plugins](https://www.kvraudio.com/forum/viewforum.php?f=309&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Homegrown Sounds](https://www.kvraudio.com/forum/viewforum.php?f=133&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ HG Fortune](https://www.kvraudio.com/forum/viewforum.php?f=149&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Harrison Mixbus](https://www.kvraudio.com/forum/viewforum.php?f=274&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ g200kg](https://www.kvraudio.com/forum/viewforum.php?f=203&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ FXpansion](https://www.kvraudio.com/forum/viewforum.php?f=13&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Future Audio Workshop](https://www.kvraudio.com/forum/viewforum.php?f=260&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ forward audio](https://www.kvraudio.com/forum/viewforum.php?f=164&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Expert Sleepers](https://www.kvraudio.com/forum/viewforum.php?f=85&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Eventide](https://www.kvraudio.com/forum/viewforum.php?f=299&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ energyXT](https://www.kvraudio.com/forum/viewforum.php?f=36&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Embertone](https://www.kvraudio.com/forum/viewforum.php?f=216&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ CWITEC](https://www.kvraudio.com/forum/viewforum.php?f=213&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Cherry Audio](https://www.kvraudio.com/forum/viewforum.php?f=296&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Blue Cat Audio](https://www.kvraudio.com/forum/viewforum.php?f=52&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Controller Scripting](https://www.kvraudio.com/forum/viewforum.php?f=268&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Bitwig](https://www.kvraudio.com/forum/viewforum.php?f=259&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Big Tick](https://www.kvraudio.com/forum/viewforum.php?f=18&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Best Service](https://www.kvraudio.com/forum/viewforum.php?f=199&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Audiority](https://www.kvraudio.com/forum/viewforum.php?f=177&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ AudioSpillage](https://www.kvraudio.com/forum/viewforum.php?f=154&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Audjoo](https://www.kvraudio.com/forum/viewforum.php?f=135&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Arturia](https://www.kvraudio.com/forum/viewforum.php?f=224&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Arts Acoustic](https://www.kvraudio.com/forum/viewforum.php?f=60&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ AriesCode](https://www.kvraudio.com/forum/viewforum.php?f=143&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ apulSoft](https://www.kvraudio.com/forum/viewforum.php?f=283&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Apisonic Labs](https://www.kvraudio.com/forum/viewforum.php?f=304&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Antares Audio Technologies](https://www.kvraudio.com/forum/viewforum.php?f=308&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Ample Sound](https://www.kvraudio.com/forum/viewforum.php?f=245&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ AMG](https://www.kvraudio.com/forum/viewforum.php?f=142&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ AIR Music Technology](https://www.kvraudio.com/forum/viewforum.php?f=265&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Agitated State](https://www.kvraudio.com/forum/viewforum.php?f=105&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ AcousModules](https://www.kvraudio.com/forum/viewforum.php?f=59&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ AcousticsampleS](https://www.kvraudio.com/forum/viewforum.php?f=162&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Acon Digital](https://www.kvraudio.com/forum/viewforum.php?f=218&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ accSone](https://www.kvraudio.com/forum/viewforum.php?f=57&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ 2getheraudio](https://www.kvraudio.com/forum/viewforum.php?f=295&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [Official Company Forums](https://www.kvraudio.com/forum/viewforum.php?f=255&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ ReleaseLab (Powered by Artist Expansion)](https://www.kvraudio.com/forum/viewforum.php?f=315&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Off Topic Classics](https://www.kvraudio.com/forum/viewforum.php?f=70&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Off Topic](https://www.kvraudio.com/forum/viewforum.php?f=15&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Everything Else (Music related)](https://www.kvraudio.com/forum/viewforum.php?f=4&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ KVR Developer Challenge 2023](https://www.kvraudio.com/forum/viewforum.php?f=91&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ KVR Experts](https://www.kvraudio.com/forum/viewforum.php?f=290&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Sell & Buy (+Special Offers, Deals & Promos)](https://www.kvraudio.com/forum/viewforum.php?f=43&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Music Cafe](https://www.kvraudio.com/forum/viewforum.php?f=14&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ DIY: Build it and they will come](https://www.kvraudio.com/forum/viewforum.php?f=180&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ DSP and Plugin Development](https://www.kvraudio.com/forum/viewforum.php?f=33&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Computer Setup and System Configuration](https://www.kvraudio.com/forum/viewforum.php?f=16&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Music Theory](https://www.kvraudio.com/forum/viewforum.php?f=99&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Production Techniques](https://www.kvraudio.com/forum/viewforum.php?f=62&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Sound Design](https://www.kvraudio.com/forum/viewforum.php?f=100&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Modular Synthesis](https://www.kvraudio.com/forum/viewforum.php?f=23&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Hardware (Instruments and Effects)](https://www.kvraudio.com/forum/viewforum.php?f=102&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Samplers, Sampling & Sample Libraries](https://www.kvraudio.com/forum/viewforum.php?f=42&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Soundware](https://www.kvraudio.com/forum/viewforum.php?f=257&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Mobile Apps and Hardware](https://www.kvraudio.com/forum/viewforum.php?f=166&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Guitars](https://www.kvraudio.com/forum/viewforum.php?f=298&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Hosts & Applications (Sequencers, DAWs, Audio Editors, etc.)](https://www.kvraudio.com/forum/viewforum.php?f=7&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Effects](https://www.kvraudio.com/forum/viewforum.php?f=6&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Instruments](https://www.kvraudio.com/forum/viewforum.php?f=1&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ Getting Started (AKA What is the best...?)](https://www.kvraudio.com/forum/viewforum.php?f=74&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [↳ KVR Studio Manager](https://www.kvraudio.com/forum/viewforum.php?f=311&amp;sid=7420c5b3dbeb98130baf01987b342808)
+- [The Main Forums](https://www.kvraudio.com/forum/viewforum.php?f=253&amp;sid=7420c5b3dbeb98130baf01987b342808)
+
+[What's New @ KVR Audio?](https://www.kvraudio.com/whats-new-at-kvr.php)
+
+[Submit: News, Plugins, Hosts & Apps](https://www.kvraudio.com/submissions)| [Advertise @ KVR](https://partnerservices.kvraudio.com/)| [Developer Account](https://www.kvraudio.com/devs)| [About KVR / Contact Us](https://www.kvraudio.com/about-kvr)| [Privacy Statement](https://www.kvraudio.com/privacy)
+
+© KVR Audio, Inc. 2000-2026
+
+[Log In To KVR Audio](https://www.kvraudio.com/forum/ucp.php?mode=login)

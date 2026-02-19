@@ -63,13 +63,11 @@ Plans:
   2. Grid displays a chromatic palette on first load (12 major, 12 minor, plus diminished/augmented/sus fills)
   3. Clicking any pad sends correct MIDI note-on/note-off messages to downstream instruments in Bitwig
   4. MIDI output uses proper velocity values and note durations
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: Grid UI component (8x4 GridPanel with PadComponent, chord labels)
-- [ ] 03-02: Chromatic palette population and pad-to-chord mapping
-- [ ] 03-03: MIDI output pipeline (MidiRouter, ChordVoicer, note-on/note-off)
-- [ ] 03-04: Lock-free audio/GUI thread wiring and Timer-based polling
+- [ ] 03-01-PLAN.md — Grid UI components: ChromaticPalette, PadComponent, GridPanel, PluginEditor integration
+- [ ] 03-02-PLAN.md — MIDI output pipeline: MidiKeyboardState in Processor, Timer-based note-off, pad-to-MIDI wiring
 
 ### Phase 4: Morphing Suggestions
 **Goal**: After playing a chord, the grid morphs to show 32 harmonically related suggestions with smooth voice-led transitions
@@ -128,7 +126,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6
 |-------|----------------|--------|-----------|
 | 1. Plugin Foundation | 3/3 | Complete | 2026-02-19 |
 | 2. Chord Engine | 3/3 | Complete | 2026-02-19 |
-| 3. Playable Grid | 0/4 | Not started | - |
+| 3. Playable Grid | 0/2 | Not started | - |
 | 4. Morphing Suggestions | 0/4 | Not started | - |
 | 5. Capture & Export | 0/3 | Not started | - |
 | 6. State Persistence & Validation | 0/3 | Not started | - |
