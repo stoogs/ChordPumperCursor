@@ -95,33 +95,33 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| GRID-01 | — | Pending |
-| GRID-02 | — | Pending |
-| GRID-03 | — | Pending |
-| GRID-04 | — | Pending |
-| GRID-05 | — | Pending |
-| GRID-06 | — | Pending |
-| CHRD-01 | — | Pending |
-| CHRD-02 | — | Pending |
-| CHRD-03 | — | Pending |
-| MIDI-01 | — | Pending |
-| MIDI-02 | — | Pending |
-| CAPT-01 | — | Pending |
-| CAPT-02 | — | Pending |
-| CAPT-03 | — | Pending |
-| PLAT-01 | — | Pending |
-| PLAT-02 | — | Pending |
-| PLAT-03 | — | Pending |
-| PLAT-04 | — | Pending |
-| PLAT-05 | — | Pending |
-| PLAT-06 | — | Pending |
-| PLAT-07 | — | Pending |
+| GRID-01 | Phase 3 | Pending |
+| GRID-02 | Phase 3 | Pending |
+| GRID-03 | Phase 4 | Pending |
+| GRID-04 | Phase 4 | Pending |
+| GRID-05 | Phase 4 | Pending |
+| GRID-06 | Phase 4 | Pending |
+| CHRD-01 | Phase 2 | Pending |
+| CHRD-02 | Phase 2 | Pending |
+| CHRD-03 | Phase 4 | Pending |
+| MIDI-01 | Phase 3 | Pending |
+| MIDI-02 | Phase 3 | Pending |
+| CAPT-01 | Phase 5 | Pending |
+| CAPT-02 | Phase 5 | Pending |
+| CAPT-03 | Phase 5 | Pending |
+| PLAT-01 | Phase 1 | Pending |
+| PLAT-02 | Phase 1 | Pending |
+| PLAT-03 | Phase 1 | Pending |
+| PLAT-04 | Phase 1 | Pending |
+| PLAT-05 | Phase 1 | Pending |
+| PLAT-06 | Phase 6 | Pending |
+| PLAT-07 | Phase 6 | Pending |
 
 **Coverage:**
 - v1 requirements: 21 total
-- Mapped to phases: 0
-- Unmapped: 21 ⚠️
+- Mapped to phases: 21 ✓
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-19*
-*Last updated: 2026-02-19 after initial definition*
+*Last updated: 2026-02-19 after roadmap traceability mapping*
