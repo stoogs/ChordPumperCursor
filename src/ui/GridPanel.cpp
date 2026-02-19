@@ -34,6 +34,9 @@ void GridPanel::padClicked(const Chord& chord)
     activeNotes.assign(voiced.midiNotes.begin(), voiced.midiNotes.end());
     startTimer(noteDurationMs);
 
+    if (onChordPlayed)
+        onChordPlayed(chord);
+
     auto suggestions = morphEngine.morph(chord, voiced.midiNotes);
 
     for (int i = 0; i < 32; ++i)

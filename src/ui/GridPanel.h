@@ -5,6 +5,7 @@
 #include "PadComponent.h"
 #include "engine/MorphEngine.h"
 #include "engine/VoiceLeader.h"
+#include <functional>
 #include <vector>
 
 namespace chordpumper {
@@ -16,6 +17,8 @@ public:
     ~GridPanel() override;
 
     void resized() override;
+
+    std::function<void(const Chord&)> onChordPlayed;
 
 private:
     void padClicked(const Chord& chord);

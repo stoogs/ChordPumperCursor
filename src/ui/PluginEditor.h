@@ -3,6 +3,7 @@
 #include <juce_audio_processors/juce_audio_processors.h>
 #include "ChordPumperLookAndFeel.h"
 #include "GridPanel.h"
+#include "ProgressionStrip.h"
 
 namespace chordpumper {
 
@@ -21,6 +22,7 @@ private:
     ChordPumperProcessor& processor;
     ChordPumperLookAndFeel lookAndFeel;
     GridPanel gridPanel;
+    ProgressionStrip progressionStrip;
 };
 
 } // namespace chordpumper

@@ -8,7 +8,9 @@ ChordPumperEditor::ChordPumperEditor(ChordPumperProcessor& p)
 {
     setLookAndFeel(&lookAndFeel);
     addAndMakeVisible(gridPanel);
-    setSize(1000, 600);
+    addAndMakeVisible(progressionStrip);
+    gridPanel.onChordPlayed = [this](const Chord& c) { progressionStrip.addChord(c); };
+    setSize(1000, 650);
 }
 
 ChordPumperEditor::~ChordPumperEditor()
@@ -29,7 +31,10 @@ void ChordPumperEditor::resized()
 {
     auto area = getLocalBounds().reduced(10);
     area.removeFromTop(40);
+    auto stripArea = area.removeFromBottom(50);
+    area.removeFromBottom(6);
     gridPanel.setBounds(area);
+    progressionStrip.setBounds(stripArea);
 }
 
 } // namespace chordpumper
