@@ -79,13 +79,12 @@ Plans:
   3. User can start from any chord and explore freely — no key or scale selection required
   4. Consecutive chord transitions use minimal note movement between voicings (voice leading)
   5. Suggestions blend music theory rules (diatonic, modal interchange) and harmonic proximity (common tones, voice-leading distance)
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: MorphEngine — hybrid scoring algorithm (diatonic + modal interchange + proximity)
-- [ ] 04-02: Contextual Roman numeral calculation and display
-- [ ] 04-03: Voice leading optimization for chord transitions
-- [ ] 04-04: Integration — morph triggers on pad click, grid updates atomically
+- [ ] 04-01-PLAN.md — Foundation engine classes (PitchClassSet, ScaleDatabase, VoiceLeader, RomanNumeral) + Catch2 tests
+- [ ] 04-02-PLAN.md — MorphEngine TDD: hybrid scoring algorithm (diatonic + common tones + voice leading), top-32 selection, variety filter
+- [ ] 04-03-PLAN.md — Integration: morph on pad click, Roman numeral display, voice-led MIDI, batch grid update
 
 ### Phase 5: Capture & Export
 **Goal**: User can capture explored chord progressions and export individual chords to the DAW as MIDI clips
@@ -127,6 +126,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6
 | 1. Plugin Foundation | 3/3 | Complete | 2026-02-19 |
 | 2. Chord Engine | 3/3 | Complete | 2026-02-19 |
 | 3. Playable Grid | 2/2 | Complete | 2026-02-19 |
-| 4. Morphing Suggestions | 0/4 | Not started | - |
+| 4. Morphing Suggestions | 0/3 | Not started | - |
 | 5. Capture & Export | 0/3 | Not started | - |
 | 6. State Persistence & Validation | 0/3 | Not started | - |
