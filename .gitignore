@@ -1,0 +1,29 @@
+# Build output
+build/
+Builds/
+cmake-build-*/
+
+# CMake generated
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+_deps/
+
+# Compile database (symlinked from build dir)
+compile_commands.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing artifacts
+Testing/
