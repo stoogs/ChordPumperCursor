@@ -61,6 +61,8 @@ clap_juce_extensions_plugin(
 target_sources(ChordPumper PRIVATE
     src/PluginProcessor.cpp
     src/ui/PluginEditor.cpp
+    src/ui/PadComponent.cpp
+    src/ui/GridPanel.cpp
     cmake/glibc_compat_math.c
 )
 
