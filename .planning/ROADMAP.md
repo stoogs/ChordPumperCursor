@@ -12,7 +12,7 @@ Chord-Grid goes from empty project to shippable MIDI chord exploration plugin in
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Plugin Foundation** - Buildable VST3/CLAP/Standalone plugin that loads in Bitwig on Linux
+- [x] **Phase 1: Plugin Foundation** - Buildable VST3/CLAP/Standalone plugin that loads in Bitwig on Linux
 - [ ] **Phase 2: Chord Engine** - Music theory primitives: chord construction, naming, and querying
 - [ ] **Phase 3: Playable Grid** - 8x4 pad grid with chromatic palette, click-to-play via MIDI output
 - [ ] **Phase 4: Morphing Suggestions** - Grid morphs after each chord with voice-led transitions and Roman numerals
@@ -37,7 +37,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 Plans:
 - [x] 01-01-PLAN.md — Repository scaffold, git submodules (JUCE 8.0.12 + clap-juce-extensions), CMake build configuration
 - [x] 01-02-PLAN.md — Plugin source shell (Processor, Editor, LookAndFeel) and first build of all formats
-- [ ] 01-03-PLAN.md — pluginval + clap-validator validation, Bitwig host loading verification
+- [x] 01-03-PLAN.md — pluginval + clap-validator validation, Bitwig host loading verification
 
 ### Phase 2: Chord Engine
 **Goal**: All v1 chord types can be constructed, voiced, and named programmatically with full test coverage
@@ -126,7 +126,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Plugin Foundation | 2/3 | In Progress | - |
+| 1. Plugin Foundation | 3/3 | Complete | - |
 | 2. Chord Engine | 0/3 | Not started | - |
 | 3. Playable Grid | 0/4 | Not started | - |
 | 4. Morphing Suggestions | 0/4 | Not started | - |
