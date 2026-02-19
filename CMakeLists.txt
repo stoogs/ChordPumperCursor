@@ -101,3 +101,31 @@ add_custom_command(TARGET ChordPumper_CLAP POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory "$ENV{HOME}/.clap"
     COMMAND ${CMAKE_COMMAND} -E copy "$<TARGET_FILE:ChordPumper_CLAP>" "$ENV{HOME}/.clap/"
 )
+
+option(CHORDPUMPER_BUILD_TESTS "Build unit tests" ON)
+
+if(CHORDPUMPER_BUILD_TESTS)
+    include(FetchContent)
+    FetchContent_Declare(
+        Catch2
+        GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+        GIT_TAG v3.13.0
+        GIT_SHALLOW TRUE
+    )
+    FetchContent_MakeAvailable(Catch2)
+
+    list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
+    include(CTest)
+    include(Catch)
+
+    add_executable(ChordPumperTests
+        tests/test_pitch_class.cpp
+        tests/test_chord.cpp
+        tests/test_chord_naming.cpp
+    )
+    target_link_libraries(ChordPumperTests PRIVATE
+        ChordPumperEngine
+        Catch2::Catch2WithMain
+    )
+    catch_discover_tests(ChordPumperTests)
+endif()
