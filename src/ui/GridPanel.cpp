@@ -26,12 +26,23 @@ void GridPanel::padClicked(const Chord& chord)
 {
     releaseCurrentChord();
 
-    auto notes = chord.midiNotes(defaultOctave);
-    for (auto note : notes)
+    auto voiced = optimalVoicing(chord, activeNotes, defaultOctave);
+
+    for (auto note : voiced.midiNotes)
         keyboardState.noteOn(midiChannel, note, velocity);
 
-    activeNotes.assign(notes.begin(), notes.end());
+    activeNotes.assign(voiced.midiNotes.begin(), voiced.midiNotes.end());
     startTimer(noteDurationMs);
+
+    auto suggestions = morphEngine.morph(chord, voiced.midiNotes);
+
+    for (int i = 0; i < 32; ++i)
+    {
+        pads[i]->setChord(suggestions[static_cast<size_t>(i)].chord);
+        pads[i]->setRomanNumeral(suggestions[static_cast<size_t>(i)].romanNumeral);
+    }
+
+    repaint();
 }
 
 void GridPanel::releaseCurrentChord()

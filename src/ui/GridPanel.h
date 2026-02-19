@@ -3,6 +3,8 @@
 #include <juce_gui_basics/juce_gui_basics.h>
 #include <juce_audio_basics/juce_audio_basics.h>
 #include "PadComponent.h"
+#include "engine/MorphEngine.h"
+#include "engine/VoiceLeader.h"
 #include <vector>
 
 namespace chordpumper {
@@ -23,6 +25,7 @@ private:
     juce::MidiKeyboardState& keyboardState;
     juce::OwnedArray<PadComponent> pads;
     std::vector<int> activeNotes;
+    MorphEngine morphEngine;
 
     float velocity = 0.8f;
     static constexpr int midiChannel = 1;
