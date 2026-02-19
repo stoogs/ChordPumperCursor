@@ -48,13 +48,14 @@ target_compile_definitions(ChordPumper PUBLIC
     JUCE_WEB_BROWSER=0
     JUCE_USE_CURL=0
     JUCE_VST3_CAN_REPLACE_VST2=0
-    JUCE_DISPLAY_SPLASH_SCREEN=0
 )
 
 target_link_libraries(ChordPumper
     PRIVATE
         juce::juce_audio_processors
         juce::juce_audio_basics
+        juce::juce_audio_devices
+        juce::juce_audio_utils
         juce::juce_gui_basics
         juce::juce_gui_extra
         juce::juce_data_structures

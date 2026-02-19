@@ -13,6 +13,7 @@ public:
     void prepareToPlay(double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;
     void processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages) override;
+    using AudioProcessor::processBlock;
 
     bool hasEditor() const override { return true; }
     juce::AudioProcessorEditor* createEditor() override;

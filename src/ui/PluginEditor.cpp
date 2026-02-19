@@ -19,7 +19,7 @@ void ChordPumperEditor::paint(juce::Graphics& g)
 {
     g.fillAll(findColour(juce::ResizableWindow::backgroundColourId));
     g.setColour(juce::Colour(0xffe0e0e0));
-    g.setFont(juce::Font(28.0f));
+    g.setFont(juce::Font(juce::FontOptions(28.0f)));
     g.drawText("ChordPumper v0.1.0", getLocalBounds(), juce::Justification::centred);
 }
 
