@@ -9,8 +9,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Grid & Suggestions
 
-- [ ] **GRID-01**: User can see an 8x4 grid of 32 chord pads on the plugin UI
-- [ ] **GRID-02**: Grid starts with a chromatic palette (all 12 major, all 12 minor, plus diminished/augmented/sus fills) before any selection
+- [x] **GRID-01**: User can see an 8x4 grid of 32 chord pads on the plugin UI
+- [x] **GRID-02**: Grid starts with a chromatic palette (all 12 major, all 12 minor, plus diminished/augmented/sus fills) before any selection
 - [ ] **GRID-03**: After user clicks a pad, grid morphs to show 32 contextually related chord suggestions
 - [ ] **GRID-04**: Suggestions use a hybrid algorithm combining music theory rules (diatonic, modal interchange) and harmonic proximity (common tones, voice-leading distance)
 - [ ] **GRID-05**: User can start exploring from any chord — no key or scale selection required
@@ -95,8 +95,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| GRID-01 | Phase 3 | Pending |
-| GRID-02 | Phase 3 | Pending |
+| GRID-01 | Phase 3 | Complete |
+| GRID-02 | Phase 3 | Complete |
 | GRID-03 | Phase 4 | Pending |
 | GRID-04 | Phase 4 | Pending |
 | GRID-05 | Phase 4 | Pending |
