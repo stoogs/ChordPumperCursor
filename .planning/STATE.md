@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-19)
 
 **Core value:** The morphing grid — play a chord, see what comes next, follow the thread.
-**Current focus:** Phase 5: Capture & Export (Phase 4 complete)
+**Current focus:** Phase 6: State Persistence & Validation (Phase 5 complete)
 
 ## Current Position
 
-Phase: 5 of 6 (Capture & Export)
-Plan: 2 of 3 complete in current phase (05-01, 05-03 done; 05-02 remaining)
-Status: Plan 05-01 complete (MidiFileBuilder TDD), 05-02 remaining
-Last activity: 2026-02-19 — MidiFileBuilder TDD complete (10 tests, 2 commits)
+Phase: 5 of 6 (Capture & Export) — COMPLETE
+Plan: 3 of 3 complete in current phase (all plans done)
+Status: Phase 5 complete, ready for Phase 6
+Last activity: 2026-02-19 — Drag-to-DAW with DnD feasibility spike complete
 
-Progress: [█████████░] 87%
+Progress: [█████████░] 93%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
+- Total plans completed: 13
 - Average duration: ~7 min
-- Total execution time: ~1.4 hours
+- Total execution time: ~1.5 hours
 
 **By Phase:**
 
@@ -32,11 +32,11 @@ Progress: [█████████░] 87%
 
 | 3. Playable Grid | 2 | 4 min | 2 min |
 | 4. Morphing Suggestions | 3 | ~52 min | ~17 min |
-| 5. Capture & Export | 2 | ~7 min | ~4 min |
+| 5. Capture & Export | 3 | ~14 min | ~5 min |
 
 **Recent Trend:**
-- Last 5 plans: 2min, 17min, 15min, 2min, 5min
-- Trend: → (steady for TDD plans)
+- Last 5 plans: 17min, 15min, 2min, 5min, 7min
+- Trend: → (steady)
 
 *Updated after each plan completion*
 
@@ -83,6 +83,9 @@ Recent decisions affecting current work:
 - [05-01]: juce_audio_basics linked to ChordPumperTests for MIDI readback — minimal JUCE surface in test binary
 - [05-01]: Temp file naming with random hex suffix to avoid collisions in concurrent use
 - [05-01]: No refactor phase needed — implementation was minimal from the start
+- [05-02]: 6px drag threshold for click/drag disambiguation — below triggers chord play, above initiates DnD
+- [05-02]: Right-click fallback export to ~/ChordPumper-Export/ — reliable path regardless of platform DnD support
+- [05-02]: Bitwig embedded DnD partially works on Linux X11 (recognizes chords, previews clip) but drop doesn't finalize — known limitation, fallback covers it
 
 ### Pending Todos
 
@@ -90,11 +93,11 @@ None yet.
 
 ### Blockers/Concerns
 
-- Linux drag-and-drop from embedded plugin windows is unreliable (X11). Phase 5 must validate feasibility early and have a fallback.
+- Linux drag-and-drop from embedded plugin windows is unreliable (X11). Validated in Phase 5 — Bitwig recognizes chords but drop doesn't finalize. Fallback export to ~/ChordPumper-Export/ works.
 - Morph algorithm implemented and verified — tuning may continue based on user feedback.
 
 ## Session Continuity
 
 Last session: 2026-02-19
-Stopped at: Completed 05-01-PLAN.md (MidiFileBuilder TDD)
+Stopped at: Completed 05-02-PLAN.md (Drag-to-DAW with DnD feasibility spike)
 Resume file: None

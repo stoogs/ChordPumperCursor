@@ -29,7 +29,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Capture & Export
 
-- [ ] **CAPT-01**: User can drag an individual chord from any pad to the DAW as a MIDI clip
+- [x] **CAPT-01**: User can drag an individual chord from any pad to the DAW as a MIDI clip
 - [x] **CAPT-02**: A progression strip displays the sequence of chords the user has triggered (up to 8 chords)
 - [x] **CAPT-03**: User can clear the progression strip and start a new sequence
 
@@ -106,7 +106,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CHRD-03 | Phase 4 | Complete |
 | MIDI-01 | Phase 3 | Complete |
 | MIDI-02 | Phase 3 | Complete |
-| CAPT-01 | Phase 5 | Pending |
+| CAPT-01 | Phase 5 | Complete |
 | CAPT-02 | Phase 5 | Complete |
 | CAPT-03 | Phase 5 | Complete |
 | PLAT-01 | Phase 1 | Complete |

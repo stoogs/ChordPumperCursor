@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Chord Engine** - Music theory primitives: chord construction, naming, and querying
 - [x] **Phase 3: Playable Grid** - 8x4 pad grid with chromatic palette, click-to-play via MIDI output
 - [x] **Phase 4: Morphing Suggestions** - Grid morphs after each chord with voice-led transitions and Roman numerals
-- [ ] **Phase 5: Capture & Export** - Drag chords to DAW as MIDI clips, progression strip
+- [x] **Phase 5: Capture & Export** - Drag chords to DAW as MIDI clips, progression strip
 - [ ] **Phase 6: State Persistence & Validation** - Session recall, pluginval, real-time safety verification
 
 **Parallelization:** Phase 5 can execute in parallel with Phase 4 (both depend on Phase 3, neither depends on the other).
@@ -98,7 +98,7 @@ Plans:
 
 Plans:
 - [x] 05-01-PLAN.md — MidiFileBuilder TDD: Chord-to-MIDI-file conversion with Catch2 tests
-- [ ] 05-02-PLAN.md — Drag-to-DAW with Linux DnD feasibility spike, click/drag disambiguation, file-export fallback
+- [x] 05-02-PLAN.md — Drag-to-DAW with Linux DnD feasibility spike, click/drag disambiguation, file-export fallback
 - [x] 05-03-PLAN.md — ProgressionStrip UI: horizontal chord sequence display (up to 8), clear button, wired to pad clicks
 
 ### Phase 6: State Persistence & Validation
@@ -127,5 +127,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6
 | 2. Chord Engine | 3/3 | Complete | 2026-02-19 |
 | 3. Playable Grid | 2/2 | Complete | 2026-02-19 |
 | 4. Morphing Suggestions | 3/3 | Complete | 2026-02-19 |
-| 5. Capture & Export | 2/3 | In progress | - |
+| 5. Capture & Export | 3/3 | Complete | 2026-02-19 |
 | 6. State Persistence & Validation | 0/3 | Not started | - |
