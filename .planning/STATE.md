@@ -10,29 +10,29 @@ See: .planning/PROJECT.md (updated 2026-02-19)
 ## Current Position
 
 Phase: 2 of 6 (Chord Engine)
-Plan: 1 of 3 in current phase
+Plan: 2 of 3 in current phase
 Status: Executing
-Last activity: 2026-02-19 — Completed 02-01 (Engine library scaffold + Catch2 test infra)
+Last activity: 2026-02-19 — Completed 02-02 (PitchClass TDD — semitone, name, midiNote)
 
-Progress: [███░░░░░░░] 20%
+Progress: [████░░░░░░] 25%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: ~9 min
-- Total execution time: ~0.6 hours
+- Total plans completed: 5
+- Average duration: ~8 min
+- Total execution time: ~0.65 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1. Plugin Foundation | 3 | ~30 min | ~10 min |
-| 2. Chord Engine | 1 | 7 min | 7 min |
+| 2. Chord Engine | 2 | 9 min | ~5 min |
 
 **Recent Trend:**
-- Last 5 plans: 7min, 8min, ~15min, 7min
-- Trend: —
+- Last 5 plans: 2min, 7min, 8min, ~15min, 7min
+- Trend: ↓ (faster)
 
 *Updated after each plan completion*
 
@@ -56,6 +56,8 @@ Recent decisions affecting current work:
 - [02-01]: Engine as static library (ChordPumperEngine) decoupled from JUCE — enables fast test compilation
 - [02-01]: Catch2 v3.13.0 via FetchContent with GIT_SHALLOW — keeps test deps separate from plugin deps
 - [02-01]: Test build guarded by CHORDPUMPER_BUILD_TESTS option — tests don't slow plugin builds
+- [02-02]: Double-mod pattern ((x % 12 + 12) % 12) for negative accidental wrapping — handles Cb→11, Fb→4
+- [02-02]: No refactor phase needed — TDD implementation was minimal and clean from the start
 
 ### Pending Todos
 
@@ -69,5 +71,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-19
-Stopped at: Completed 02-01-PLAN.md (engine library scaffold + Catch2 test infra)
+Stopped at: Completed 02-02-PLAN.md (PitchClass TDD — semitone, name, midiNote)
 Resume file: None
