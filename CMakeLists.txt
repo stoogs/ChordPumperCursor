@@ -25,6 +25,13 @@ endif()
 #     math symbols to GLIBC_2.2.5 instead of the linker's default (newest).
 add_compile_options(-isystem ${CMAKE_SOURCE_DIR}/cmake/glibc-compat)
 
+add_library(ChordPumperEngine STATIC
+    src/engine/PitchClass.cpp
+    src/engine/Chord.cpp
+)
+target_include_directories(ChordPumperEngine PUBLIC src)
+target_compile_features(ChordPumperEngine PUBLIC cxx_std_20)
+
 add_subdirectory(libs/JUCE)
 
 add_subdirectory(libs/clap-juce-extensions EXCLUDE_FROM_ALL)
@@ -67,6 +74,7 @@ target_compile_definitions(ChordPumper PUBLIC
 
 target_link_libraries(ChordPumper
     PRIVATE
+        ChordPumperEngine
         juce::juce_audio_processors
         juce::juce_audio_basics
         juce::juce_audio_devices
