@@ -13,7 +13,7 @@ Chord-Grid goes from empty project to shippable MIDI chord exploration plugin in
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Plugin Foundation** - Buildable VST3/CLAP/Standalone plugin that loads in Bitwig on Linux
-- [ ] **Phase 2: Chord Engine** - Music theory primitives: chord construction, naming, and querying
+- [x] **Phase 2: Chord Engine** - Music theory primitives: chord construction, naming, and querying
 - [ ] **Phase 3: Playable Grid** - 8x4 pad grid with chromatic palette, click-to-play via MIDI output
 - [ ] **Phase 4: Morphing Suggestions** - Grid morphs after each chord with voice-led transitions and Roman numerals
 - [ ] **Phase 5: Capture & Export** - Drag chords to DAW as MIDI clips, progression strip
@@ -52,7 +52,7 @@ Plans:
 Plans:
 - [x] 02-01-PLAN.md — Engine library scaffold (ChordPumperEngine static lib) + Catch2 v3 test infrastructure
 - [x] 02-02-PLAN.md — PitchClass TDD (note representation, semitone arithmetic, naming, MIDI conversion)
-- [ ] 02-03-PLAN.md — Chord TDD (construction, interval application, MIDI generation, naming for all 108 combinations)
+- [x] 02-03-PLAN.md — Chord TDD (construction, interval application, MIDI generation, naming for all 108 combinations)
 
 ### Phase 3: Playable Grid
 **Goal**: User sees 32 labeled chord pads and can click any pad to hear that chord through their DAW instrument
@@ -127,7 +127,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Plugin Foundation | 3/3 | Complete | 2026-02-19 |
-| 2. Chord Engine | 2/3 | In progress | - |
+| 2. Chord Engine | 3/3 | Complete | 2026-02-19 |
 | 3. Playable Grid | 0/4 | Not started | - |
 | 4. Morphing Suggestions | 0/4 | Not started | - |
 | 5. Capture & Export | 0/3 | Not started | - |

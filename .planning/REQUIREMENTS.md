@@ -18,8 +18,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Chord Engine
 
-- [ ] **CHRD-01**: Plugin supports triads (major, minor, diminished, augmented) and 7th chords (maj7, min7, dom7, dim7, half-dim7)
-- [ ] **CHRD-02**: Each pad displays the chord name (e.g., "Dm7", "F#aug")
+- [x] **CHRD-01**: Plugin supports triads (major, minor, diminished, augmented) and 7th chords (maj7, min7, dom7, dim7, half-dim7)
+- [x] **CHRD-02**: Each pad displays the chord name (e.g., "Dm7", "F#aug")
 - [ ] **CHRD-03**: Chord transitions use smart voice leading that minimizes note movement between consecutive chords
 
 ### MIDI
@@ -101,8 +101,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | GRID-04 | Phase 4 | Pending |
 | GRID-05 | Phase 4 | Pending |
 | GRID-06 | Phase 4 | Pending |
-| CHRD-01 | Phase 2 | Pending |
-| CHRD-02 | Phase 2 | Pending |
+| CHRD-01 | Phase 2 | Complete |
+| CHRD-02 | Phase 2 | Complete |
 | CHRD-03 | Phase 4 | Pending |
 | MIDI-01 | Phase 3 | Pending |
 | MIDI-02 | Phase 3 | Pending |
