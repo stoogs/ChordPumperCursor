@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-02-19)
 
 **Core value:** The morphing grid — play a chord, see what comes next, follow the thread.
-**Current focus:** Phase 6: State Persistence & Validation (Phase 5 complete)
+**Current focus:** Phase 6: State Persistence & Validation
 
 ## Current Position
 
-Phase: 5 of 6 (Capture & Export) — COMPLETE
-Plan: 3 of 3 complete in current phase (all plans done)
-Status: Phase 5 complete, ready for Phase 6
-Last activity: 2026-02-19 — Drag-to-DAW with DnD feasibility spike complete
+Phase: 6 of 6 (State Persistence & Validation)
+Plan: 0 of 3 in current phase
+Status: Phase 5 verified and complete, ready for Phase 6
+Last activity: 2026-02-19 — Phase 5 verified (13/14 must-haves, 1 partial due to Linux X11 DnD platform limitation), advancing to Phase 6
 
 Progress: [█████████░] 93%
 
@@ -99,5 +99,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-19
-Stopped at: Completed 05-02-PLAN.md (Drag-to-DAW with DnD feasibility spike)
+Stopped at: Phase 5 verified and complete. Advancing to Phase 6: State Persistence & Validation.
 Resume file: None
