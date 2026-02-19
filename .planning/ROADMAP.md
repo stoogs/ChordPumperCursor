@@ -32,12 +32,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Standalone application launches and displays a window on CachyOS
   3. CMake build with Ninja produces all three plugin formats from a single configuration
   4. Plugin passes pluginval at basic strictness (pre-feature baseline)
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: CMake project setup with JUCE 8, C++20, and Ninja build
-- [ ] 01-02: CLAP format integration via clap-juce-extensions submodule
-- [ ] 01-03: Bitwig loading verification and pluginval baseline
+- [ ] 01-01-PLAN.md — Repository scaffold, git submodules (JUCE 8.0.12 + clap-juce-extensions), CMake build configuration
+- [ ] 01-02-PLAN.md — Plugin source shell (Processor, Editor, LookAndFeel) and first build of all formats
+- [ ] 01-03-PLAN.md — pluginval + clap-validator validation, Bitwig host loading verification
 
 ### Phase 2: Chord Engine
 **Goal**: All v1 chord types can be constructed, voiced, and named programmatically with full test coverage
@@ -126,7 +126,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Plugin Foundation | 0/3 | Not started | - |
+| 1. Plugin Foundation | 0/3 | Planned | - |
 | 2. Chord Engine | 0/3 | Not started | - |
 | 3. Playable Grid | 0/4 | Not started | - |
 | 4. Morphing Suggestions | 0/4 | Not started | - |
