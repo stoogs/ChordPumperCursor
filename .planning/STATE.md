@@ -166,6 +166,7 @@ None yet.
 | 1 | Resize plugin window to 1000x600 and fit 8x8 grid | 2026-02-20 | e9346e5 | [1-resize-plugin-window-to-1000x600-and-fit](./quick/1-resize-plugin-window-to-1000x600-and-fit/) |
 | 2 | Progression strip hold-to-play and drag insertion line | 2026-02-20 | cd521d5 | [2-progression-strip-hold-to-play-and-drag-](./quick/2-progression-strip-hold-to-play-and-drag-/) |
 | 3 | Strip slot overwrite drag and stronger insertion indicator | 2026-02-20 | 7028cec | [3-strip-slot-overwrite-drag-and-stronger-d](./quick/3-strip-slot-overwrite-drag-and-stronger-d/) |
+| 4 | Fix right-click drag quadrant selection (stale pressedQuadrant) | 2026-02-20 | e447474 | [4-fix-right-click-drag-quadrant-selection-](./quick/4-fix-right-click-drag-quadrant-selection-/) |
 
 ### Blockers/Concerns
 
@@ -175,5 +176,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 10-03 (Octave shift on right-click — pad preview, drag carry to strip, strip playback honours octaveOffset)
+Stopped at: Completed quick-4 (Fix right-click drag quadrant selection — pressedQuadrant now set before first read in isPopupMenu() block)
 Resume file: None
