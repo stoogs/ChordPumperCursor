@@ -1,6 +1,5 @@
 #include "PadComponent.h"
 #include "ChordPumperLookAndFeel.h"
-#include "midi/MidiFileBuilder.h"
 
 namespace chordpumper {
 
@@ -141,20 +140,22 @@ void PadComponent::mouseDown(const juce::MouseEvent& event)
 {
     if (event.mods.isPopupMenu())
     {
-        auto exportDir = juce::File::getSpecialLocation(juce::File::userHomeDirectory)
-                             .getChildFile("ChordPumper-Export");
-        MidiFileBuilder::exportToDirectory(chord, 4, exportDir);
+        bool shiftHeld = event.mods.isShiftDown();
+        pendingOctaveOffset_ = shiftHeld ? -1 : +1;
 
-        // Brief visual flash to confirm export
+        const Chord& baseChord = (hasSubVariations && pressedQuadrant >= 0)
+            ? subChords[static_cast<size_t>(pressedQuadrant)]
+            : chord;
+
+        Chord offsetChord = baseChord;
+        offsetChord.octaveOffset = pendingOctaveOffset_;
+        offsetChord.romanNumeral = romanNumeral_;   // carry current label
+
         isPressed = true;
+        isDragInProgress = false;
         repaint();
-        juce::Timer::callAfterDelay(200, [safeThis = juce::Component::SafePointer<PadComponent>(this)]() {
-            if (safeThis != nullptr)
-            {
-                safeThis->isPressed = false;
-                safeThis->repaint();
-            }
-        });
+
+        if (onPressStart) onPressStart(offsetChord);
         return;
     }
 
@@ -188,6 +189,8 @@ void PadComponent::mouseDrag(const juce::MouseEvent& event)
         onPressEnd(activeChord);
 
     dragChord_ = activeChord;
+    dragChord_.octaveOffset = pendingOctaveOffset_;  // 0 for left-drag, ±1 for right-drag
+    dragChord_.romanNumeral = romanNumeral_;          // carry pad's current Roman numeral label
 
     if (auto* container = juce::DragAndDropContainer::findParentDragContainerFor(this))
         container->startDragging(juce::var(juce::String(activeChord.name())), this, juce::ScaledImage{}, false);
@@ -198,17 +201,27 @@ void PadComponent::mouseUp(const juce::MouseEvent& event)
     isPressed = false;
     repaint();
 
-    const Chord& activeChord = (hasSubVariations && pressedQuadrant >= 0)
+    const Chord& baseChord = (hasSubVariations && pressedQuadrant >= 0)
         ? subChords[static_cast<size_t>(pressedQuadrant)]
         : chord;
 
     if (!isDragInProgress)
     {
-        if (onPressEnd) onPressEnd(activeChord);
-        if (event.getDistanceFromDragStart() < 6 && onClick) onClick(activeChord);
+        // Build release chord — if right-click pending, use its offset
+        Chord releaseChord = baseChord;
+        if (pendingOctaveOffset_ != 0)
+            releaseChord.octaveOffset = pendingOctaveOffset_;
+
+        if (onPressEnd) onPressEnd(releaseChord);
+
+        // onClick only fires for left-click (pendingOctaveOffset_ == 0 for left-click)
+        if (pendingOctaveOffset_ == 0 && event.getDistanceFromDragStart() < 6 && onClick)
+            onClick(releaseChord);
     }
+
     isDragInProgress = false;
     pressedQuadrant = -1;
+    pendingOctaveOffset_ = 0;
 }
 
 void PadComponent::mouseEnter(const juce::MouseEvent&)

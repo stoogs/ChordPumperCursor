@@ -41,6 +41,7 @@ private:
     bool hasSubVariations = false;
     std::array<Chord, 4> subChords{};  // TL=0, TR=1, BL=2, BR=3
     int pressedQuadrant = -1;          // -1 = whole pad, 0-3 = quadrant index
+    int pendingOctaveOffset_ = 0;  // set on right-click mouseDown, used in mouseUp/mouseDrag
 
     int quadrantAt(juce::Point<int> pos) const;
 };
