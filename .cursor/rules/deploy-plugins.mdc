@@ -1,0 +1,20 @@
+---
+description: After completing a phase execution, build and install plugin artifacts
+globs:
+alwaysApply: false
+---
+
+# Post-Phase Plugin Deploy
+
+After every phase execution completes (after verification passes), build and install the plugin binaries:
+
+```bash
+cmake --build build --target ChordPumper
+cp build/ChordPumper_artefacts/CLAP/ChordPumper.clap ~/.clap/ChordPumper.clap
+rm -rf ~/.vst3/ChordPumper.vst3
+cp -r build/ChordPumper_artefacts/VST3/ChordPumper.vst3 ~/.vst3/ChordPumper.vst3
+```
+
+- VST3 is a directory bundle — always `rm -rf` before `cp -r` to avoid nesting
+- CLAP is a single file — simple `cp` overwrite
+- Run with `required_permissions: ["all"]` since `~/.clap` and `~/.vst3` are outside the workspace
