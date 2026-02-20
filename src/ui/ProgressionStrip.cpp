@@ -1,4 +1,5 @@
 #include "ProgressionStrip.h"
+#include "PadComponent.h"
 #include "ChordPumperLookAndFeel.h"
 
 namespace chordpumper {
@@ -82,6 +83,32 @@ bool ProgressionStrip::isEmpty() const
     return chords.empty();
 }
 
+bool ProgressionStrip::isInterestedInDragSource(const SourceDetails& details)
+{
+    return dynamic_cast<PadComponent*>(details.sourceComponent.get()) != nullptr;
+}
+
+void ProgressionStrip::itemDropped(const SourceDetails& details)
+{
+    if (auto* pad = dynamic_cast<PadComponent*>(details.sourceComponent.get()))
+        addChord(pad->getChord());
+
+    isReceivingDrag = false;
+    repaint();
+}
+
+void ProgressionStrip::itemDragEnter(const SourceDetails&)
+{
+    isReceivingDrag = true;
+    repaint();
+}
+
+void ProgressionStrip::itemDragExit(const SourceDetails&)
+{
+    isReceivingDrag = false;
+    repaint();
+}
+
 void ProgressionStrip::paint(juce::Graphics& g)
 {
     auto area = getLocalBounds();
@@ -109,6 +136,14 @@ void ProgressionStrip::paint(juce::Graphics& g)
             g.setColour(juce::Colour(0xff3a3a4a));
             g.drawRoundedRectangle(slot.toFloat().reduced(0.5f), 4.0f, 1.0f);
         }
+    }
+
+    if (isReceivingDrag)
+    {
+        g.setColour(juce::Colour(0xff6c8ebf).withAlpha(0.15f));
+        g.fillRoundedRectangle(getLocalBounds().toFloat(), 4.0f);
+        g.setColour(juce::Colour(0xff6c8ebf).withAlpha(0.5f));
+        g.drawRoundedRectangle(getLocalBounds().toFloat().reduced(1.0f), 4.0f, 2.0f);
     }
 }
 

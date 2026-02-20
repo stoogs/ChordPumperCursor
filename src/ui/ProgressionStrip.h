@@ -7,7 +7,8 @@
 
 namespace chordpumper {
 
-class ProgressionStrip : public juce::Component
+class ProgressionStrip : public juce::Component,
+                         public juce::DragAndDropTarget
 {
 public:
     ProgressionStrip(PersistentState& state, juce::CriticalSection& stateLock);
@@ -22,6 +23,11 @@ public:
     void paint(juce::Graphics& g) override;
     void resized() override;
 
+    bool isInterestedInDragSource(const SourceDetails& details) override;
+    void itemDropped(const SourceDetails& details) override;
+    void itemDragEnter(const SourceDetails& details) override;
+    void itemDragExit(const SourceDetails& details) override;
+
     static constexpr int kMaxChords = 8;
 
 private:
@@ -31,6 +37,7 @@ private:
     juce::CriticalSection& stateLock;
     std::vector<Chord> chords;
     juce::TextButton clearButton{"Clear"};
+    bool isReceivingDrag = false;
 };
 
 } // namespace chordpumper

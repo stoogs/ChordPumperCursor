@@ -20,6 +20,9 @@ public:
     void paint(juce::Graphics& g) override;
     void resized() override;
     void changeListenerCallback(juce::ChangeBroadcaster* source) override;
+    bool shouldDropFilesWhenDraggedExternally(
+        const juce::DragAndDropTarget::SourceDetails& details,
+        juce::StringArray& files, bool& canMoveFiles) override;
 
 private:
     ChordPumperProcessor& processor;

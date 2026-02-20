@@ -1,4 +1,6 @@
 #include "PluginEditor.h"
+#include "PadComponent.h"
+#include "midi/MidiFileBuilder.h"
 #include "../PluginProcessor.h"
 
 namespace chordpumper {
@@ -11,7 +13,6 @@ ChordPumperEditor::ChordPumperEditor(ChordPumperProcessor& p)
     setLookAndFeel(&lookAndFeel);
     addAndMakeVisible(gridPanel);
     addAndMakeVisible(progressionStrip);
-    gridPanel.onChordPlayed = [this](const Chord& c) { progressionStrip.addChord(c); };
     processor.addChangeListener(this);
     setSize(1000, 650);
 }
@@ -45,6 +46,24 @@ void ChordPumperEditor::resized()
     area.removeFromBottom(6);
     gridPanel.setBounds(area);
     progressionStrip.setBounds(stripArea);
+}
+
+bool ChordPumperEditor::shouldDropFilesWhenDraggedExternally(
+    const juce::DragAndDropTarget::SourceDetails& details,
+    juce::StringArray& files,
+    bool& canMoveFiles)
+{
+    if (auto* pad = dynamic_cast<PadComponent*>(details.sourceComponent.get()))
+    {
+        auto midiFile = MidiFileBuilder::createMidiFile(pad->getChord(), 4);
+        if (midiFile.existsAsFile())
+        {
+            files.add(midiFile.getFullPathName());
+            canMoveFiles = false;
+            return true;
+        }
+    }
+    return false;
 }
 
 } // namespace chordpumper
