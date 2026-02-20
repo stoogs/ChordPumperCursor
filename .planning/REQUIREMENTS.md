@@ -40,7 +40,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **PLAT-03**: Plugin available as CLAP format via clap-juce-extensions, loadable in Bitwig Studio 5+
 - [x] **PLAT-04**: Plugin available as standalone application
 - [x] **PLAT-05**: Build system uses CMake with juce_add_plugin
-- [ ] **PLAT-06**: Plugin state saves and restores correctly when DAW session is reloaded
+- [x] **PLAT-06**: Plugin state saves and restores correctly when DAW session is reloaded
 - [ ] **PLAT-07**: Plugin passes pluginval validation at reasonable strictness level
 
 ## v2 Requirements
@@ -114,7 +114,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PLAT-03 | Phase 1 | Complete |
 | PLAT-04 | Phase 1 | Complete |
 | PLAT-05 | Phase 1 | Complete |
-| PLAT-06 | Phase 6 | Pending |
+| PLAT-06 | Phase 6 | Complete |
 | PLAT-07 | Phase 6 | Pending |
 
 **Coverage:**

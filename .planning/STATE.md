@@ -10,16 +10,16 @@ See: .planning/PROJECT.md (updated 2026-02-19)
 ## Current Position
 
 Phase: 6 of 6 (State Persistence & Validation)
-Plan: 1 of 3 in current phase
+Plan: 2 of 3 in current phase
 Status: Executing Phase 6
-Last activity: 2026-02-20 — Completed 06-01: PersistentState struct with ValueTree serialization and 6 Catch2 round-trip tests
+Last activity: 2026-02-20 — Completed 06-02: Editor↔Processor bidirectional state wiring with ChangeBroadcaster notification
 
-Progress: [█████████░] 95%
+Progress: [█████████░] 97%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 13
+- Total plans completed: 14
 - Average duration: ~7 min
 - Total execution time: ~1.5 hours
 
@@ -34,10 +34,10 @@ Progress: [█████████░] 95%
 | 4. Morphing Suggestions | 3 | ~52 min | ~17 min |
 | 5. Capture & Export | 3 | ~14 min | ~5 min |
 
-| 6. State Persistence | 1 | 10 min | 10 min |
+| 6. State Persistence | 2 | 14 min | 7 min |
 
 **Recent Trend:**
-- Last 5 plans: 15min, 2min, 5min, 7min, 10min
+- Last 5 plans: 2min, 5min, 7min, 10min, 4min
 - Trend: → (steady)
 
 *Updated after each plan completion*
@@ -92,6 +92,9 @@ Recent decisions affecting current work:
 - [06-01]: MorphContext child only serialized when hasMorphed=true — avoids stale default data
 - [06-01]: Grid pads indexed by 'index' property — deserialization is order-independent
 - [06-01]: Default PersistentState initializes gridChords from chromaticPalette() to match visual default
+- [06-02]: ChangeBroadcaster on Processor for state-restore notification — lightweight, JUCE-standard pattern
+- [06-02]: refreshFromState() as public method on GridPanel and ProgressionStrip — decouples restore trigger from initialization
+- [06-02]: State references stored in UI components rather than copied — single source of truth in Processor
 
 ### Pending Todos
 
@@ -105,5 +108,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 06-01-PLAN.md (PersistentState serialization). Next: 06-02 (Editor↔Processor state wiring).
+Stopped at: Completed 06-02-PLAN.md (Editor↔Processor state wiring). Next: 06-03 (pluginval validation, RT safety audit).
 Resume file: None
