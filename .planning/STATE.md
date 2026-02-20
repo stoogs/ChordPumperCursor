@@ -138,6 +138,9 @@ Recent decisions affecting current work:
 - [quick-2]: onPressStart/onPressEnd callbacks on ProgressionStrip mirror pad hold pattern; pressedIndex tracks chord across mouseDown/mouseUp
 - [quick-2]: stripActiveNotes vector in PluginEditor owns MIDI state for immediate noteOff on release — no timer
 - [quick-2]: itemDragMove insertionIndex set for all drag sources; REORDER: prefix guard was unnecessary
+- [quick-3]: overwriteIndex mutually exclusive with insertionIndex — posInCell < slotWidth detects slot interior vs gap
+- [quick-3]: REORDER swap uses std::swap in-place; avoids erase+insert index correction math
+- [quick-3]: Insertion line upgraded to 4px white; overwrite highlight is bright yellow 2.5px border on target slot
 
 ### Roadmap Evolution
 
@@ -154,6 +157,7 @@ None yet.
 |---|-------------|------|--------|-----------|
 | 1 | Resize plugin window to 1000x600 and fit 8x8 grid | 2026-02-20 | e9346e5 | [1-resize-plugin-window-to-1000x600-and-fit](./quick/1-resize-plugin-window-to-1000x600-and-fit/) |
 | 2 | Progression strip hold-to-play and drag insertion line | 2026-02-20 | cd521d5 | [2-progression-strip-hold-to-play-and-drag-](./quick/2-progression-strip-hold-to-play-and-drag-/) |
+| 3 | Strip slot overwrite drag and stronger insertion indicator | 2026-02-20 | 7028cec | [3-strip-slot-overwrite-drag-and-stronger-d](./quick/3-strip-slot-overwrite-drag-and-stronger-d/) |
 
 ### Blockers/Concerns
 
@@ -163,5 +167,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed quick-2 (progression strip hold-to-play and drag insertion line)
+Stopped at: Completed quick-3 (strip slot overwrite drag and stronger insertion indicator)
 Resume file: None
