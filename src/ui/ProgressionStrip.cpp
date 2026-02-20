@@ -143,6 +143,7 @@ void ProgressionStrip::itemDropped(const SourceDetails& details)
         if (onChordDropped)
             onChordDropped(chord);
     }
+    insertionIndex = -1;
     isReceivingDrag = false;
     repaint();
 }
@@ -157,10 +158,8 @@ void ProgressionStrip::itemDragExit(const SourceDetails& details)
 {
     juce::String desc = details.description.toString();
     if (desc.startsWith("REORDER:"))
-    {
         reorderDragFromIndex = -1;
-        insertionIndex = -1;
-    }
+    insertionIndex = -1;
     isReceivingDrag = false;
     repaint();
 }
@@ -254,10 +253,6 @@ void ProgressionStrip::mouseDrag(const juce::MouseEvent& event)
 
 void ProgressionStrip::itemDragMove(const SourceDetails& details)
 {
-    juce::String desc = details.description.toString();
-    if (!desc.startsWith("REORDER:"))
-        return;
-
     auto localPos = getLocalPoint(details.sourceComponent.get(), details.localPosition);
     insertionIndex = insertionIndexAtX(localPos.getX());
     repaint();
