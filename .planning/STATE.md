@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-02-19)
 ## Current Position
 
 Phase: 10 of 10 (Strip Interaction and Octave Control)
-Plan: 2 of 3 — complete
-Status: Phase 10 in progress — Plan 02 executed (Strip hit-test fix, right-click delete, two-line Roman numeral)
-Last activity: 2026-02-20 - Completed 10-02: Strip interaction improvements (slotAndGapAtX, right-click delete, two-line rendering)
+Plan: 3 of 3 — complete
+Status: Phase 10 COMPLETE — All plans executed
+Last activity: 2026-02-20 - Completed 10-03: Octave shift right-click preview, drag carry, strip playback (STRIP-04)
 
 Progress: [██████████] 100% (phases 1-8 complete, phase 9 started)
 
@@ -46,6 +46,7 @@ Progress: [██████████] 100% (phases 1-8 complete, phase 9 st
 *Updated after each plan completion*
 | Phase 09 P03 | 4 | 2 tasks | 2 files |
 | Phase 10-strip-interaction-and-octave-control P02 | 4 | 2 tasks | 2 files |
+| Phase 10-strip-interaction-and-octave-control P03 | 4 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -146,6 +147,8 @@ Recent decisions affecting current work:
 - [10-01]: Progression chord serialisation uses property key 'roman' (matching grid pad convention) and 'octaveOffset' with default 0 for backward compatibility
 - [Phase 10]: slotAndGapAtX returns {slotIndex, isGap} — single source of truth for all strip hit-testing, eliminates dual boundary-calc bug
 - [Phase 10]: Right-click delete in ProgressionStrip placed before isReceivingDrag guard so it works regardless of drag state
+- [Phase 10]: pendingOctaveOffset_ reset to 0 in mouseUp — right-click octave offset consumed at mouseUp, drag carries it correctly
+- [Phase 10]: octaveOffset applied in startPreview and strip onPressStart only, not in morphTo — octave shift is preview-only intent
 
 ### Roadmap Evolution
 
@@ -172,5 +175,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 10-02 (Strip interaction improvements — slotAndGapAtX, right-click delete, two-line Roman numeral rendering)
+Stopped at: Completed 10-03 (Octave shift on right-click — pad preview, drag carry to strip, strip playback honours octaveOffset)
 Resume file: None
