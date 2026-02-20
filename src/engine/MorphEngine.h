@@ -24,7 +24,7 @@ class MorphEngine {
 public:
     MorphWeights weights;
 
-    std::array<ScoredChord, 32> morph(const Chord& reference,
+    std::array<ScoredChord, 64> morph(const Chord& reference,
                                        const std::vector<int>& currentVoicing) const;
 
     float scoreDiatonic(const PitchClass& referenceRoot,

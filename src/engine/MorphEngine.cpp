@@ -62,7 +62,7 @@ float MorphEngine::scoreDiatonic(const PitchClass& referenceRoot,
     return best;
 }
 
-std::array<ScoredChord, 32> MorphEngine::morph(
+std::array<ScoredChord, 64> MorphEngine::morph(
     const Chord& reference,
     const std::vector<int>& currentVoicing) const {
 
@@ -105,9 +105,12 @@ std::array<ScoredChord, 32> MorphEngine::morph(
         }
         float vlScore = std::max(0.0f, 1.0f - static_cast<float>(bestDist) / 24.0f);
 
+        float weightSum = weights.diatonic + weights.commonTones + weights.voiceLeading;
         float composite = weights.diatonic * ds +
                           weights.commonTones * ctScore +
                           weights.voiceLeading * vlScore;
+        if (weightSum > 0.0f)
+            composite /= weightSum;
 
         int interval = (chord.root.semitone() - refSemitone + 12) % 12;
 
@@ -144,8 +147,8 @@ std::array<ScoredChord, 32> MorphEngine::morph(
 
     std::sort(pool.begin(), pool.end(), cmp);
 
-    size_t poolSize = std::min(pool.size(), size_t(40));
-    constexpr size_t kFinal = 32;
+    size_t poolSize = std::min(pool.size(), size_t(72));
+    constexpr size_t kFinal = 64;
     size_t selectEnd = std::min(poolSize, kFinal);
 
     // Variety post-filter: ensure >= 2 from each quality category
@@ -154,7 +157,7 @@ std::array<ScoredChord, 32> MorphEngine::morph(
         catCount[static_cast<size_t>(qualityCategoryIndex(pool[i].chord.type))]++;
 
     for (int cat = 0; cat < kCategoryCount; ++cat) {
-        while (catCount[static_cast<size_t>(cat)] < 2) {
+        while (catCount[static_cast<size_t>(cat)] < 4) {
             int bestRes = -1;
             for (size_t j = selectEnd; j < poolSize; ++j) {
                 if (qualityCategoryIndex(pool[j].chord.type) == cat) {
@@ -167,7 +170,7 @@ std::array<ScoredChord, 32> MorphEngine::morph(
 
             int maxCat = -1;
             for (int c = 0; c < kCategoryCount; ++c) {
-                if (catCount[static_cast<size_t>(c)] > 2 &&
+                if (catCount[static_cast<size_t>(c)] > 4 &&
                     (maxCat < 0 ||
                      catCount[static_cast<size_t>(c)] >
                          catCount[static_cast<size_t>(maxCat)]))
@@ -197,7 +200,7 @@ std::array<ScoredChord, 32> MorphEngine::morph(
     std::sort(pool.begin(),
               pool.begin() + static_cast<ptrdiff_t>(selectEnd), cmp);
 
-    std::array<ScoredChord, 32> result{};
+    std::array<ScoredChord, 64> result{};
     for (size_t i = 0; i < kFinal && i < selectEnd; ++i)
         result[i] = std::move(pool[i]);
 
