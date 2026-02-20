@@ -10,8 +10,8 @@
 namespace chordpumper {
 
 struct PersistentState {
-    std::array<Chord, 32> gridChords;
-    std::array<std::string, 32> romanNumerals;
+    std::array<Chord, 64> gridChords;
+    std::array<std::string, 64> romanNumerals;
     Chord lastPlayedChord;
     std::vector<int> lastVoicing;
     std::vector<Chord> progression;

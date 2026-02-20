@@ -13,7 +13,7 @@ GridPanel::GridPanel(juce::MidiKeyboardState& ks,
         morphEngine.weights = persistentState.weights;
     }
 
-    for (int i = 0; i < 32; ++i)
+    for (int i = 0; i < 64; ++i)
     {
         auto* pad = pads.add(new PadComponent());
         pad->onPressStart = [this](const Chord& c) { startPreview(c); };
@@ -48,7 +48,7 @@ void GridPanel::morphTo(const Chord& chord)
     auto voiced = optimalVoicing(chord, activeNotes, defaultOctave);
     auto suggestions = morphEngine.morph(chord, voiced.midiNotes);
 
-    for (int i = 0; i < 32; ++i)
+    for (int i = 0; i < 64; ++i)
     {
         pads[i]->setChord(suggestions[static_cast<size_t>(i)].chord);
         pads[i]->setRomanNumeral(suggestions[static_cast<size_t>(i)].romanNumeral);
@@ -59,7 +59,7 @@ void GridPanel::morphTo(const Chord& chord)
         persistentState.lastPlayedChord = chord;
         persistentState.lastVoicing.assign(voiced.midiNotes.begin(), voiced.midiNotes.end());
         persistentState.hasMorphed = true;
-        for (int i = 0; i < 32; ++i)
+        for (int i = 0; i < 64; ++i)
         {
             persistentState.gridChords[static_cast<size_t>(i)] = suggestions[static_cast<size_t>(i)].chord;
             persistentState.romanNumerals[static_cast<size_t>(i)] = suggestions[static_cast<size_t>(i)].romanNumeral;
@@ -82,7 +82,7 @@ void GridPanel::refreshFromState()
 
     if (persistentState.hasMorphed)
     {
-        for (int i = 0; i < 32; ++i)
+        for (int i = 0; i < 64; ++i)
         {
             pads[i]->setChord(persistentState.gridChords[static_cast<size_t>(i)]);
             pads[i]->setRomanNumeral(persistentState.romanNumerals[static_cast<size_t>(i)]);
@@ -92,7 +92,7 @@ void GridPanel::refreshFromState()
     else
     {
         auto palette = chromaticPalette();
-        for (int i = 0; i < 32; ++i)
+        for (int i = 0; i < 64; ++i)
         {
             pads[i]->setChord(palette[static_cast<size_t>(i)]);
             pads[i]->setRomanNumeral({});
@@ -115,7 +115,7 @@ void GridPanel::resized()
     for (int i = 0; i < 8; ++i)
         grid.templateColumns.add(Track(Fr(1)));
 
-    for (int i = 0; i < 4; ++i)
+    for (int i = 0; i < 8; ++i)
         grid.templateRows.add(Track(Fr(1)));
 
     for (auto* pad : pads)

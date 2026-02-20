@@ -12,7 +12,7 @@ namespace {
     const juce::Identifier kChordType {"Chord"};
     const juce::Identifier kWeightsType {"Weights"};
 
-    constexpr int kCurrentStateVersion = 1;
+    constexpr int kCurrentStateVersion = 2;
 }
 
 PersistentState::PersistentState()
@@ -27,7 +27,7 @@ juce::ValueTree PersistentState::toValueTree() const
     root.setProperty("version", kCurrentStateVersion, nullptr);
 
     juce::ValueTree grid(kGridType);
-    for (int i = 0; i < 32; ++i)
+    for (int i = 0; i < 64; ++i)
     {
         auto idx = static_cast<size_t>(i);
         juce::ValueTree pad(kPadType);
@@ -95,7 +95,7 @@ PersistentState PersistentState::fromValueTree(const juce::ValueTree& tree)
         {
             auto pad = grid.getChild(i);
             int index = pad.getProperty("index", -1);
-            if (index < 0 || index >= 32) continue;
+            if (index < 0 || index >= 64) continue;
 
             auto idx = static_cast<size_t>(index);
             state.gridChords[idx].root.letter =
@@ -106,6 +106,16 @@ PersistentState PersistentState::fromValueTree(const juce::ValueTree& tree)
                 static_cast<ChordType>(static_cast<int>(pad.getProperty("type", 0)));
             state.romanNumerals[idx] =
                 pad.getProperty("roman", "").toString().toStdString();
+        }
+    }
+
+    if (version == 1)
+    {
+        auto palette = chromaticPalette();
+        for (int i = 32; i < 64; ++i)
+        {
+            state.gridChords[static_cast<size_t>(i)] = palette[static_cast<size_t>(i)];
+            state.romanNumerals[static_cast<size_t>(i)] = {};
         }
     }
 
