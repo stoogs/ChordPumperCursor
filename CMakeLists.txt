@@ -136,6 +136,7 @@ if(CHORDPUMPER_BUILD_TESTS)
         tests/test_roman_numeral.cpp
         tests/test_morph_engine.cpp
         tests/test_midi_file_builder.cpp
+        tests/test_state.cpp
         src/midi/MidiFileBuilder.cpp
         src/PersistentState.cpp
     )
