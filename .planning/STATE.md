@@ -44,6 +44,7 @@ Progress: [██████████] 100% (phases 1-8 complete, phase 9 st
 - Trend: → (steady, 08-03 longer due to LTO link times)
 
 *Updated after each plan completion*
+| Phase 09 P03 | 4 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -128,6 +129,8 @@ Recent decisions affecting current work:
 - [09-01]: noteCount() multi-range dispatch: t<4 triads, t<9 7ths, indices 9/12/15 for 9ths, else 6-note 11ths/13ths
 - [09-01]: kAllChords expanded 108->216 (12 roots x 18 types); MorphEngine reserve updated to match
 - [09-01]: Extension accent colours use lighter shades of family colour by depth (Maj=blue, Min=purple, Dom=teal)
+- [Phase 09]: REORDER:N drag prefix distinguishes intra-strip reorder from pad drops — no boolean state flag needed
+- [Phase 09]: insertionIndex is gap index (0..N) not slot index — toIdx>fromIdx correction after erase ensures correct final position
 
 ### Roadmap Evolution
 
@@ -152,5 +155,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 09-01-PLAN.md (expand chord type system to 18 types)
+Stopped at: Completed 09-03-PLAN.md (drag-to-reorder in ProgressionStrip)
 Resume file: None
