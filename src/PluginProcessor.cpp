@@ -20,6 +20,7 @@ void ChordPumperProcessor::releaseResources()
 
 void ChordPumperProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
+    midiMessages.ensureSize(2048);
     buffer.clear();
     midiMessages.clear();
     keyboardState.processNextMidiBuffer(midiMessages, 0, buffer.getNumSamples(), true);

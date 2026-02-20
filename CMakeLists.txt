@@ -75,6 +75,8 @@ target_sources(ChordPumper PRIVATE
 
 target_include_directories(ChordPumper PRIVATE src)
 
+set_source_files_properties(cmake/glibc_compat_math.c PROPERTIES COMPILE_OPTIONS "-fno-lto")
+
 target_compile_definitions(ChordPumper PUBLIC
     JUCE_WEB_BROWSER=0
     JUCE_USE_CURL=0
