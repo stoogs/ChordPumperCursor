@@ -85,9 +85,8 @@ void PadComponent::mouseDown(const juce::MouseEvent& event)
     }
 
     isPressed = true;
+    isDragInProgress = false;
     repaint();
-    if (onClick)
-        onClick(chord);
 }
 
 void PadComponent::mouseDrag(const juce::MouseEvent& event)
@@ -98,28 +97,24 @@ void PadComponent::mouseDrag(const juce::MouseEvent& event)
     if (isDragInProgress)
         return;
 
-    auto midiFile = MidiFileBuilder::createMidiFile(chord, 4);
-    if (!midiFile.existsAsFile())
-        return;
-
     isDragInProgress = true;
-    juce::DragAndDropContainer::performExternalDragDropOfFiles(
-        { midiFile.getFullPathName() },
-        false,
-        this,
-        [this, midiFile]() {
-            isDragInProgress = false;
-            juce::Timer::callAfterDelay(2000, [midiFile]() {
-                midiFile.deleteFile();
-            });
-        }
-    );
+
+    if (auto* container = juce::DragAndDropContainer::findParentDragContainerFor(this))
+        container->startDragging(juce::var(juce::String(chord.name())), this, juce::ScaledImage{}, false);
 }
 
-void PadComponent::mouseUp(const juce::MouseEvent&)
+void PadComponent::mouseUp(const juce::MouseEvent& event)
 {
     isPressed = false;
     repaint();
+
+    if (!isDragInProgress && event.getDistanceFromDragStart() < 6)
+    {
+        if (onClick)
+            onClick(chord);
+    }
+
+    isDragInProgress = false;
 }
 
 void PadComponent::mouseEnter(const juce::MouseEvent&)
