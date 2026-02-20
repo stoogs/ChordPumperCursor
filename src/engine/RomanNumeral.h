@@ -34,6 +34,12 @@ inline bool isUpperCase(ChordType type) {
         case ChordType::Augmented:
         case ChordType::Maj7:
         case ChordType::Dom7:
+        case ChordType::Maj9:
+        case ChordType::Maj11:
+        case ChordType::Maj13:
+        case ChordType::Dom9:
+        case ChordType::Dom11:
+        case ChordType::Dom13:
             return true;
         default:
             return false;
