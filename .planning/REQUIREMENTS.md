@@ -73,6 +73,14 @@ Deferred to future release. Tracked but not in current roadmap.
 - **GRID-09**: Grid bookmarks to save and recall grid states
 - **GRID-10**: Multiple grid pages for different song sections
 
+### Strip Interaction & Octave Control
+
+- **STRIP-01**: Dragging a chord from the grid to the strip deposits it at the slot under the cursor (overwrite existing, or insert at gap) — not always appended to the end
+- **STRIP-02**: Drop visual indicators are centered accurately on the target slot during drag
+- **STRIP-03**: Right-clicking a slot in the progression strip clears/removes that chord from the strip
+- **STRIP-04**: Right-clicking a grid pad plays it one octave higher; Shift+right-click plays it one octave lower; the octave offset is preserved when the chord is dragged to the strip, shown as a `+` or `-` indicator in the strip slot
+- **STRIP-05**: Strip chord slots display the Roman numeral label matching the main grid display
+
 ### Quality of Life
 
 - **QOL-01**: Pad velocity sensitivity from MIDI input
