@@ -41,7 +41,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **PLAT-04**: Plugin available as standalone application
 - [x] **PLAT-05**: Build system uses CMake with juce_add_plugin
 - [x] **PLAT-06**: Plugin state saves and restores correctly when DAW session is reloaded
-- [ ] **PLAT-07**: Plugin passes pluginval validation at reasonable strictness level
+- [x] **PLAT-07**: Plugin passes pluginval validation at reasonable strictness level
 
 ## v2 Requirements
 
@@ -115,7 +115,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PLAT-04 | Phase 1 | Complete |
 | PLAT-05 | Phase 1 | Complete |
 | PLAT-06 | Phase 6 | Complete |
-| PLAT-07 | Phase 6 | Pending |
+| PLAT-07 | Phase 6 | Complete |
 
 **Coverage:**
 - v1 requirements: 21 total
