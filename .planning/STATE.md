@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-02-19)
 Phase: 8 of 8 (Grid UX Overhaul)
 Plan: 3 of 3 — complete
 Status: Phase 8 complete — all plans executed (hold-to-preview, 8×8 grid, similarity colours)
-Last activity: 2026-02-20 — 08-03 complete: harmonic similarity colour gradient on pad borders
+Last activity: 2026-02-20 - Completed quick task 1: Resize plugin window to 1000x600 and fit 8x8 grid
 
 Progress: [██████████] 100%
 
@@ -133,6 +133,12 @@ Recent decisions affecting current work:
 ### Pending Todos
 
 None yet.
+
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 1 | Resize plugin window to 1000x600 and fit 8x8 grid | 2026-02-20 | e9346e5 | [1-resize-plugin-window-to-1000x600-and-fit](./quick/1-resize-plugin-window-to-1000x600-and-fit/) |
 
 ### Blockers/Concerns
 
