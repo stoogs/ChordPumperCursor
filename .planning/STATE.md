@@ -123,6 +123,7 @@ Recent decisions affecting current work:
 - [08-03]: 5-stop gradient with interpolation between stops for smooth colour transitions
 - [08-03]: Score sentinel -1.0f triggers chord-type accent fallback — no boolean flag needed
 - [08-03]: Restored sessions reset scores to -1 rather than re-morphing — user re-morphs on next strip interaction
+- [Phase quick-1]: Window resized 1000x1200->1000x600; pad fonts scaled 14/14/11->12/11/9pt
 
 ### Roadmap Evolution
 
@@ -141,5 +142,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 08-03-PLAN.md
+Stopped at: Completed quick-1-PLAN.md (resize window to 1000x600)
 Resume file: None
