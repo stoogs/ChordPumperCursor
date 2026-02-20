@@ -3,6 +3,7 @@
 #include "engine/Chord.h"
 #include "../PersistentState.h"
 #include <juce_gui_basics/juce_gui_basics.h>
+#include <functional>
 #include <vector>
 
 namespace chordpumper {
@@ -20,8 +21,11 @@ public:
     bool isEmpty() const;
     void refreshFromState();
 
+    std::function<void(const Chord&)> onChordClicked;
+
     void paint(juce::Graphics& g) override;
     void resized() override;
+    void mouseDown(const juce::MouseEvent& event) override;
 
     bool isInterestedInDragSource(const SourceDetails& details) override;
     void itemDropped(const SourceDetails& details) override;
@@ -32,6 +36,7 @@ public:
 
 private:
     void updateClearButton();
+    int getChordIndexAtPosition(juce::Point<int> pos) const;
 
     PersistentState& persistentState;
     juce::CriticalSection& stateLock;

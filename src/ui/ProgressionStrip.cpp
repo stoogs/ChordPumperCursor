@@ -109,6 +109,44 @@ void ProgressionStrip::itemDragExit(const SourceDetails&)
     repaint();
 }
 
+int ProgressionStrip::getChordIndexAtPosition(juce::Point<int> pos) const
+{
+    auto area = getLocalBounds();
+    auto slotArea = area.removeFromLeft(area.getWidth() - 60);
+
+    if (!slotArea.contains(pos))
+        return -1;
+
+    auto slotWidth = (slotArea.getWidth() - (kMaxChords - 1) * 4) / kMaxChords;
+    int relX = pos.getX() - slotArea.getX();
+    int cellWidth = slotWidth + 4;
+    int index = relX / cellWidth;
+    int posInCell = relX % cellWidth;
+
+    if (posInCell >= slotWidth)
+        return -1;
+    if (index < 0 || index >= static_cast<int>(chords.size()))
+        return -1;
+
+    return index;
+}
+
+void ProgressionStrip::mouseDown(const juce::MouseEvent& event)
+{
+    if (isReceivingDrag)
+        return;
+
+    if (auto* container = juce::DragAndDropContainer::findParentDragContainerFor(this))
+    {
+        if (container->isDragAndDropActive())
+            return;
+    }
+
+    int index = getChordIndexAtPosition(event.getPosition());
+    if (index >= 0 && onChordClicked)
+        onChordClicked(chords[static_cast<size_t>(index)]);
+}
+
 void ProgressionStrip::paint(juce::Graphics& g)
 {
     auto area = getLocalBounds();
