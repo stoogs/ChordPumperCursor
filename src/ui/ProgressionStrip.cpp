@@ -93,11 +93,49 @@ bool ProgressionStrip::isEmpty() const
 
 bool ProgressionStrip::isInterestedInDragSource(const SourceDetails& details)
 {
+    juce::String desc = details.description.toString();
+    if (desc.startsWith("REORDER:"))
+        return true;
     return dynamic_cast<PadComponent*>(details.sourceComponent.get()) != nullptr;
 }
 
 void ProgressionStrip::itemDropped(const SourceDetails& details)
 {
+    juce::String desc = details.description.toString();
+
+    if (desc.startsWith("REORDER:"))
+    {
+        int fromIdx = desc.fromFirstOccurrenceOf(":", false, false).getIntValue();
+        int toIdx   = insertionIndex;  // gap index (0..N) set by itemDragMove
+
+        // Validate indices
+        if (fromIdx >= 0 && fromIdx < static_cast<int>(chords.size()) &&
+            toIdx   >= 0 && toIdx   <= static_cast<int>(chords.size()) &&
+            toIdx != fromIdx && toIdx != fromIdx + 1)
+        {
+            auto chord = chords[static_cast<size_t>(fromIdx)];
+            chords.erase(chords.begin() + fromIdx);
+            // After erase, if toIdx was after fromIdx, it shifts back by 1
+            if (toIdx > fromIdx)
+                toIdx--;
+            chords.insert(chords.begin() + toIdx, chord);
+
+            {
+                const juce::ScopedLock sl(stateLock);
+                persistentState.progression = chords;
+            }
+            updateClearButton();
+            updateExportButton();
+        }
+
+        reorderDragFromIndex = -1;
+        insertionIndex = -1;
+        isReceivingDrag = false;
+        repaint();
+        return;
+    }
+
+    // Existing pad-drop logic (unchanged)
     if (auto* pad = dynamic_cast<PadComponent*>(details.sourceComponent.get()))
     {
         const auto& chord = pad->getChord();
@@ -115,8 +153,14 @@ void ProgressionStrip::itemDragEnter(const SourceDetails&)
     repaint();
 }
 
-void ProgressionStrip::itemDragExit(const SourceDetails&)
+void ProgressionStrip::itemDragExit(const SourceDetails& details)
 {
+    juce::String desc = details.description.toString();
+    if (desc.startsWith("REORDER:"))
+    {
+        reorderDragFromIndex = -1;
+        insertionIndex = -1;
+    }
     isReceivingDrag = false;
     repaint();
 }
@@ -245,6 +289,18 @@ void ProgressionStrip::paint(juce::Graphics& g)
             g.setColour(juce::Colour(0xff3a3a4a));
             g.drawRoundedRectangle(slot.toFloat().reduced(0.5f), 4.0f, 1.0f);
         }
+    }
+
+    if (insertionIndex >= 0 && insertionIndex <= static_cast<int>(chords.size()))
+    {
+        auto area2 = getLocalBounds();
+        auto slotArea2 = area2.removeFromLeft(area2.getWidth() - 120);
+        auto slotWidth2 = (slotArea2.getWidth() - (kMaxChords - 1) * 4) / kMaxChords;
+        int cellWidth2 = slotWidth2 + 4;
+        // Cursor x = left edge of insertion gap
+        int cursorX = slotArea2.getX() + insertionIndex * cellWidth2 - 2;
+        g.setColour(juce::Colour(0xff6c8ebf));  // blue accent (same as pressed colour)
+        g.fillRect(cursorX, slotArea2.getY() + 2, 3, slotArea2.getHeight() - 4);
     }
 
     if (isReceivingDrag)
