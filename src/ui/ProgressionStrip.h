@@ -23,10 +23,13 @@ public:
 
     std::function<void(const Chord&)> onChordClicked;
     std::function<void(const Chord&)> onChordDropped;
+    std::function<void(const Chord&)> onPressStart;
+    std::function<void(const Chord&)> onPressEnd;
 
     void paint(juce::Graphics& g) override;
     void resized() override;
     void mouseDown(const juce::MouseEvent& event) override;
+    void mouseUp(const juce::MouseEvent& event) override;
 
     bool isInterestedInDragSource(const SourceDetails& details) override;
     void itemDropped(const SourceDetails& details) override;
@@ -46,6 +49,7 @@ private:
 
     int reorderDragFromIndex = -1;
     int insertionIndex = -1;
+    int pressedIndex = -1;
 
     PersistentState& persistentState;
     juce::CriticalSection& stateLock;

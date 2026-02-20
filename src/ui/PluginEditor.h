@@ -29,6 +29,7 @@ private:
     ChordPumperLookAndFeel lookAndFeel;
     GridPanel gridPanel;
     ProgressionStrip progressionStrip;
+    std::vector<int> stripActiveNotes;
 };
 
 } // namespace chordpumper

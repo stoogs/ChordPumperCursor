@@ -275,7 +275,24 @@ void ProgressionStrip::mouseDown(const juce::MouseEvent& event)
     }
 
     int index = getChordIndexAtPosition(event.getPosition());
-    if (index >= 0 && onChordClicked)
+    pressedIndex = index;
+    if (index >= 0 && onPressStart)
+        onPressStart(chords[static_cast<size_t>(index)]);
+}
+
+void ProgressionStrip::mouseUp(const juce::MouseEvent& event)
+{
+    int index = pressedIndex;
+    pressedIndex = -1;
+
+    if (index < 0 || index >= static_cast<int>(chords.size()))
+        return;
+
+    if (onPressEnd)
+        onPressEnd(chords[static_cast<size_t>(index)]);
+
+    // Only trigger morph on a click (no significant drag)
+    if (event.getDistanceFromDragStart() < 10 && onChordClicked)
         onChordClicked(chords[static_cast<size_t>(index)]);
 }
 

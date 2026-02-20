@@ -13,17 +13,21 @@ ChordPumperEditor::ChordPumperEditor(ChordPumperProcessor& p)
     setLookAndFeel(&lookAndFeel);
     addAndMakeVisible(gridPanel);
     addAndMakeVisible(progressionStrip);
-    progressionStrip.onChordClicked = [this](const Chord& c) {
-        gridPanel.morphTo(c);
+    progressionStrip.onPressStart = [this](const Chord& c) {
         auto& ks = processor.getKeyboardState();
         auto notes = c.midiNotes(4);
         for (auto n : notes) ks.noteOn(1, n, 0.8f);
-        juce::Timer::callAfterDelay(300,
-            [safeThis = juce::Component::SafePointer<ChordPumperEditor>(this), notes]() {
-                if (safeThis == nullptr) return;
-                auto& ks2 = safeThis->processor.getKeyboardState();
-                for (auto n : notes) ks2.noteOff(1, n, 0.0f);
-            });
+        stripActiveNotes = std::vector<int>(notes.begin(), notes.end());
+    };
+
+    progressionStrip.onPressEnd = [this](const Chord&) {
+        auto& ks = processor.getKeyboardState();
+        for (auto n : stripActiveNotes) ks.noteOff(1, n, 0.0f);
+        stripActiveNotes.clear();
+    };
+
+    progressionStrip.onChordClicked = [this](const Chord& c) {
+        gridPanel.morphTo(c);
     };
 
     progressionStrip.onChordDropped = [this](const Chord& c) {
