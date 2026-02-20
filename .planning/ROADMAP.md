@@ -20,6 +20,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 6: State Persistence & Validation** - Session recall, pluginval, real-time safety verification
 - [x] **Phase 7: UX Polish & Progression Workflow** - Drag-to-add progression strip, click-to-play strip chords, MIDI file export, visual polish
 - [x] **Phase 8: Grid UX Overhaul** - Hold-to-preview, drag-to-morph flow, harmonic similarity colours, 8×8 grid
+- [ ] **Phase 9: Chord Depth & UI Polish** - Sub-chord variations (7/9/11/13) per pad, bolder glowing borders on hover, drag-to-reorder notes in progression strip
 
 **Parallelization:** Phase 5 can execute in parallel with Phase 4 (both depend on Phase 3, neither depends on the other).
 
@@ -151,10 +152,25 @@ Plans:
 - [x] 08-02-PLAN.md — 8×8 grid + engine expansion (64 pads, 7th chords, state v2 migration)
 - [x] 08-03-PLAN.md — Harmonic similarity colours (5-stop score gradient on pad borders)
 
+### Phase 9: Chord Depth & UI Polish
+**Goal**: Expand chord pads with sub-variation menus (7th/9th/11th/13th extensions where musically useful), make pad borders bolder and glowing on hover, and allow drag-reordering of notes within the progression strip
+**Depends on**: Phase 8
+**Requirements**: DEPTH-01, DEPTH-02, DEPTH-03
+**Success Criteria** (what must be TRUE):
+  1. Selected pads that benefit from extensions show sub-variations (e.g. Cmaj → Cmaj7, Cmaj9, Cmaj11, Cmaj13) accessible via sub-pad quadrant UI
+  2. Pad borders are visibly thicker and produce a subtle glow effect on mouse hover
+  3. Notes in the progression strip can be dragged to reorder their position within the sequence (not just appended)
+**Plans**: 3 plans
+
+Plans:
+- [ ] 09-01-PLAN.md — ChordType engine expansion (9→18 types: Maj/Min/Dom 9th/11th/13th), kAllChords 108→216, MorphEngine reserve update
+- [ ] 09-02-PLAN.md — PadComponent quadrant split for qualifying types + bolder 3px borders + hover glow rings
+- [ ] 09-03-PLAN.md — ProgressionStrip drag-to-reorder with insertion cursor and erase+insert logic
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6 → 7 → 8
+Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6 → 7 → 8 → 9
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -166,3 +182,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6 →
 | 6. State Persistence & Validation | 3/3 | Complete | 2026-02-20 |
 | 7. UX Polish & Progression Workflow | 3/3 | Complete | 2026-02-20 |
 | 8. Grid UX Overhaul | 3/3 | Complete | 2026-02-20 |
+| 9. Chord Depth & UI Polish | 0/3 | Pending | — |
