@@ -5,18 +5,27 @@ namespace chordpumper {
 
 ChordPumperEditor::ChordPumperEditor(ChordPumperProcessor& p)
     : AudioProcessorEditor(&p), processor(p),
-      gridPanel(p.getKeyboardState(), p.getState(), p.getStateLock())
+      gridPanel(p.getKeyboardState(), p.getState(), p.getStateLock()),
+      progressionStrip(p.getState(), p.getStateLock())
 {
     setLookAndFeel(&lookAndFeel);
     addAndMakeVisible(gridPanel);
     addAndMakeVisible(progressionStrip);
     gridPanel.onChordPlayed = [this](const Chord& c) { progressionStrip.addChord(c); };
+    processor.addChangeListener(this);
     setSize(1000, 650);
 }
 
 ChordPumperEditor::~ChordPumperEditor()
 {
+    processor.removeChangeListener(this);
     setLookAndFeel(nullptr);
+}
+
+void ChordPumperEditor::changeListenerCallback(juce::ChangeBroadcaster*)
+{
+    gridPanel.refreshFromState();
+    progressionStrip.refreshFromState();
 }
 
 void ChordPumperEditor::paint(juce::Graphics& g)

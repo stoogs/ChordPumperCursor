@@ -3,10 +3,16 @@
 
 namespace chordpumper {
 
-ProgressionStrip::ProgressionStrip()
+ProgressionStrip::ProgressionStrip(PersistentState& state, juce::CriticalSection& lock)
+    : persistentState(state), stateLock(lock)
 {
+    {
+        const juce::ScopedLock sl(stateLock);
+        chords = persistentState.progression;
+    }
+
     addAndMakeVisible(clearButton);
-    clearButton.setEnabled(false);
+    updateClearButton();
     clearButton.onClick = [this]
     {
         clear();
@@ -20,6 +26,25 @@ void ProgressionStrip::addChord(const Chord& chord)
         chords.erase(chords.begin());
 
     chords.push_back(chord);
+
+    {
+        const juce::ScopedLock sl(stateLock);
+        persistentState.progression = chords;
+    }
+
+    updateClearButton();
+    repaint();
+}
+
+void ProgressionStrip::setChords(const std::vector<Chord>& newChords)
+{
+    chords = newChords;
+
+    {
+        const juce::ScopedLock sl(stateLock);
+        persistentState.progression = chords;
+    }
+
     updateClearButton();
     repaint();
 }
@@ -27,6 +52,22 @@ void ProgressionStrip::addChord(const Chord& chord)
 void ProgressionStrip::clear()
 {
     chords.clear();
+
+    {
+        const juce::ScopedLock sl(stateLock);
+        persistentState.progression.clear();
+    }
+
+    updateClearButton();
+    repaint();
+}
+
+void ProgressionStrip::refreshFromState()
+{
+    {
+        const juce::ScopedLock sl(stateLock);
+        chords = persistentState.progression;
+    }
     updateClearButton();
     repaint();
 }

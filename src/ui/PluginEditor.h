@@ -10,7 +10,8 @@ namespace chordpumper {
 class ChordPumperProcessor;
 
 class ChordPumperEditor : public juce::AudioProcessorEditor,
-                          public juce::DragAndDropContainer
+                          public juce::DragAndDropContainer,
+                          public juce::ChangeListener
 {
 public:
     explicit ChordPumperEditor(ChordPumperProcessor& processor);
@@ -18,6 +19,7 @@ public:
 
     void paint(juce::Graphics& g) override;
     void resized() override;
+    void changeListenerCallback(juce::ChangeBroadcaster* source) override;
 
 private:
     ChordPumperProcessor& processor;
