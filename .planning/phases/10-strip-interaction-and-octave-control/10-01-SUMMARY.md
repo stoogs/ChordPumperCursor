@@ -70,7 +70,7 @@ Each task was committed atomically:
 1. **Task 1: Add octaveOffset and romanNumeral to Chord** - `532ec52` (feat)
 2. **Task 2: Persist octaveOffset and romanNumeral on progression chords** - `c914790` (feat)
 
-**Plan metadata:** (to follow)
+**Plan metadata:** `aa38614` (docs: complete plan)
 
 ## Files Created/Modified
 
