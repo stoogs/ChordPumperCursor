@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-19)
 
 **Core value:** The morphing grid — play a chord, see what comes next, follow the thread.
-**Current focus:** Phase 8: Grid UX Overhaul
+**Current focus:** Phase 9: Chord Depth & UI Polish
 
 ## Current Position
 
-Phase: 8 of 8 (Grid UX Overhaul)
-Plan: 3 of 3 — complete
-Status: Phase 8 complete — all plans executed (hold-to-preview, 8×8 grid, similarity colours)
-Last activity: 2026-02-20 - Completed quick task 1: Resize plugin window to 1000x600 and fit 8x8 grid
+Phase: 9 of 9 (Chord Depth & UI Polish)
+Plan: 1 of ? — complete
+Status: Phase 9 in progress — Plan 01 executed (18 chord types, 216-chord pool)
+Last activity: 2026-02-20 - Completed 09-01: Expand chord type system to 18 types
 
-Progress: [██████████] 100%
+Progress: [██████████] 100% (phases 1-8 complete, phase 9 started)
 
 ## Performance Metrics
 
@@ -124,6 +124,10 @@ Recent decisions affecting current work:
 - [08-03]: Score sentinel -1.0f triggers chord-type accent fallback — no boolean flag needed
 - [08-03]: Restored sessions reset scores to -1 rather than re-morphing — user re-morphs on next strip interaction
 - [Phase quick-1]: Window resized 1000x1200->1000x600; pad fonts scaled 14/14/11->12/11/9pt
+- [09-01]: kIntervals expanded to [18][6] with -1 sentinels — backward-compatible, existing types iterate only noteCount() slots
+- [09-01]: noteCount() multi-range dispatch: t<4 triads, t<9 7ths, indices 9/12/15 for 9ths, else 6-note 11ths/13ths
+- [09-01]: kAllChords expanded 108->216 (12 roots x 18 types); MorphEngine reserve updated to match
+- [09-01]: Extension accent colours use lighter shades of family colour by depth (Maj=blue, Min=purple, Dom=teal)
 
 ### Roadmap Evolution
 
@@ -148,5 +152,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed quick-1-PLAN.md (resize window to 1000x600)
+Stopped at: Completed 09-01-PLAN.md (expand chord type system to 18 types)
 Resume file: None
