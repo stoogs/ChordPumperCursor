@@ -3,6 +3,7 @@
 #include <juce_gui_basics/juce_gui_basics.h>
 #include <juce_audio_basics/juce_audio_basics.h>
 #include "PadComponent.h"
+#include "../PersistentState.h"
 #include "engine/MorphEngine.h"
 #include "engine/VoiceLeader.h"
 #include <functional>
@@ -13,10 +14,13 @@ namespace chordpumper {
 class GridPanel : public juce::Component, private juce::Timer
 {
 public:
-    explicit GridPanel(juce::MidiKeyboardState& keyboardState);
+    GridPanel(juce::MidiKeyboardState& keyboardState,
+              PersistentState& state,
+              juce::CriticalSection& stateLock);
     ~GridPanel() override;
 
     void resized() override;
+    void refreshFromState();
 
     std::function<void(const Chord&)> onChordPlayed;
 
@@ -26,6 +30,8 @@ private:
     void timerCallback() override;
 
     juce::MidiKeyboardState& keyboardState;
+    PersistentState& persistentState;
+    juce::CriticalSection& stateLock;
     juce::OwnedArray<PadComponent> pads;
     std::vector<int> activeNotes;
     MorphEngine morphEngine;

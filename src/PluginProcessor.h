@@ -5,7 +5,8 @@
 
 namespace chordpumper {
 
-class ChordPumperProcessor : public juce::AudioProcessor
+class ChordPumperProcessor : public juce::AudioProcessor,
+                              public juce::ChangeBroadcaster
 {
 public:
     ChordPumperProcessor();

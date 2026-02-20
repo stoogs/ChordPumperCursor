@@ -54,6 +54,7 @@ void ChordPumperProcessor::setStateInformation(const void* data, int sizeInBytes
         const juce::ScopedLock sl(stateLock);
         persistentState = std::move(restored);
     }
+    sendChangeMessage();
 }
 
 } // namespace chordpumper

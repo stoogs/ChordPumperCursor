@@ -4,7 +4,8 @@
 namespace chordpumper {
 
 ChordPumperEditor::ChordPumperEditor(ChordPumperProcessor& p)
-    : AudioProcessorEditor(&p), processor(p), gridPanel(p.getKeyboardState())
+    : AudioProcessorEditor(&p), processor(p),
+      gridPanel(p.getKeyboardState(), p.getState(), p.getStateLock())
 {
     setLookAndFeel(&lookAndFeel);
     addAndMakeVisible(gridPanel);
