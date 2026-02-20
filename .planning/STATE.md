@@ -10,16 +10,16 @@ See: .planning/PROJECT.md (updated 2026-02-19)
 ## Current Position
 
 Phase: 8 of 8 (Grid UX Overhaul)
-Plan: 2 of 3 — executing
-Status: Phase 8 in progress — plan 02 complete (8×8 grid, 64-pad engine, v2 state migration)
-Last activity: 2026-02-20 — 08-02 complete: 8×8 grid with 64 morph suggestions, 7th chord palette, v2 state
+Plan: 3 of 3 — complete
+Status: Phase 8 complete — all plans executed (hold-to-preview, 8×8 grid, similarity colours)
+Last activity: 2026-02-20 — 08-03 complete: harmonic similarity colour gradient on pad borders
 
-Progress: [████████░░] 80%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 17
+- Total plans completed: 18
 - Average duration: ~7 min
 - Total execution time: ~1.5 hours
 
@@ -37,9 +37,11 @@ Progress: [████████░░] 80%
 | 6. State Persistence | 3 | ~22 min | ~7 min |
 | 7. UX Polish & Progression | 3 | ~18 min | ~6 min |
 
+| 8. Grid UX Overhaul | 3 | ~33 min | ~11 min |
+
 **Recent Trend:**
-- Last 5 plans: 5min, 5min, 8min, 6min, 7min
-- Trend: → (steady)
+- Last 5 plans: 5min, 8min, 6min, 7min, 20min
+- Trend: → (steady, 08-03 longer due to LTO link times)
 
 *Updated after each plan completion*
 
@@ -118,6 +120,9 @@ Recent decisions affecting current work:
 - [08-02]: Pool size cap widened 40→72 to feed 64 final slots
 - [08-02]: v1→v2 state migration fills indices 32-63 from chromaticPalette
 - [08-02]: Window height 1200px accommodates 8 rows at current pad size
+- [08-03]: 5-stop gradient with interpolation between stops for smooth colour transitions
+- [08-03]: Score sentinel -1.0f triggers chord-type accent fallback — no boolean flag needed
+- [08-03]: Restored sessions reset scores to -1 rather than re-morphing — user re-morphs on next strip interaction
 
 ### Roadmap Evolution
 
@@ -136,5 +141,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 08-02-PLAN.md
+Stopped at: Completed 08-03-PLAN.md
 Resume file: None
