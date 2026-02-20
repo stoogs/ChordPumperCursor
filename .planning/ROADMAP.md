@@ -20,7 +20,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 6: State Persistence & Validation** - Session recall, pluginval, real-time safety verification
 - [x] **Phase 7: UX Polish & Progression Workflow** - Drag-to-add progression strip, click-to-play strip chords, MIDI file export, visual polish
 - [x] **Phase 8: Grid UX Overhaul** - Hold-to-preview, drag-to-morph flow, harmonic similarity colours, 8×8 grid
-- [ ] **Phase 9: Chord Depth & UI Polish** - Sub-chord variations (7/9/11/13) per pad, bolder glowing borders on hover, drag-to-reorder notes in progression strip
+- [x] **Phase 9: Chord Depth & UI Polish** - Sub-chord variations (7/9/11/13) per pad, bolder glowing borders on hover, drag-to-reorder notes in progression strip (completed 2026-02-20)
 
 **Parallelization:** Phase 5 can execute in parallel with Phase 4 (both depend on Phase 3, neither depends on the other).
 
@@ -182,4 +182,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6 →
 | 6. State Persistence & Validation | 3/3 | Complete | 2026-02-20 |
 | 7. UX Polish & Progression Workflow | 3/3 | Complete | 2026-02-20 |
 | 8. Grid UX Overhaul | 3/3 | Complete | 2026-02-20 |
-| 9. Chord Depth & UI Polish | 2/3 | In Progress|  |
+| 9. Chord Depth & UI Polish | 3/3 | Complete   | 2026-02-20 |

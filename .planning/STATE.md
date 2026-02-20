@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-02-19)
 ## Current Position
 
 Phase: 9 of 9 (Chord Depth & UI Polish)
-Plan: 1 of ? — complete
-Status: Phase 9 in progress — Plan 01 executed (18 chord types, 216-chord pool)
-Last activity: 2026-02-20 - Completed 09-01: Expand chord type system to 18 types
+Plan: 2 of ? — complete
+Status: Phase 9 in progress — Plan 02 executed (quadrant sub-variations, glow borders)
+Last activity: 2026-02-20 - Completed 09-02: Quadrant sub-variation selector and hover glow on pads
 
 Progress: [██████████] 100% (phases 1-8 complete, phase 9 started)
 
@@ -131,6 +131,10 @@ Recent decisions affecting current work:
 - [09-01]: Extension accent colours use lighter shades of family colour by depth (Maj=blue, Min=purple, Dom=teal)
 - [Phase 09]: REORDER:N drag prefix distinguishes intra-strip reorder from pad drops — no boolean state flag needed
 - [Phase 09]: insertionIndex is gap index (0..N) not slot index — toIdx>fromIdx correction after erase ensures correct final position
+- [09-02]: Quadrant index TL=0 TR=1 BL=2 BR=3 — bottom adds 2, right adds 1; clear bit layout
+- [09-02]: pressedQuadrant reset in mouseExit as well as mouseUp — handles fast mouse moves during drag
+- [09-02]: applySubVariations() as anonymous-namespace free function in GridPanel.cpp — keeps GridPanel class interface clean
+- [09-02]: Glow rings painted before solid border so border sits cleanly on top
 
 ### Roadmap Evolution
 
@@ -155,5 +159,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 09-03-PLAN.md (drag-to-reorder in ProgressionStrip)
+Stopped at: Completed 09-02-PLAN.md (quadrant sub-variations and hover glow on pads)
 Resume file: None
