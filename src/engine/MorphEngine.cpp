@@ -87,7 +87,7 @@ std::array<ScoredChord, 64> MorphEngine::morph(
     };
 
     std::vector<Candidate> all;
-    all.reserve(108);
+    all.reserve(216);
 
     for (const auto& chord : kAllChords) {
         float ds = scoreDiatonic(reference.root, chord);

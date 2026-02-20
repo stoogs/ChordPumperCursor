@@ -23,9 +23,18 @@ namespace PadColours {
     inline constexpr juce::uint32 halfDim7Accent   = 0xffff8a65; // salmon
 
     inline juce::uint32 accentForType(ChordType type) {
-        constexpr juce::uint32 accents[] = {
+        constexpr juce::uint32 accents[18] = {
             majorAccent, minorAccent, diminishedAccent, augmentedAccent,
-            maj7Accent, min7Accent, dom7Accent, dim7Accent, halfDim7Accent
+            maj7Accent, min7Accent, dom7Accent, dim7Accent, halfDim7Accent,
+            0xff4db8ff,  // Maj9  — brighter blue
+            0xff80ccff,  // Maj11 — lighter blue
+            0xffaadeff,  // Maj13 — palest blue
+            0xffc4abff,  // Min9  — lighter purple
+            0xffd5c2ff,  // Min11 — even lighter purple
+            0xffe8d8ff,  // Min13 — palest purple
+            0xff7dd6eb,  // Dom9  — lighter teal
+            0xff9de3f2,  // Dom11 — even lighter teal
+            0xffbdeef8,  // Dom13 — palest teal
         };
         return accents[static_cast<int>(type)];
     }

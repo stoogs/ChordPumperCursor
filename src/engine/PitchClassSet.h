@@ -26,17 +26,20 @@ inline constexpr int commonToneCount(PitchClassSet a, PitchClassSet b) {
     return __builtin_popcount(a & b);
 }
 
-inline constexpr std::array<Chord, 108> allChords() {
+inline constexpr std::array<Chord, 216> allChords() {
     constexpr std::array<PitchClass, 12> roots = {
         pitches::C, pitches::Cs, pitches::D, pitches::Eb,
         pitches::E, pitches::F, pitches::Fs, pitches::G,
         pitches::Ab, pitches::A, pitches::Bb, pitches::B
     };
-    constexpr std::array<ChordType, 9> types = {
+    constexpr std::array<ChordType, 18> types = {
         ChordType::Major, ChordType::Minor, ChordType::Diminished, ChordType::Augmented,
-        ChordType::Maj7, ChordType::Min7, ChordType::Dom7, ChordType::Dim7, ChordType::HalfDim7
+        ChordType::Maj7, ChordType::Min7, ChordType::Dom7, ChordType::Dim7, ChordType::HalfDim7,
+        ChordType::Maj9, ChordType::Maj11, ChordType::Maj13,
+        ChordType::Min9, ChordType::Min11, ChordType::Min13,
+        ChordType::Dom9, ChordType::Dom11, ChordType::Dom13
     };
-    std::array<Chord, 108> result{};
+    std::array<Chord, 216> result{};
     int idx = 0;
     for (const auto& root : roots)
         for (auto type : types)
