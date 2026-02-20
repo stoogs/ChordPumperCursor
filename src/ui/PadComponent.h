@@ -15,6 +15,7 @@ public:
     void setRomanNumeral(const std::string& rn);
     void setScore(float s);
     const Chord& getChord() const;
+    const Chord& getDragChord() const;
     void setSubVariations(bool enabled, const std::array<Chord, 4>& chords);
 
     std::function<void(const Chord&)> onClick;
@@ -35,6 +36,7 @@ private:
     bool isPressed = false;
     bool isHovered = false;
     bool isDragInProgress = false;
+    Chord dragChord_{};
 
     bool hasSubVariations = false;
     std::array<Chord, 4> subChords{};  // TL=0, TR=1, BL=2, BR=3

@@ -138,7 +138,7 @@ void ProgressionStrip::itemDropped(const SourceDetails& details)
     // Existing pad-drop logic (unchanged)
     if (auto* pad = dynamic_cast<PadComponent*>(details.sourceComponent.get()))
     {
-        const auto& chord = pad->getChord();
+        const auto& chord = pad->getDragChord();
         addChord(chord);
         if (onChordDropped)
             onChordDropped(chord);
@@ -223,7 +223,32 @@ void ProgressionStrip::mouseDrag(const juce::MouseEvent& event)
     if (auto* container = juce::DragAndDropContainer::findParentDragContainerFor(this))
     {
         juce::String desc = "REORDER:" + juce::String(index);
-        container->startDragging(juce::var(desc), this, juce::ScaledImage{}, false);
+
+        // Build a drag image showing only the dragged slot, not the whole strip
+        auto area = getLocalBounds();
+        auto slotArea = area.removeFromLeft(area.getWidth() - 120);
+        auto slotWidth = (slotArea.getWidth() - (kMaxChords - 1) * 4) / kMaxChords;
+        auto slotHeight = slotArea.getHeight();
+
+        juce::Image dragImg(juce::Image::ARGB, slotWidth, slotHeight, true);
+        {
+            juce::Graphics imgG(dragImg);
+            auto slotF = juce::Rectangle<float>(0.0f, 0.0f, (float)slotWidth, (float)slotHeight);
+            auto grad = juce::ColourGradient::vertical(
+                juce::Colour(PadColours::background).brighter(0.03f),
+                juce::Colour(PadColours::background).darker(0.03f), slotF);
+            imgG.setGradientFill(grad);
+            imgG.fillRoundedRectangle(slotF, 4.0f);
+            imgG.setColour(juce::Colour(PadColours::accentForType(chords[static_cast<size_t>(index)].type)).withAlpha(0.7f));
+            imgG.drawRoundedRectangle(slotF.reduced(0.5f), 4.0f, 1.5f);
+            imgG.setColour(juce::Colour(0xffe0e0e0));
+            imgG.setFont(juce::Font(juce::FontOptions(13.0f)));
+            imgG.drawText(juce::String(chords[static_cast<size_t>(index)].name()),
+                          juce::Rectangle<int>(0, 0, slotWidth, slotHeight),
+                          juce::Justification::centred);
+        }
+
+        container->startDragging(juce::var(desc), this, juce::ScaledImage(dragImg), false);
     }
 }
 

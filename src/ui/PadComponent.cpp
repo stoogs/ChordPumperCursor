@@ -27,6 +27,11 @@ const Chord& PadComponent::getChord() const
     return chord;
 }
 
+const Chord& PadComponent::getDragChord() const
+{
+    return dragChord_;
+}
+
 void PadComponent::setSubVariations(bool enabled, const std::array<Chord, 4>& chords)
 {
     hasSubVariations = enabled;
@@ -182,8 +187,10 @@ void PadComponent::mouseDrag(const juce::MouseEvent& event)
     if (onPressEnd)
         onPressEnd(activeChord);
 
+    dragChord_ = activeChord;
+
     if (auto* container = juce::DragAndDropContainer::findParentDragContainerFor(this))
-        container->startDragging(juce::var(juce::String(chord.name())), this, juce::ScaledImage{}, false);
+        container->startDragging(juce::var(juce::String(activeChord.name())), this, juce::ScaledImage{}, false);
 }
 
 void PadComponent::mouseUp(const juce::MouseEvent& event)
