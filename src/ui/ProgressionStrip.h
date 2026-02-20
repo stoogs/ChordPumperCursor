@@ -49,6 +49,7 @@ private:
 
     int reorderDragFromIndex = -1;
     int insertionIndex = -1;
+    int overwriteIndex = -1;
     int pressedIndex = -1;
 
     PersistentState& persistentState;

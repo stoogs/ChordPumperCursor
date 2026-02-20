@@ -160,6 +160,7 @@ void ProgressionStrip::itemDragExit(const SourceDetails& details)
     if (desc.startsWith("REORDER:"))
         reorderDragFromIndex = -1;
     insertionIndex = -1;
+    overwriteIndex = -1;
     isReceivingDrag = false;
     repaint();
 }
@@ -254,7 +255,37 @@ void ProgressionStrip::mouseDrag(const juce::MouseEvent& event)
 void ProgressionStrip::itemDragMove(const SourceDetails& details)
 {
     auto localPos = getLocalPoint(details.sourceComponent.get(), details.localPosition);
-    insertionIndex = insertionIndexAtX(localPos.getX());
+    int xPos = localPos.getX();
+
+    auto area = getLocalBounds();
+    auto slotArea = area.removeFromLeft(area.getWidth() - 120);
+    auto slotWidth = (slotArea.getWidth() - (kMaxChords - 1) * 4) / kMaxChords;
+    int relX = xPos - slotArea.getX();
+    int cellWidth = slotWidth + 4;
+
+    // Determine which cell (0..kMaxChords-1) the cursor is in
+    int cell = relX / cellWidth;
+    int posInCell = relX % cellWidth;
+    bool inSlotRegion = (posInCell < slotWidth) && (relX >= 0) && (relX < slotArea.getWidth());
+    bool isExistingSlot = inSlotRegion && (cell >= 0) && (cell < static_cast<int>(chords.size()));
+
+    // For REORDER drags, don't overwrite the slot being dragged
+    juce::String desc = details.description.toString();
+    int reorderFrom = -1;
+    if (desc.startsWith("REORDER:"))
+        reorderFrom = desc.fromFirstOccurrenceOf(":", false, false).getIntValue();
+
+    if (isExistingSlot && cell != reorderFrom)
+    {
+        overwriteIndex = cell;
+        insertionIndex = -1;
+    }
+    else
+    {
+        overwriteIndex = -1;
+        insertionIndex = insertionIndexAtX(xPos);
+    }
+
     repaint();
 }
 
