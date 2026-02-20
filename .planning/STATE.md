@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-19)
 ## Current Position
 
 Phase: 7 of 7 (UX Polish & Progression Workflow)
-Plan: 2 of 3 complete in current phase
-Status: Executing Phase 7
-Last activity: 2026-02-20 — 07-02 complete: strip click-to-play + MIDI export
+Plan: 3 of 3 complete in current phase
+Status: Phase 7 Complete — All phases complete
+Last activity: 2026-02-20 — 07-03 complete: visual polish with chord-type accent colours
 
-Progress: [█████████░] 97%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
@@ -35,10 +35,10 @@ Progress: [█████████░] 97%
 | 5. Capture & Export | 3 | ~14 min | ~5 min |
 
 | 6. State Persistence | 3 | ~22 min | ~7 min |
-| 7. UX Polish & Progression | 2 | ~10 min | ~5 min |
+| 7. UX Polish & Progression | 3 | ~18 min | ~6 min |
 
 **Recent Trend:**
-- Last 5 plans: 10min, 4min, 5min, 5min, 5min
+- Last 5 plans: 4min, 5min, 5min, 5min, 8min
 - Trend: → (steady)
 
 *Updated after each plan completion*
@@ -106,6 +106,9 @@ Recent decisions affecting current work:
 - [07-02]: SafePointer<ChordPumperEditor> in Timer callback prevents crash if editor destroyed during 300ms note
 - [07-02]: FileChooser stored as std::unique_ptr member — prevents premature destruction in async context
 - [07-02]: exportProgression places each chord at i*kBarLengthTicks for sequential bar playback
+- [07-03]: 9 chord-type accent colours as inline constexpr in PadColours with accentForType() zero-overhead lookup
+- [07-03]: Gradient brighter/darker offset 0.05f (pads) / 0.03f (strip) — subtle, non-distracting
+- [07-03]: Accent border opacity varies by state: 0.4f normal, 0.6f hovered, 0.8f pressed
 
 ### Roadmap Evolution
 
@@ -123,5 +126,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 07-02-PLAN.md (strip click-to-play + MIDI export)
+Stopped at: Completed 07-03-PLAN.md (visual polish — all phases complete)
 Resume file: None

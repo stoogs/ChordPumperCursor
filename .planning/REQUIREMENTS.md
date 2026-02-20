@@ -49,7 +49,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **UX-02**: Dragging a grid pad into the progression strip adds that chord to the sequence
 - [x] **UX-03**: Clicking a chord in the progression strip sends MIDI note-on/note-off (plays the chord)
 - [x] **UX-04**: A save/export button on the progression strip writes the current progression as a MIDI file
-- [ ] **UX-05**: Plugin has visually polished UI with meaningful color differentiation
+- [x] **UX-05**: Plugin has visually polished UI with meaningful color differentiation
 
 ## v2 Requirements
 
@@ -128,7 +128,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | UX-02 | Phase 7 | Complete |
 | UX-03 | Phase 7 | Complete |
 | UX-04 | Phase 7 | Complete |
-| UX-05 | Phase 7 | Planned |
+| UX-05 | Phase 7 | Complete |
 
 **Coverage:**
 - v1 requirements: 26 total
@@ -137,4 +137,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-19*
-*Last updated: 2026-02-20 after Phase 7 plan 02 completion*
+*Last updated: 2026-02-20 after Phase 7 plan 03 completion — all v1 requirements complete*

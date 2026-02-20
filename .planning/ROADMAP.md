@@ -18,7 +18,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 4: Morphing Suggestions** - Grid morphs after each chord with voice-led transitions and Roman numerals
 - [x] **Phase 5: Capture & Export** - Drag chords to DAW as MIDI clips, progression strip
 - [x] **Phase 6: State Persistence & Validation** - Session recall, pluginval, real-time safety verification
-- [ ] **Phase 7: UX Polish & Progression Workflow** - Drag-to-add progression strip, click-to-play strip chords, MIDI file export, visual polish
+- [x] **Phase 7: UX Polish & Progression Workflow** - Drag-to-add progression strip, click-to-play strip chords, MIDI file export, visual polish
 
 **Parallelization:** Phase 5 can execute in parallel with Phase 4 (both depend on Phase 3, neither depends on the other).
 
@@ -132,7 +132,7 @@ Plans:
 Plans:
 - [x] 07-01-PLAN.md — Intra-plugin DnD + click/drag disambiguation (click plays, drag adds to strip)
 - [x] 07-02-PLAN.md — Strip click-to-play + multi-chord MIDI export with async FileChooser
-- [ ] 07-03-PLAN.md — Visual polish with chord-type accent colours, gradient fills, refined styling
+- [x] 07-03-PLAN.md — Visual polish with chord-type accent colours, gradient fills, refined styling
 
 ## Progress
 
@@ -147,4 +147,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6 →
 | 4. Morphing Suggestions | 3/3 | Complete | 2026-02-19 |
 | 5. Capture & Export | 3/3 | Complete | 2026-02-19 |
 | 6. State Persistence & Validation | 3/3 | Complete | 2026-02-20 |
-| 7. UX Polish & Progression Workflow | 2/3 | In Progress | - |
+| 7. UX Polish & Progression Workflow | 3/3 | Complete | 2026-02-20 |
