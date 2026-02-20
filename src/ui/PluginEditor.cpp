@@ -31,7 +31,7 @@ ChordPumperEditor::ChordPumperEditor(ChordPumperProcessor& p)
     };
 
     processor.addChangeListener(this);
-    setSize(1000, 1200);
+    setSize(1000, 600);
 }
 
 ChordPumperEditor::~ChordPumperEditor()

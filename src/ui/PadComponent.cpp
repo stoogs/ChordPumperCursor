@@ -52,7 +52,7 @@ void PadComponent::paint(juce::Graphics& g)
     if (romanNumeral_.empty())
     {
         g.setColour(juce::Colour(0xffe0e0e0));
-        g.setFont(juce::Font(juce::FontOptions(14.0f)));
+        g.setFont(juce::Font(juce::FontOptions(12.0f)));
         g.drawText(juce::String(chord.name()), textArea,
                    juce::Justification::centred);
     }
@@ -62,12 +62,12 @@ void PadComponent::paint(juce::Graphics& g)
         auto bottomHalf = textArea;
 
         g.setColour(juce::Colour(0xffe0e0e0));
-        g.setFont(juce::Font(juce::FontOptions(14.0f)));
+        g.setFont(juce::Font(juce::FontOptions(11.0f)));
         g.drawText(juce::String(chord.name()), topHalf,
                    juce::Justification::centredBottom);
 
         g.setColour(juce::Colour(0xffaaaaaa));
-        g.setFont(juce::Font(juce::FontOptions(11.0f)));
+        g.setFont(juce::Font(juce::FontOptions(9.0f)));
         g.drawText(juce::String(romanNumeral_), bottomHalf,
                    juce::Justification::centredTop);
     }
