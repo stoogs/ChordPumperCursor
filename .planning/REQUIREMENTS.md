@@ -47,8 +47,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **UX-01**: Clicking a grid pad previews/plays the chord but does NOT auto-add to the progression strip
 - [x] **UX-02**: Dragging a grid pad into the progression strip adds that chord to the sequence
-- [ ] **UX-03**: Clicking a chord in the progression strip sends MIDI note-on/note-off (plays the chord)
-- [ ] **UX-04**: A save/export button on the progression strip writes the current progression as a MIDI file
+- [x] **UX-03**: Clicking a chord in the progression strip sends MIDI note-on/note-off (plays the chord)
+- [x] **UX-04**: A save/export button on the progression strip writes the current progression as a MIDI file
 - [ ] **UX-05**: Plugin has visually polished UI with meaningful color differentiation
 
 ## v2 Requirements
@@ -126,8 +126,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PLAT-07 | Phase 6 | Complete |
 | UX-01 | Phase 7 | Complete |
 | UX-02 | Phase 7 | Complete |
-| UX-03 | Phase 7 | Planned |
-| UX-04 | Phase 7 | Planned |
+| UX-03 | Phase 7 | Complete |
+| UX-04 | Phase 7 | Complete |
 | UX-05 | Phase 7 | Planned |
 
 **Coverage:**
@@ -137,4 +137,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-19*
-*Last updated: 2026-02-20 after Phase 7 plan 01 completion*
+*Last updated: 2026-02-20 after Phase 7 plan 02 completion*

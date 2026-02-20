@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-19)
 ## Current Position
 
 Phase: 7 of 7 (UX Polish & Progression Workflow)
-Plan: 1 of 3 complete in current phase
+Plan: 2 of 3 complete in current phase
 Status: Executing Phase 7
-Last activity: 2026-02-20 — 07-01 complete: click/drag disambiguation + intra-plugin DnD to strip
+Last activity: 2026-02-20 — 07-02 complete: strip click-to-play + MIDI export
 
-Progress: [█████████░] 95%
+Progress: [█████████░] 97%
 
 ## Performance Metrics
 
@@ -35,10 +35,10 @@ Progress: [█████████░] 95%
 | 5. Capture & Export | 3 | ~14 min | ~5 min |
 
 | 6. State Persistence | 3 | ~22 min | ~7 min |
-| 7. UX Polish & Progression | 1 | ~5 min | ~5 min |
+| 7. UX Polish & Progression | 2 | ~10 min | ~5 min |
 
 **Recent Trend:**
-- Last 5 plans: 7min, 10min, 4min, 5min, 5min
+- Last 5 plans: 10min, 4min, 5min, 5min, 5min
 - Trend: → (steady)
 
 *Updated after each plan completion*
@@ -102,6 +102,10 @@ Recent decisions affecting current work:
 - [07-01]: startDragging on DragAndDropContainer for intra-plugin DnD instead of performExternalDragDropOfFiles
 - [07-01]: shouldDropFilesWhenDraggedExternally on editor provides external DnD fallback transparently
 - [07-01]: Kept MidiFileBuilder include in PadComponent.cpp — right-click export still needs it (plan deviation)
+- [07-02]: getChordIndexAtPosition accounts for 120px button area and 4px inter-slot gaps
+- [07-02]: SafePointer<ChordPumperEditor> in Timer callback prevents crash if editor destroyed during 300ms note
+- [07-02]: FileChooser stored as std::unique_ptr member — prevents premature destruction in async context
+- [07-02]: exportProgression places each chord at i*kBarLengthTicks for sequential bar playback
 
 ### Roadmap Evolution
 
@@ -119,5 +123,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 07-01-PLAN.md (click/drag disambiguation + intra-plugin DnD)
+Stopped at: Completed 07-02-PLAN.md (strip click-to-play + MIDI export)
 Resume file: None

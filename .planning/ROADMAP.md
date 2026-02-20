@@ -131,7 +131,7 @@ Plans:
 
 Plans:
 - [x] 07-01-PLAN.md — Intra-plugin DnD + click/drag disambiguation (click plays, drag adds to strip)
-- [ ] 07-02-PLAN.md — Strip click-to-play + multi-chord MIDI export with async FileChooser
+- [x] 07-02-PLAN.md — Strip click-to-play + multi-chord MIDI export with async FileChooser
 - [ ] 07-03-PLAN.md — Visual polish with chord-type accent colours, gradient fills, refined styling
 
 ## Progress
@@ -147,4 +147,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6 →
 | 4. Morphing Suggestions | 3/3 | Complete | 2026-02-19 |
 | 5. Capture & Export | 3/3 | Complete | 2026-02-19 |
 | 6. State Persistence & Validation | 3/3 | Complete | 2026-02-20 |
-| 7. UX Polish & Progression Workflow | 1/3 | In Progress | - |
+| 7. UX Polish & Progression Workflow | 2/3 | In Progress | - |
