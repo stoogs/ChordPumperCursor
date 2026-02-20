@@ -148,7 +148,7 @@ Plans:
 
 Plans:
 - [x] 08-01-PLAN.md — Hold-to-preview + strip-driven morph (decouple click from morph)
-- [ ] 08-02-PLAN.md — 8×8 grid + engine expansion (64 pads, 7th chords, state v2 migration)
+- [x] 08-02-PLAN.md — 8×8 grid + engine expansion (64 pads, 7th chords, state v2 migration)
 - [ ] 08-03-PLAN.md — Harmonic similarity colours (5-stop score gradient on pad borders)
 
 ## Progress
@@ -165,4 +165,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6 →
 | 5. Capture & Export | 3/3 | Complete | 2026-02-19 |
 | 6. State Persistence & Validation | 3/3 | Complete | 2026-02-20 |
 | 7. UX Polish & Progression Workflow | 3/3 | Complete | 2026-02-20 |
-| 8. Grid UX Overhaul | 1/3 | In Progress | — |
+| 8. Grid UX Overhaul | 2/3 | In Progress | — |
