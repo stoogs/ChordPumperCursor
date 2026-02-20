@@ -88,6 +88,9 @@ void PadComponent::mouseDown(const juce::MouseEvent& event)
     isPressed = true;
     isDragInProgress = false;
     repaint();
+
+    if (onPressStart)
+        onPressStart(chord);
 }
 
 void PadComponent::mouseDrag(const juce::MouseEvent& event)
@@ -100,6 +103,9 @@ void PadComponent::mouseDrag(const juce::MouseEvent& event)
 
     isDragInProgress = true;
 
+    if (onPressEnd)
+        onPressEnd(chord);
+
     if (auto* container = juce::DragAndDropContainer::findParentDragContainerFor(this))
         container->startDragging(juce::var(juce::String(chord.name())), this, juce::ScaledImage{}, false);
 }
@@ -109,12 +115,13 @@ void PadComponent::mouseUp(const juce::MouseEvent& event)
     isPressed = false;
     repaint();
 
-    if (!isDragInProgress && event.getDistanceFromDragStart() < 6)
+    if (!isDragInProgress)
     {
-        if (onClick)
+        if (onPressEnd)
+            onPressEnd(chord);
+        if (event.getDistanceFromDragStart() < 6 && onClick)
             onClick(chord);
     }
-
     isDragInProgress = false;
 }
 

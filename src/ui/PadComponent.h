@@ -15,6 +15,8 @@ public:
     const Chord& getChord() const;
 
     std::function<void(const Chord&)> onClick;
+    std::function<void(const Chord&)> onPressStart;
+    std::function<void(const Chord&)> onPressEnd;
 
     void paint(juce::Graphics& g) override;
     void mouseDown(const juce::MouseEvent& event) override;

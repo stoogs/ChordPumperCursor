@@ -11,7 +11,7 @@
 
 namespace chordpumper {
 
-class GridPanel : public juce::Component, private juce::Timer
+class GridPanel : public juce::Component
 {
 public:
     GridPanel(juce::MidiKeyboardState& keyboardState,
@@ -21,13 +21,12 @@ public:
 
     void resized() override;
     void refreshFromState();
-
-    std::function<void(const Chord&)> onChordPlayed;
+    void morphTo(const Chord& chord);
 
 private:
-    void padClicked(const Chord& chord);
+    void startPreview(const Chord& chord);
+    void stopPreview();
     void releaseCurrentChord();
-    void timerCallback() override;
 
     juce::MidiKeyboardState& keyboardState;
     PersistentState& persistentState;
@@ -39,7 +38,6 @@ private:
     float velocity = 0.8f;
     static constexpr int midiChannel = 1;
     static constexpr int defaultOctave = 4;
-    static constexpr int noteDurationMs = 300;
 };
 
 } // namespace chordpumper

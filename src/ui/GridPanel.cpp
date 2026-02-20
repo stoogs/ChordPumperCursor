@@ -16,7 +16,8 @@ GridPanel::GridPanel(juce::MidiKeyboardState& ks,
     for (int i = 0; i < 32; ++i)
     {
         auto* pad = pads.add(new PadComponent());
-        pad->onClick = [this](const Chord& chord) { padClicked(chord); };
+        pad->onPressStart = [this](const Chord& c) { startPreview(c); };
+        pad->onPressEnd   = [this](const Chord&)   { stopPreview(); };
         addAndMakeVisible(pad);
     }
 
@@ -28,21 +29,23 @@ GridPanel::~GridPanel()
     releaseCurrentChord();
 }
 
-void GridPanel::padClicked(const Chord& chord)
+void GridPanel::startPreview(const Chord& chord)
 {
     releaseCurrentChord();
-
     auto voiced = optimalVoicing(chord, activeNotes, defaultOctave);
-
     for (auto note : voiced.midiNotes)
         keyboardState.noteOn(midiChannel, note, velocity);
-
     activeNotes.assign(voiced.midiNotes.begin(), voiced.midiNotes.end());
-    startTimer(noteDurationMs);
+}
 
-    if (onChordPlayed)
-        onChordPlayed(chord);
+void GridPanel::stopPreview()
+{
+    releaseCurrentChord();
+}
 
+void GridPanel::morphTo(const Chord& chord)
+{
+    auto voiced = optimalVoicing(chord, activeNotes, defaultOctave);
     auto suggestions = morphEngine.morph(chord, voiced.midiNotes);
 
     for (int i = 0; i < 32; ++i)
@@ -54,7 +57,7 @@ void GridPanel::padClicked(const Chord& chord)
     {
         const juce::ScopedLock sl(stateLock);
         persistentState.lastPlayedChord = chord;
-        persistentState.lastVoicing.assign(activeNotes.begin(), activeNotes.end());
+        persistentState.lastVoicing.assign(voiced.midiNotes.begin(), voiced.midiNotes.end());
         persistentState.hasMorphed = true;
         for (int i = 0; i < 32; ++i)
         {
@@ -62,7 +65,6 @@ void GridPanel::padClicked(const Chord& chord)
             persistentState.romanNumerals[static_cast<size_t>(i)] = suggestions[static_cast<size_t>(i)].romanNumeral;
         }
     }
-
     repaint();
 }
 
@@ -72,12 +74,6 @@ void GridPanel::releaseCurrentChord()
         keyboardState.noteOff(midiChannel, note, 0.0f);
 
     activeNotes.clear();
-}
-
-void GridPanel::timerCallback()
-{
-    releaseCurrentChord();
-    stopTimer();
 }
 
 void GridPanel::refreshFromState()
