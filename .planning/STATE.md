@@ -135,6 +135,9 @@ Recent decisions affecting current work:
 - [09-02]: pressedQuadrant reset in mouseExit as well as mouseUp — handles fast mouse moves during drag
 - [09-02]: applySubVariations() as anonymous-namespace free function in GridPanel.cpp — keeps GridPanel class interface clean
 - [09-02]: Glow rings painted before solid border so border sits cleanly on top
+- [quick-2]: onPressStart/onPressEnd callbacks on ProgressionStrip mirror pad hold pattern; pressedIndex tracks chord across mouseDown/mouseUp
+- [quick-2]: stripActiveNotes vector in PluginEditor owns MIDI state for immediate noteOff on release — no timer
+- [quick-2]: itemDragMove insertionIndex set for all drag sources; REORDER: prefix guard was unnecessary
 
 ### Roadmap Evolution
 
@@ -150,6 +153,7 @@ None yet.
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
 | 1 | Resize plugin window to 1000x600 and fit 8x8 grid | 2026-02-20 | e9346e5 | [1-resize-plugin-window-to-1000x600-and-fit](./quick/1-resize-plugin-window-to-1000x600-and-fit/) |
+| 2 | Progression strip hold-to-play and drag insertion line | 2026-02-20 | cd521d5 | [2-progression-strip-hold-to-play-and-drag-](./quick/2-progression-strip-hold-to-play-and-drag-/) |
 
 ### Blockers/Concerns
 
@@ -159,5 +163,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 09-02-PLAN.md (quadrant sub-variations and hover glow on pads)
+Stopped at: Completed quick-2 (progression strip hold-to-play and drag insertion line)
 Resume file: None
