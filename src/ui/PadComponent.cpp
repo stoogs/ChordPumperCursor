@@ -27,6 +27,21 @@ const Chord& PadComponent::getChord() const
     return chord;
 }
 
+void PadComponent::setSubVariations(bool enabled, const std::array<Chord, 4>& chords)
+{
+    hasSubVariations = enabled;
+    subChords = chords;
+    repaint();
+}
+
+int PadComponent::quadrantAt(juce::Point<int> pos) const
+{
+    if (!hasSubVariations) return -1;
+    bool right  = pos.getX() >= getWidth()  / 2;
+    bool bottom = pos.getY() >= getHeight() / 2;
+    return (bottom ? 2 : 0) + (right ? 1 : 0);  // TL=0, TR=1, BL=2, BR=3
+}
+
 void PadComponent::paint(juce::Graphics& g)
 {
     auto bounds = getLocalBounds().toFloat().reduced(1.0f);
@@ -40,16 +55,60 @@ void PadComponent::paint(juce::Graphics& g)
     g.setGradientFill(gradient);
     g.fillRoundedRectangle(bounds, cornerSize);
 
+    // Quadrant separator lines
+    if (hasSubVariations)
+    {
+        g.setColour(juce::Colour(0x22ffffff));
+        // Vertical centre line
+        g.drawLine(bounds.getCentreX(), bounds.getY() + 4.0f,
+                   bounds.getCentreX(), bounds.getBottom() - 4.0f, 1.0f);
+        // Horizontal centre line
+        g.drawLine(bounds.getX() + 4.0f, bounds.getCentreY(),
+                   bounds.getRight() - 4.0f, bounds.getCentreY(), 1.0f);
+    }
+
     float accentAlpha = isPressed ? 0.8f : isHovered ? 0.6f : 0.4f;
     auto accentColour = (score_ >= 0.0f)
         ? PadColours::similarityColour(score_)
         : juce::Colour(PadColours::accentForType(chord.type));
+
+    // Glow rings (hover only) — painted BEFORE the solid border
+    if (isHovered)
+    {
+        g.setColour(accentColour.withAlpha(0.07f));
+        g.drawRoundedRectangle(bounds.reduced(0.5f), cornerSize, 9.0f);
+        g.setColour(accentColour.withAlpha(0.13f));
+        g.drawRoundedRectangle(bounds.reduced(0.5f), cornerSize, 6.0f);
+        g.setColour(accentColour.withAlpha(0.25f));
+        g.drawRoundedRectangle(bounds.reduced(0.5f), cornerSize, 4.0f);
+    }
+    // Solid border — always drawn, 3px
     g.setColour(accentColour.withAlpha(accentAlpha));
-    g.drawRoundedRectangle(bounds, cornerSize, 1.5f);
+    g.drawRoundedRectangle(bounds.reduced(0.5f), cornerSize, 3.0f);
 
     auto textArea = getLocalBounds();
 
-    if (romanNumeral_.empty())
+    if (hasSubVariations)
+    {
+        g.setFont(juce::Font(juce::FontOptions(7.5f)));
+        constexpr juce::uint32 quadrantColour = 0xffcccccc;
+        g.setColour(juce::Colour(quadrantColour));
+        auto w = getWidth() / 2;
+        auto h = getHeight() / 2;
+        // TL quadrant (index 0)
+        g.drawText(juce::String(subChords[0].name()),
+                   juce::Rectangle<int>(0, 0, w, h), juce::Justification::centred);
+        // TR quadrant (index 1)
+        g.drawText(juce::String(subChords[1].name()),
+                   juce::Rectangle<int>(w, 0, w, h), juce::Justification::centred);
+        // BL quadrant (index 2)
+        g.drawText(juce::String(subChords[2].name()),
+                   juce::Rectangle<int>(0, h, w, h), juce::Justification::centred);
+        // BR quadrant (index 3)
+        g.drawText(juce::String(subChords[3].name()),
+                   juce::Rectangle<int>(w, h, w, h), juce::Justification::centred);
+    }
+    else if (romanNumeral_.empty())
     {
         g.setColour(juce::Colour(0xffe0e0e0));
         g.setFont(juce::Font(juce::FontOptions(12.0f)));
@@ -96,10 +155,14 @@ void PadComponent::mouseDown(const juce::MouseEvent& event)
 
     isPressed = true;
     isDragInProgress = false;
+    pressedQuadrant = quadrantAt(event.getPosition());
     repaint();
 
+    const Chord& activeChord = (hasSubVariations && pressedQuadrant >= 0)
+        ? subChords[static_cast<size_t>(pressedQuadrant)]
+        : chord;
     if (onPressStart)
-        onPressStart(chord);
+        onPressStart(activeChord);
 }
 
 void PadComponent::mouseDrag(const juce::MouseEvent& event)
@@ -112,8 +175,12 @@ void PadComponent::mouseDrag(const juce::MouseEvent& event)
 
     isDragInProgress = true;
 
+    const Chord& activeChord = (hasSubVariations && pressedQuadrant >= 0)
+        ? subChords[static_cast<size_t>(pressedQuadrant)]
+        : chord;
+
     if (onPressEnd)
-        onPressEnd(chord);
+        onPressEnd(activeChord);
 
     if (auto* container = juce::DragAndDropContainer::findParentDragContainerFor(this))
         container->startDragging(juce::var(juce::String(chord.name())), this, juce::ScaledImage{}, false);
@@ -124,14 +191,17 @@ void PadComponent::mouseUp(const juce::MouseEvent& event)
     isPressed = false;
     repaint();
 
+    const Chord& activeChord = (hasSubVariations && pressedQuadrant >= 0)
+        ? subChords[static_cast<size_t>(pressedQuadrant)]
+        : chord;
+
     if (!isDragInProgress)
     {
-        if (onPressEnd)
-            onPressEnd(chord);
-        if (event.getDistanceFromDragStart() < 6 && onClick)
-            onClick(chord);
+        if (onPressEnd) onPressEnd(activeChord);
+        if (event.getDistanceFromDragStart() < 6 && onClick) onClick(activeChord);
     }
     isDragInProgress = false;
+    pressedQuadrant = -1;
 }
 
 void PadComponent::mouseEnter(const juce::MouseEvent&)
@@ -144,6 +214,7 @@ void PadComponent::mouseExit(const juce::MouseEvent&)
 {
     isHovered = false;
     isPressed = false;
+    pressedQuadrant = -1;
     repaint();
 }
 

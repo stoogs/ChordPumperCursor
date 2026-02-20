@@ -4,6 +4,7 @@
 #include <juce_gui_basics/juce_gui_basics.h>
 #include <functional>
 #include <string>
+#include <array>
 
 namespace chordpumper {
 
@@ -14,6 +15,7 @@ public:
     void setRomanNumeral(const std::string& rn);
     void setScore(float s);
     const Chord& getChord() const;
+    void setSubVariations(bool enabled, const std::array<Chord, 4>& chords);
 
     std::function<void(const Chord&)> onClick;
     std::function<void(const Chord&)> onPressStart;
@@ -33,6 +35,12 @@ private:
     bool isPressed = false;
     bool isHovered = false;
     bool isDragInProgress = false;
+
+    bool hasSubVariations = false;
+    std::array<Chord, 4> subChords{};  // TL=0, TR=1, BL=2, BR=3
+    int pressedQuadrant = -1;          // -1 = whole pad, 0-3 = quadrant index
+
+    int quadrantAt(juce::Point<int> pos) const;
 };
 
 } // namespace chordpumper
