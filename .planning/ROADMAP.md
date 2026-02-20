@@ -112,7 +112,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 06-01-PLAN.md — PersistentState struct with ValueTree serialization and round-trip unit tests
+- [x] 06-01-PLAN.md — PersistentState struct with ValueTree serialization and round-trip unit tests
 - [ ] 06-02-PLAN.md — Editor↔Processor state wiring with change notification
 - [ ] 06-03-PLAN.md — pluginval validation at level 5, RT safety audit, Bitwig state persistence verification
 
@@ -128,4 +128,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6
 | 3. Playable Grid | 2/2 | Complete | 2026-02-19 |
 | 4. Morphing Suggestions | 3/3 | Complete | 2026-02-19 |
 | 5. Capture & Export | 3/3 | Complete | 2026-02-19 |
-| 6. State Persistence & Validation | 0/3 | Not started | - |
+| 6. State Persistence & Validation | 1/3 | In progress | - |

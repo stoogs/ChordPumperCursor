@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-19)
 ## Current Position
 
 Phase: 6 of 6 (State Persistence & Validation)
-Plan: 0 of 3 in current phase
-Status: Phase 5 verified and complete, ready for Phase 6
-Last activity: 2026-02-19 — Phase 5 verified (13/14 must-haves, 1 partial due to Linux X11 DnD platform limitation), advancing to Phase 6
+Plan: 1 of 3 in current phase
+Status: Executing Phase 6
+Last activity: 2026-02-20 — Completed 06-01: PersistentState struct with ValueTree serialization and 6 Catch2 round-trip tests
 
-Progress: [█████████░] 93%
+Progress: [█████████░] 95%
 
 ## Performance Metrics
 
@@ -34,8 +34,10 @@ Progress: [█████████░] 93%
 | 4. Morphing Suggestions | 3 | ~52 min | ~17 min |
 | 5. Capture & Export | 3 | ~14 min | ~5 min |
 
+| 6. State Persistence | 1 | 10 min | 10 min |
+
 **Recent Trend:**
-- Last 5 plans: 17min, 15min, 2min, 5min, 7min
+- Last 5 plans: 15min, 2min, 5min, 7min, 10min
 - Trend: → (steady)
 
 *Updated after each plan completion*
@@ -86,6 +88,10 @@ Recent decisions affecting current work:
 - [05-02]: 6px drag threshold for click/drag disambiguation — below triggers chord play, above initiates DnD
 - [05-02]: Right-click fallback export to ~/ChordPumper-Export/ — reliable path regardless of platform DnD support
 - [05-02]: Bitwig embedded DnD partially works on Linux X11 (recognizes chords, previews clip) but drop doesn't finalize — known limitation, fallback covers it
+- [06-01]: Version=1 integer tag on root ValueTree for future schema migration
+- [06-01]: MorphContext child only serialized when hasMorphed=true — avoids stale default data
+- [06-01]: Grid pads indexed by 'index' property — deserialization is order-independent
+- [06-01]: Default PersistentState initializes gridChords from chromaticPalette() to match visual default
 
 ### Pending Todos
 
@@ -98,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-19
-Stopped at: Phase 5 verified and complete. Advancing to Phase 6: State Persistence & Validation.
+Last session: 2026-02-20
+Stopped at: Completed 06-01-PLAN.md (PersistentState serialization). Next: 06-02 (Editor↔Processor state wiring).
 Resume file: None
