@@ -21,6 +21,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 7: UX Polish & Progression Workflow** - Drag-to-add progression strip, click-to-play strip chords, MIDI file export, visual polish
 - [x] **Phase 8: Grid UX Overhaul** - Hold-to-preview, drag-to-morph flow, harmonic similarity colours, 8×8 grid
 - [x] **Phase 9: Chord Depth & UI Polish** - Sub-chord variations (7/9/11/13) per pad, bolder glowing borders on hover, drag-to-reorder notes in progression strip (completed 2026-02-20)
+- [ ] **Phase 10: Strip Interaction & Octave Control** - Fix strip slot-targeted drops, right-click strip delete, octave shift on grid pads (right-click +1 oct, shift+right-click -1 oct) with drag support and strip indicator
 
 **Parallelization:** Phase 5 can execute in parallel with Phase 4 (both depend on Phase 3, neither depends on the other).
 
@@ -167,10 +168,27 @@ Plans:
 - [ ] 09-02-PLAN.md — PadComponent quadrant split for qualifying types + bolder 3px borders + hover glow rings
 - [ ] 09-03-PLAN.md — ProgressionStrip drag-to-reorder with insertion cursor and erase+insert logic
 
+### Phase 10: Strip Interaction & Octave Control
+**Goal**: Fix progression strip drag-and-drop (slot-targeted insert/overwrite with accurate hit-testing), add right-click delete on strip slots, add right-click octave-up and shift+right-click octave-down on grid pads (draggable with octave state, shown as +/- indicator in strip), and display Roman numerals on strip chords
+**Depends on**: Phase 9
+**Requirements**: STRIP-01, STRIP-02, STRIP-03, STRIP-04, STRIP-05
+**Success Criteria** (what must be TRUE):
+  1. Dragging a pad chord to the strip deposits it at the slot under the cursor (overwrite or insert at gap), not always at the end
+  2. Drop indicator highlights are centered on the correct slot
+  3. Right-clicking a strip slot clears/removes that chord
+  4. Right-clicking a grid pad plays it an octave higher; shift+right-click plays it an octave lower; the octave offset is preserved when dragged to the strip
+  5. Strip slots show the Roman numeral label matching the main grid display
+**Plans**: 3 plans
+
+Plans:
+- [ ] 10-01-PLAN.md — Chord data model: add octaveOffset and romanNumeral fields, persist on progression chords
+- [ ] 10-02-PLAN.md — ProgressionStrip: unified slotAndGapAtX hit-test, right-click delete, two-line Roman numeral + octave indicator rendering
+- [ ] 10-03-PLAN.md — PadComponent octave preview (replace MIDI export), carry octaveOffset on drag, apply in GridPanel and PluginEditor
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6 → 7 → 8 → 9
+Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6 → 7 → 8 → 9 → 10
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -183,3 +201,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6 →
 | 7. UX Polish & Progression Workflow | 3/3 | Complete | 2026-02-20 |
 | 8. Grid UX Overhaul | 3/3 | Complete | 2026-02-20 |
 | 9. Chord Depth & UI Polish | 3/3 | Complete   | 2026-02-20 |
+| 10. Strip Interaction & Octave Control | 0/3 | In Progress | — |
