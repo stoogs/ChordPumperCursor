@@ -70,7 +70,7 @@ Each task was committed atomically:
 2. **Task 2: Wire MorphEngine and VoiceLeader into GridPanel** — `a3e2b62` (feat)
 3. **Task 3: Verify morph behavior in plugin** — Human-verify checkpoint approved
 
-**Plan metadata:** `809ad56` (docs)
+**Plan metadata:** `068c28a` (docs)
 
 ## Files Created/Modified
 
