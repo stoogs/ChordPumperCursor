@@ -12,6 +12,7 @@ class PadComponent : public juce::Component
 public:
     void setChord(const Chord& c);
     void setRomanNumeral(const std::string& rn);
+    void setScore(float s);
     const Chord& getChord() const;
 
     std::function<void(const Chord&)> onClick;
@@ -28,6 +29,7 @@ public:
 private:
     Chord chord{};
     std::string romanNumeral_;
+    float score_ = -1.0f;
     bool isPressed = false;
     bool isHovered = false;
     bool isDragInProgress = false;

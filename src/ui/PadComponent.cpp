@@ -16,6 +16,12 @@ void PadComponent::setRomanNumeral(const std::string& rn)
     repaint();
 }
 
+void PadComponent::setScore(float s)
+{
+    score_ = s;
+    repaint();
+}
+
 const Chord& PadComponent::getChord() const
 {
     return chord;
@@ -35,7 +41,10 @@ void PadComponent::paint(juce::Graphics& g)
     g.fillRoundedRectangle(bounds, cornerSize);
 
     float accentAlpha = isPressed ? 0.8f : isHovered ? 0.6f : 0.4f;
-    g.setColour(juce::Colour(PadColours::accentForType(chord.type)).withAlpha(accentAlpha));
+    auto accentColour = (score_ >= 0.0f)
+        ? PadColours::similarityColour(score_)
+        : juce::Colour(PadColours::accentForType(chord.type));
+    g.setColour(accentColour.withAlpha(accentAlpha));
     g.drawRoundedRectangle(bounds, cornerSize, 1.5f);
 
     auto textArea = getLocalBounds();

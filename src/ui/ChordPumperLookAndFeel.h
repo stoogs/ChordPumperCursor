@@ -29,6 +29,30 @@ namespace PadColours {
         };
         return accents[static_cast<int>(type)];
     }
+
+    inline juce::Colour similarityColour(float score)
+    {
+        struct Stop { float pos; juce::Colour colour; };
+        static const Stop stops[] = {
+            { 0.00f, juce::Colour(0xffF44336) },  // red — extremely dissimilar
+            { 0.25f, juce::Colour(0xff9C27B0) },  // purple — exotic
+            { 0.45f, juce::Colour(0xffFF9800) },  // orange — bold
+            { 0.65f, juce::Colour(0xff4CAF50) },  // green — good
+            { 0.85f, juce::Colour(0xff4A9EFF) },  // blue — very similar
+            { 1.00f, juce::Colour(0xff4A9EFF) },  // blue (clamp)
+        };
+
+        score = juce::jlimit(0.0f, 1.0f, score);
+        for (int i = 0; i < 5; ++i)
+        {
+            if (score <= stops[i + 1].pos)
+            {
+                float t = (score - stops[i].pos) / (stops[i + 1].pos - stops[i].pos);
+                return stops[i].colour.interpolatedWith(stops[i + 1].colour, t);
+            }
+        }
+        return stops[5].colour;
+    }
 } // namespace PadColours
 
 inline juce::LookAndFeel_V4::ColourScheme getChordPumperColourScheme()
