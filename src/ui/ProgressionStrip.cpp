@@ -233,22 +233,25 @@ int ProgressionStrip::getChordIndexAtPosition(juce::Point<int> pos) const
     return index;
 }
 
-int ProgressionStrip::insertionIndexAtX(int xPos) const
+ProgressionStrip::SlotHit ProgressionStrip::slotAndGapAtX(int xPos) const
 {
     auto area = getLocalBounds();
     auto slotArea = area.removeFromLeft(area.getWidth() - 120);
-    auto slotWidth = (slotArea.getWidth() - (kMaxChords - 1) * 4) / kMaxChords;
-    int relX = xPos - slotArea.getX();
-    // Each cell = slotWidth + 4 gap. Map relX to nearest gap boundary.
+    int slotWidth = (slotArea.getWidth() - (kMaxChords - 1) * 4) / kMaxChords;
     int cellWidth = slotWidth + 4;
-    // Clamp relX to slot area
-    relX = juce::jlimit(0, slotArea.getWidth(), relX);
-    // Number of complete cells before this position
+    int relX = xPos - slotArea.getX();
+    relX = juce::jlimit(0, slotArea.getWidth() - 1, relX);
     int cell = relX / cellWidth;
     int posInCell = relX % cellWidth;
-    // If we're in the second half of a cell, insertion is after it
-    int insertion = (posInCell > cellWidth / 2) ? cell + 1 : cell;
-    return juce::jlimit(0, static_cast<int>(chords.size()), insertion);
+    bool inGap = (posInCell >= slotWidth);
+    return { juce::jlimit(0, kMaxChords - 1, cell), inGap };
+}
+
+int ProgressionStrip::insertionIndexAtX(int xPos) const
+{
+    auto hit = slotAndGapAtX(xPos);
+    int gap = hit.isGap ? hit.slotIndex + 1 : hit.slotIndex;
+    return juce::jlimit(0, static_cast<int>(chords.size()), gap);
 }
 
 void ProgressionStrip::mouseDrag(const juce::MouseEvent& event)
@@ -301,37 +304,27 @@ void ProgressionStrip::mouseDrag(const juce::MouseEvent& event)
 void ProgressionStrip::itemDragMove(const SourceDetails& details)
 {
     auto localPos = getLocalPoint(details.sourceComponent.get(), details.localPosition);
-    int xPos = localPos.getX();
+    auto hit = slotAndGapAtX(localPos.getX());
 
-    auto area = getLocalBounds();
-    auto slotArea = area.removeFromLeft(area.getWidth() - 120);
-    auto slotWidth = (slotArea.getWidth() - (kMaxChords - 1) * 4) / kMaxChords;
-    int relX = xPos - slotArea.getX();
-    int cellWidth = slotWidth + 4;
-
-    // Determine which cell (0..kMaxChords-1) the cursor is in
-    int cell = relX / cellWidth;
-    int posInCell = relX % cellWidth;
-    bool inSlotRegion = (posInCell < slotWidth) && (relX >= 0) && (relX < slotArea.getWidth());
-    bool isExistingSlot = inSlotRegion && (cell >= 0) && (cell < static_cast<int>(chords.size()));
-
-    // For REORDER drags, don't overwrite the slot being dragged
     juce::String desc = details.description.toString();
     int reorderFrom = -1;
     if (desc.startsWith("REORDER:"))
         reorderFrom = desc.fromFirstOccurrenceOf(":", false, false).getIntValue();
 
-    if (isExistingSlot && cell != reorderFrom)
+    bool isExistingSlot = !hit.isGap && (hit.slotIndex < static_cast<int>(chords.size()));
+
+    if (isExistingSlot && hit.slotIndex != reorderFrom)
     {
-        overwriteIndex = cell;
+        overwriteIndex = hit.slotIndex;
         insertionIndex = -1;
     }
     else
     {
         overwriteIndex = -1;
-        insertionIndex = insertionIndexAtX(xPos);
+        // Insertion gap: if in gap after slot N, insert at N+1; if in slot interior, snap to nearest edge
+        int gap = hit.isGap ? hit.slotIndex + 1 : hit.slotIndex;
+        insertionIndex = juce::jlimit(0, static_cast<int>(chords.size()), gap);
     }
-
     repaint();
 }
 

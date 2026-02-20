@@ -47,6 +47,9 @@ private:
     int getChordIndexAtPosition(juce::Point<int> pos) const;
     int insertionIndexAtX(int xPos) const;
 
+    struct SlotHit { int slotIndex; bool isGap; };
+    SlotHit slotAndGapAtX(int xPos) const;
+
     int reorderDragFromIndex = -1;
     int insertionIndex = -1;
     int overwriteIndex = -1;
