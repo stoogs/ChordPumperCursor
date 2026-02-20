@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-19)
 
 **Core value:** The morphing grid — play a chord, see what comes next, follow the thread.
-**Current focus:** Phase 7: UX Polish & Progression Workflow
+**Current focus:** Phase 8: Grid UX Overhaul
 
 ## Current Position
 
-Phase: 7 of 7 (UX Polish & Progression Workflow)
-Plan: 3 of 3 complete in current phase
-Status: Phase 7 Complete — All phases complete
-Last activity: 2026-02-20 — 07-03 complete: visual polish with chord-type accent colours
+Phase: 8 of 8 (Grid UX Overhaul)
+Plan: 1 of 3 — executing
+Status: Phase 8 in progress — plan 01 complete (hold-to-preview + strip-driven morph)
+Last activity: 2026-02-20 — 08-01 complete: decoupled pad preview from morph, strip-driven morphTo
 
-Progress: [██████████] 100%
+Progress: [████████░░] 80%
 
 ## Performance Metrics
 
@@ -38,7 +38,7 @@ Progress: [██████████] 100%
 | 7. UX Polish & Progression | 3 | ~18 min | ~6 min |
 
 **Recent Trend:**
-- Last 5 plans: 4min, 5min, 5min, 5min, 8min
+- Last 5 plans: 5min, 5min, 5min, 8min, 6min
 - Trend: → (steady)
 
 *Updated after each plan completion*
@@ -109,10 +109,15 @@ Recent decisions affecting current work:
 - [07-03]: 9 chord-type accent colours as inline constexpr in PadColours with accentForType() zero-overhead lookup
 - [07-03]: Gradient brighter/darker offset 0.05f (pads) / 0.03f (strip) — subtle, non-distracting
 - [07-03]: Accent border opacity varies by state: 0.4f normal, 0.6f hovered, 0.8f pressed
+- [08-01]: onClick kept on PadComponent but unwired to morph — preserved for future use
+- [08-01]: morphTo uses 32-pad loop; plan 08-02 will expand to 64
+- [08-01]: Strip onChordClicked calls morphTo first so grid updates before chord plays
+- [08-01]: onChordDropped fires after addChord so strip UI updates before morph triggers
 
 ### Roadmap Evolution
 
 - Phase 7 added: UX Polish & Progression Workflow (drag-to-add strip, click-to-play, MIDI export, visual polish)
+- Phase 8 added: Grid UX Overhaul (hold-to-preview, drag-to-morph flow, harmonic similarity colours, 8×8 grid)
 
 ### Pending Todos
 
@@ -126,5 +131,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 07-03-PLAN.md (visual polish — all phases complete)
+Stopped at: Completed 08-01-PLAN.md
 Resume file: None
