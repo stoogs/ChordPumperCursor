@@ -45,9 +45,11 @@ void ChordPumperEditor::paint(juce::Graphics& g)
 {
     g.fillAll(findColour(juce::ResizableWindow::backgroundColourId));
     g.setColour(juce::Colour(0xffe0e0e0));
-    g.setFont(juce::Font(juce::FontOptions(18.0f)));
+    g.setFont(juce::Font(juce::FontOptions(20.0f)));
     g.drawText("ChordPumper", getLocalBounds().removeFromTop(40),
                juce::Justification::centred);
+    g.setColour(juce::Colour(0xff4a4a5a).withAlpha(0.5f));
+    g.drawHorizontalLine(40, 10.0f, static_cast<float>(getWidth() - 10));
 }
 
 void ChordPumperEditor::resized()

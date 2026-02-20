@@ -171,9 +171,17 @@ void ProgressionStrip::paint(juce::Graphics& g)
 
         if (static_cast<size_t>(i) < chords.size())
         {
-            g.setColour(juce::Colour(PadColours::background));
-            g.fillRoundedRectangle(slot.toFloat(), 4.0f);
-            g.setColour(juce::Colours::white);
+            auto slotF = slot.toFloat();
+            auto grad = juce::ColourGradient::vertical(
+                juce::Colour(PadColours::background).brighter(0.03f),
+                juce::Colour(PadColours::background).darker(0.03f), slotF);
+            g.setGradientFill(grad);
+            g.fillRoundedRectangle(slotF, 4.0f);
+
+            g.setColour(juce::Colour(PadColours::accentForType(chords[static_cast<size_t>(i)].type)).withAlpha(0.5f));
+            g.drawRoundedRectangle(slotF, 4.0f, 1.5f);
+
+            g.setColour(juce::Colour(0xffe0e0e0));
             g.drawText(chords[static_cast<size_t>(i)].name(), slot,
                        juce::Justification::centred);
         }
