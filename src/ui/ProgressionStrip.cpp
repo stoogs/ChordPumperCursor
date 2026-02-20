@@ -291,10 +291,25 @@ void ProgressionStrip::mouseDrag(const juce::MouseEvent& event)
             imgG.setColour(juce::Colour(PadColours::accentForType(chords[static_cast<size_t>(index)].type)).withAlpha(0.7f));
             imgG.drawRoundedRectangle(slotF.reduced(0.5f), 4.0f, 1.5f);
             imgG.setColour(juce::Colour(0xffe0e0e0));
-            imgG.setFont(juce::Font(juce::FontOptions(13.0f)));
-            imgG.drawText(juce::String(chords[static_cast<size_t>(index)].name()),
-                          juce::Rectangle<int>(0, 0, slotWidth, slotHeight),
-                          juce::Justification::centred);
+            if (!chords[static_cast<size_t>(index)].romanNumeral.empty())
+            {
+                auto topHalf = juce::Rectangle<int>(0, 0, slotWidth, slotHeight / 2);
+                auto botHalf = juce::Rectangle<int>(0, slotHeight / 2, slotWidth, slotHeight / 2);
+                imgG.setFont(juce::Font(juce::FontOptions(11.0f)));
+                imgG.drawText(juce::String(chords[static_cast<size_t>(index)].name()),
+                              topHalf, juce::Justification::centredBottom);
+                imgG.setColour(juce::Colour(0xffaaaaaa));
+                imgG.setFont(juce::Font(juce::FontOptions(9.0f)));
+                imgG.drawText(juce::String(chords[static_cast<size_t>(index)].romanNumeral),
+                              botHalf, juce::Justification::centredTop);
+            }
+            else
+            {
+                imgG.setFont(juce::Font(juce::FontOptions(13.0f)));
+                imgG.drawText(juce::String(chords[static_cast<size_t>(index)].name()),
+                              juce::Rectangle<int>(0, 0, slotWidth, slotHeight),
+                              juce::Justification::centred);
+            }
         }
 
         container->startDragging(juce::var(desc), this, juce::ScaledImage(dragImg), false);
@@ -330,6 +345,23 @@ void ProgressionStrip::itemDragMove(const SourceDetails& details)
 
 void ProgressionStrip::mouseDown(const juce::MouseEvent& event)
 {
+    if (event.mods.isPopupMenu())
+    {
+        int idx = getChordIndexAtPosition(event.getPosition());
+        if (idx >= 0 && idx < static_cast<int>(chords.size()))
+        {
+            chords.erase(chords.begin() + idx);
+            {
+                const juce::ScopedLock sl(stateLock);
+                persistentState.progression = chords;
+            }
+            updateClearButton();
+            updateExportButton();
+            repaint();
+        }
+        return;
+    }
+
     if (isReceivingDrag)
         return;
 
@@ -393,9 +425,36 @@ void ProgressionStrip::paint(juce::Graphics& g)
                 g.drawRoundedRectangle(slotF.reduced(0.5f), 4.0f, 2.5f);
             }
 
-            g.setColour(juce::Colour(0xffe0e0e0));
-            g.drawText(chords[static_cast<size_t>(i)].name(), slot,
-                       juce::Justification::centred);
+            const auto& c = chords[static_cast<size_t>(i)];
+            auto chordName = juce::String(c.name());
+            auto roman     = juce::String(c.romanNumeral);
+
+            // Octave indicator: small +/- above chord name when offset is non-zero
+            if (c.octaveOffset != 0)
+            {
+                juce::String oct = (c.octaveOffset > 0) ? "+" : "-";
+                g.setColour(juce::Colour(0xff88aaff));
+                g.setFont(juce::Font(juce::FontOptions(8.0f)));
+                g.drawText(oct, slot.withHeight(slot.getHeight() / 3),
+                           juce::Justification::centredTop);
+            }
+
+            if (roman.isEmpty())
+            {
+                g.setColour(juce::Colour(0xffe0e0e0));
+                g.setFont(juce::Font(juce::FontOptions(13.0f)));
+                g.drawText(chordName, slot, juce::Justification::centred);
+            }
+            else
+            {
+                auto topHalf = slot.removeFromTop(slot.getHeight() / 2);
+                g.setColour(juce::Colour(0xffe0e0e0));
+                g.setFont(juce::Font(juce::FontOptions(11.0f)));
+                g.drawText(chordName, topHalf, juce::Justification::centredBottom);
+                g.setColour(juce::Colour(0xffaaaaaa));
+                g.setFont(juce::Font(juce::FontOptions(9.0f)));
+                g.drawText(roman, slot, juce::Justification::centredTop);
+            }
         }
         else
         {
