@@ -1,4 +1,5 @@
 #include "PadComponent.h"
+#include "ChordPumperLookAndFeel.h"
 #include "midi/MidiFileBuilder.h"
 
 namespace chordpumper {
@@ -25,17 +26,17 @@ void PadComponent::paint(juce::Graphics& g)
     auto bounds = getLocalBounds().toFloat().reduced(1.0f);
     constexpr float cornerSize = 6.0f;
 
-    if (isPressed)
-        g.setColour(juce::Colour(0xff6c8ebf));
-    else if (isHovered)
-        g.setColour(juce::Colour(0xff353545));
-    else
-        g.setColour(juce::Colour(0xff2a2a3a));
-
+    auto baseColour = isPressed ? juce::Colour(PadColours::pressed)
+                    : isHovered ? juce::Colour(PadColours::hovered)
+                                : juce::Colour(PadColours::background);
+    auto gradient = juce::ColourGradient::vertical(
+        baseColour.brighter(0.05f), baseColour.darker(0.05f), bounds);
+    g.setGradientFill(gradient);
     g.fillRoundedRectangle(bounds, cornerSize);
 
-    g.setColour(juce::Colour(0xff4a4a5a));
-    g.drawRoundedRectangle(bounds, cornerSize, 1.0f);
+    float accentAlpha = isPressed ? 0.8f : isHovered ? 0.6f : 0.4f;
+    g.setColour(juce::Colour(PadColours::accentForType(chord.type)).withAlpha(accentAlpha));
+    g.drawRoundedRectangle(bounds, cornerSize, 1.5f);
 
     auto textArea = getLocalBounds();
 
