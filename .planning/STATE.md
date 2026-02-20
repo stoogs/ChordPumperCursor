@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-19)
 
 **Core value:** The morphing grid — play a chord, see what comes next, follow the thread.
-**Current focus:** Phase 6: State Persistence & Validation
+**Current focus:** Phase 7: UX Polish & Progression Workflow
 
 ## Current Position
 
-Phase: 6 of 6 (State Persistence & Validation)
-Plan: 3 of 3 in current phase
-Status: Phase 6 Complete
-Last activity: 2026-02-20 — Completed 06-03: pluginval validation at level 5, RT safety audit, Bitwig state persistence verified
+Phase: 7 of 7 (UX Polish & Progression Workflow)
+Plan: 0 of 0 in current phase (not yet planned)
+Status: Phase 7 added, ready for planning
+Last activity: 2026-02-20 — Phase 7 added: drag-to-add progression strip, click-to-play strip chords, MIDI file export, visual polish
 
-Progress: [██████████] 100%
+Progress: [█████████░] 93%
 
 ## Performance Metrics
 
@@ -98,6 +98,10 @@ Recent decisions affecting current work:
 - [06-03]: LTO disabled for Release glibc-compat builds (-fno-lto) — --wrap linker fails with LTO on glibc symbols
 - [06-03]: CLAP pluginval unsupported on platform — documented; VST3 validation suffices for production gate
 
+### Roadmap Evolution
+
+- Phase 7 added: UX Polish & Progression Workflow (drag-to-add strip, click-to-play, MIDI export, visual polish)
+
 ### Pending Todos
 
 None yet.
@@ -110,5 +114,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 06-03-PLAN.md (pluginval validation, Bitwig state persistence). Phase 6 complete.
+Stopped at: Phase 7 added to roadmap. Ready for planning.
 Resume file: None

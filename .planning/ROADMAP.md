@@ -18,6 +18,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 4: Morphing Suggestions** - Grid morphs after each chord with voice-led transitions and Roman numerals
 - [x] **Phase 5: Capture & Export** - Drag chords to DAW as MIDI clips, progression strip
 - [x] **Phase 6: State Persistence & Validation** - Session recall, pluginval, real-time safety verification
+- [ ] **Phase 7: UX Polish & Progression Workflow** - Drag-to-add progression strip, click-to-play strip chords, MIDI file export, visual polish
 
 **Parallelization:** Phase 5 can execute in parallel with Phase 4 (both depend on Phase 3, neither depends on the other).
 
@@ -116,10 +117,25 @@ Plans:
 - [x] 06-02-PLAN.md — Editor↔Processor state wiring with change notification
 - [x] 06-03-PLAN.md — pluginval validation at level 5, RT safety audit, Bitwig state persistence verification
 
+### Phase 7: UX Polish & Progression Workflow
+**Goal**: Progression strip becomes an intentional composition tool with drag-to-add, click-to-play, and MIDI file export — plus visual refinement across the plugin
+**Depends on**: Phase 6
+**Requirements**: TBD (to be defined during planning)
+**Success Criteria** (what must be TRUE):
+  1. Clicking a grid pad previews/plays the chord but does NOT auto-add to the progression strip
+  2. Dragging a grid pad into the progression strip adds that chord to the sequence
+  3. Clicking a chord in the progression strip sends MIDI note-on/note-off (plays the chord)
+  4. A save/export button on the progression strip writes the current progression as a MIDI file to user-chosen location
+  5. Plugin has visually polished UI with meaningful color differentiation
+**Plans**: 0 plans
+
+Plans:
+_(not yet planned)_
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6
+Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6 → 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -129,3 +145,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6
 | 4. Morphing Suggestions | 3/3 | Complete | 2026-02-19 |
 | 5. Capture & Export | 3/3 | Complete | 2026-02-19 |
 | 6. State Persistence & Validation | 3/3 | Complete | 2026-02-20 |
+| 7. UX Polish & Progression Workflow | 0/0 | Not started | - |
