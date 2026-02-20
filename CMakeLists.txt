@@ -64,6 +64,7 @@ clap_juce_extensions_plugin(
 
 target_sources(ChordPumper PRIVATE
     src/PluginProcessor.cpp
+    src/PersistentState.cpp
     src/ui/PluginEditor.cpp
     src/ui/PadComponent.cpp
     src/ui/GridPanel.cpp
@@ -136,6 +137,7 @@ if(CHORDPUMPER_BUILD_TESTS)
         tests/test_morph_engine.cpp
         tests/test_midi_file_builder.cpp
         src/midi/MidiFileBuilder.cpp
+        src/PersistentState.cpp
     )
     target_include_directories(ChordPumperTests PRIVATE src)
     target_compile_definitions(ChordPumperTests PRIVATE
@@ -146,6 +148,7 @@ if(CHORDPUMPER_BUILD_TESTS)
         ChordPumperEngine
         Catch2::Catch2WithMain
         juce::juce_audio_basics
+        juce::juce_data_structures
     )
     catch_discover_tests(ChordPumperTests)
 endif()

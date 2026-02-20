@@ -1,5 +1,6 @@
 #pragma once
 
+#include "PersistentState.h"
 #include <juce_audio_processors/juce_audio_processors.h>
 
 namespace chordpumper {
@@ -35,8 +36,14 @@ public:
 
     juce::MidiKeyboardState& getKeyboardState() { return keyboardState; }
 
+    PersistentState& getState() { return persistentState; }
+    const PersistentState& getState() const { return persistentState; }
+    juce::CriticalSection& getStateLock() { return stateLock; }
+
 private:
     juce::MidiKeyboardState keyboardState;
+    PersistentState persistentState;
+    juce::CriticalSection stateLock;
 };
 
 } // namespace chordpumper

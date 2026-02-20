@@ -30,12 +30,30 @@ juce::AudioProcessorEditor* ChordPumperProcessor::createEditor()
     return new ChordPumperEditor(*this);
 }
 
-void ChordPumperProcessor::getStateInformation(juce::MemoryBlock& /*destData*/)
+void ChordPumperProcessor::getStateInformation(juce::MemoryBlock& destData)
 {
+    juce::ValueTree state;
+    {
+        const juce::ScopedLock sl(stateLock);
+        state = persistentState.toValueTree();
+    }
+    if (auto xml = state.createXml())
+        copyXmlToBinary(*xml, destData);
 }
 
-void ChordPumperProcessor::setStateInformation(const void* /*data*/, int /*sizeInBytes*/)
+void ChordPumperProcessor::setStateInformation(const void* data, int sizeInBytes)
 {
+    auto xml = getXmlFromBinary(data, sizeInBytes);
+    if (xml == nullptr) return;
+
+    auto tree = juce::ValueTree::fromXml(*xml);
+    if (!tree.isValid()) return;
+
+    auto restored = PersistentState::fromValueTree(tree);
+    {
+        const juce::ScopedLock sl(stateLock);
+        persistentState = std::move(restored);
+    }
 }
 
 } // namespace chordpumper
