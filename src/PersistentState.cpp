@@ -64,6 +64,8 @@ juce::ValueTree PersistentState::toValueTree() const
         c.setProperty("root", static_cast<int>(chord.root.letter), nullptr);
         c.setProperty("accidental", static_cast<int>(chord.root.accidental), nullptr);
         c.setProperty("type", static_cast<int>(chord.type), nullptr);
+        c.setProperty("octaveOffset", chord.octaveOffset, nullptr);
+        c.setProperty("roman",        juce::String(chord.romanNumeral), nullptr);
         prog.addChild(c, -1, nullptr);
     }
     root.addChild(prog, -1, nullptr);
@@ -152,6 +154,8 @@ PersistentState PersistentState::fromValueTree(const juce::ValueTree& tree)
                 static_cast<int8_t>(static_cast<int>(c.getProperty("accidental", 0)));
             chord.type =
                 static_cast<ChordType>(static_cast<int>(c.getProperty("type", 0)));
+            chord.octaveOffset = static_cast<int>(c.getProperty("octaveOffset", 0));
+            chord.romanNumeral = c.getProperty("roman", "").toString().toStdString();
             state.progression.push_back(chord);
         }
     }
