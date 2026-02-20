@@ -52,6 +52,7 @@ void GridPanel::morphTo(const Chord& chord)
     {
         pads[i]->setChord(suggestions[static_cast<size_t>(i)].chord);
         pads[i]->setRomanNumeral(suggestions[static_cast<size_t>(i)].romanNumeral);
+        pads[i]->setScore(suggestions[static_cast<size_t>(i)].score);
     }
 
     {
@@ -86,6 +87,7 @@ void GridPanel::refreshFromState()
         {
             pads[i]->setChord(persistentState.gridChords[static_cast<size_t>(i)]);
             pads[i]->setRomanNumeral(persistentState.romanNumerals[static_cast<size_t>(i)]);
+            pads[i]->setScore(-1.0f);
         }
         activeNotes = persistentState.lastVoicing;
     }
@@ -96,6 +98,7 @@ void GridPanel::refreshFromState()
         {
             pads[i]->setChord(palette[static_cast<size_t>(i)]);
             pads[i]->setRomanNumeral({});
+            pads[i]->setScore(-1.0f);
         }
         activeNotes.clear();
     }
