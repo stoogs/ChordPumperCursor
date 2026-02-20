@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-02-19)
 Phase: 9 of 9 (Chord Depth & UI Polish)
 Plan: 2 of ? — complete
 Status: Phase 9 in progress — Plan 02 executed (quadrant sub-variations, glow borders)
-Last activity: 2026-02-20 - Completed 09-02: Quadrant sub-variation selector and hover glow on pads
+Last activity: 2026-02-20 - Completed quick task 3: strip slot overwrite drag and stronger drop indicator
 
 Progress: [██████████] 100% (phases 1-8 complete, phase 9 started)
 
