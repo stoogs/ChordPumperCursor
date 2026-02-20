@@ -32,6 +32,8 @@ public:
     void itemDropped(const SourceDetails& details) override;
     void itemDragEnter(const SourceDetails& details) override;
     void itemDragExit(const SourceDetails& details) override;
+    void itemDragMove(const SourceDetails& details) override;
+    void mouseDrag(const juce::MouseEvent& event) override;
 
     static constexpr int kMaxChords = 8;
 
@@ -40,6 +42,10 @@ private:
     void updateExportButton();
     void exportProgression();
     int getChordIndexAtPosition(juce::Point<int> pos) const;
+    int insertionIndexAtX(int xPos) const;
+
+    int reorderDragFromIndex = -1;
+    int insertionIndex = -1;
 
     PersistentState& persistentState;
     juce::CriticalSection& stateLock;

@@ -143,6 +143,57 @@ int ProgressionStrip::getChordIndexAtPosition(juce::Point<int> pos) const
     return index;
 }
 
+int ProgressionStrip::insertionIndexAtX(int xPos) const
+{
+    auto area = getLocalBounds();
+    auto slotArea = area.removeFromLeft(area.getWidth() - 120);
+    auto slotWidth = (slotArea.getWidth() - (kMaxChords - 1) * 4) / kMaxChords;
+    int relX = xPos - slotArea.getX();
+    // Each cell = slotWidth + 4 gap. Map relX to nearest gap boundary.
+    int cellWidth = slotWidth + 4;
+    // Clamp relX to slot area
+    relX = juce::jlimit(0, slotArea.getWidth(), relX);
+    // Number of complete cells before this position
+    int cell = relX / cellWidth;
+    int posInCell = relX % cellWidth;
+    // If we're in the second half of a cell, insertion is after it
+    int insertion = (posInCell > cellWidth / 2) ? cell + 1 : cell;
+    return juce::jlimit(0, static_cast<int>(chords.size()), insertion);
+}
+
+void ProgressionStrip::mouseDrag(const juce::MouseEvent& event)
+{
+    // 10px threshold — wider than pad's 6px to avoid accidental reorder on click
+    if (event.getDistanceFromDragStart() < 10)
+        return;
+
+    if (reorderDragFromIndex >= 0)
+        return;  // already dragging
+
+    int index = getChordIndexAtPosition(event.getMouseDownPosition());
+    if (index < 0)
+        return;
+
+    reorderDragFromIndex = index;
+
+    if (auto* container = juce::DragAndDropContainer::findParentDragContainerFor(this))
+    {
+        juce::String desc = "REORDER:" + juce::String(index);
+        container->startDragging(juce::var(desc), this, juce::ScaledImage{}, false);
+    }
+}
+
+void ProgressionStrip::itemDragMove(const SourceDetails& details)
+{
+    juce::String desc = details.description.toString();
+    if (!desc.startsWith("REORDER:"))
+        return;
+
+    auto localPos = getLocalPoint(details.sourceComponent.get(), details.localPosition);
+    insertionIndex = insertionIndexAtX(localPos.getX());
+    repaint();
+}
+
 void ProgressionStrip::mouseDown(const juce::MouseEvent& event)
 {
     if (isReceivingDrag)
