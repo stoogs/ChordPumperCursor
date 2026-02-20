@@ -22,6 +22,7 @@ public:
     void refreshFromState();
 
     std::function<void(const Chord&)> onChordClicked;
+    std::function<void(const Chord&)> onChordDropped;
 
     void paint(juce::Graphics& g) override;
     void resized() override;

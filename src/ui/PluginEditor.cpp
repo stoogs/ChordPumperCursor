@@ -14,6 +14,7 @@ ChordPumperEditor::ChordPumperEditor(ChordPumperProcessor& p)
     addAndMakeVisible(gridPanel);
     addAndMakeVisible(progressionStrip);
     progressionStrip.onChordClicked = [this](const Chord& c) {
+        gridPanel.morphTo(c);
         auto& ks = processor.getKeyboardState();
         auto notes = c.midiNotes(4);
         for (auto n : notes) ks.noteOn(1, n, 0.8f);
@@ -23,6 +24,10 @@ ChordPumperEditor::ChordPumperEditor(ChordPumperProcessor& p)
                 auto& ks2 = safeThis->processor.getKeyboardState();
                 for (auto n : notes) ks2.noteOff(1, n, 0.0f);
             });
+    };
+
+    progressionStrip.onChordDropped = [this](const Chord& c) {
+        gridPanel.morphTo(c);
     };
 
     processor.addChangeListener(this);

@@ -99,8 +99,12 @@ bool ProgressionStrip::isInterestedInDragSource(const SourceDetails& details)
 void ProgressionStrip::itemDropped(const SourceDetails& details)
 {
     if (auto* pad = dynamic_cast<PadComponent*>(details.sourceComponent.get()))
-        addChord(pad->getChord());
-
+    {
+        const auto& chord = pad->getChord();
+        addChord(chord);
+        if (onChordDropped)
+            onChordDropped(chord);
+    }
     isReceivingDrag = false;
     repaint();
 }
