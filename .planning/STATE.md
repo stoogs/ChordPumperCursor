@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-02-19)
 ## Current Position
 
 Phase: 10 of 10 (Strip Interaction and Octave Control)
-Plan: 1 of ? — complete
-Status: Phase 10 in progress — Plan 01 executed (Chord struct octaveOffset + romanNumeral, persistence)
-Last activity: 2026-02-20 - Completed 10-01: Chord data model extension (octaveOffset, romanNumeral)
+Plan: 2 of 3 — complete
+Status: Phase 10 in progress — Plan 02 executed (Strip hit-test fix, right-click delete, two-line Roman numeral)
+Last activity: 2026-02-20 - Completed 10-02: Strip interaction improvements (slotAndGapAtX, right-click delete, two-line rendering)
 
 Progress: [██████████] 100% (phases 1-8 complete, phase 9 started)
 
@@ -45,6 +45,7 @@ Progress: [██████████] 100% (phases 1-8 complete, phase 9 st
 
 *Updated after each plan completion*
 | Phase 09 P03 | 4 | 2 tasks | 2 files |
+| Phase 10-strip-interaction-and-octave-control P02 | 4 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -143,6 +144,8 @@ Recent decisions affecting current work:
 - [quick-3]: Insertion line upgraded to 4px white; overwrite highlight is bright yellow 2.5px border on target slot
 - [10-01]: octaveOffset and romanNumeral added with zero/empty defaults so all existing aggregate initialisers compile unchanged
 - [10-01]: Progression chord serialisation uses property key 'roman' (matching grid pad convention) and 'octaveOffset' with default 0 for backward compatibility
+- [Phase 10]: slotAndGapAtX returns {slotIndex, isGap} — single source of truth for all strip hit-testing, eliminates dual boundary-calc bug
+- [Phase 10]: Right-click delete in ProgressionStrip placed before isReceivingDrag guard so it works regardless of drag state
 
 ### Roadmap Evolution
 
@@ -169,5 +172,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 10-01 (Chord data model extension — octaveOffset and romanNumeral)
+Stopped at: Completed 10-02 (Strip interaction improvements — slotAndGapAtX, right-click delete, two-line Roman numeral rendering)
 Resume file: None
