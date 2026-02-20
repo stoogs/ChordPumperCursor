@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-02-19)
 
 **Core value:** The morphing grid — play a chord, see what comes next, follow the thread.
-**Current focus:** Phase 9: Chord Depth & UI Polish
+**Current focus:** Phase 10: Strip Interaction and Octave Control
 
 ## Current Position
 
-Phase: 9 of 9 (Chord Depth & UI Polish)
-Plan: 2 of ? — complete
-Status: Phase 9 in progress — Plan 02 executed (quadrant sub-variations, glow borders)
-Last activity: 2026-02-20 - Completed quick task 3: strip slot overwrite drag and stronger drop indicator
+Phase: 10 of 10 (Strip Interaction and Octave Control)
+Plan: 1 of ? — complete
+Status: Phase 10 in progress — Plan 01 executed (Chord struct octaveOffset + romanNumeral, persistence)
+Last activity: 2026-02-20 - Completed 10-01: Chord data model extension (octaveOffset, romanNumeral)
 
 Progress: [██████████] 100% (phases 1-8 complete, phase 9 started)
 
@@ -141,6 +141,8 @@ Recent decisions affecting current work:
 - [quick-3]: overwriteIndex mutually exclusive with insertionIndex — posInCell < slotWidth detects slot interior vs gap
 - [quick-3]: REORDER swap uses std::swap in-place; avoids erase+insert index correction math
 - [quick-3]: Insertion line upgraded to 4px white; overwrite highlight is bright yellow 2.5px border on target slot
+- [10-01]: octaveOffset and romanNumeral added with zero/empty defaults so all existing aggregate initialisers compile unchanged
+- [10-01]: Progression chord serialisation uses property key 'roman' (matching grid pad convention) and 'octaveOffset' with default 0 for backward compatibility
 
 ### Roadmap Evolution
 
@@ -167,5 +169,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed quick-3 (strip slot overwrite drag and stronger insertion indicator)
+Stopped at: Completed 10-01 (Chord data model extension — octaveOffset and romanNumeral)
 Resume file: None
