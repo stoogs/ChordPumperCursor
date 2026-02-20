@@ -109,12 +109,12 @@ Plans:
   1. Closing and reopening a Bitwig session restores the plugin's grid state, morph state, and settings exactly
   2. Plugin passes pluginval validation at reasonable strictness level with no failures
   3. No audio dropouts or glitches during normal chord exploration workflow
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 06-01: State serialization with ValueTree and version tagging
-- [ ] 06-02: pluginval validation pass and real-time safety audit
-- [ ] 06-03: Integration testing across VST3/CLAP/Standalone formats
+- [ ] 06-01-PLAN.md — PersistentState struct with ValueTree serialization and round-trip unit tests
+- [ ] 06-02-PLAN.md — Editor↔Processor state wiring with change notification
+- [ ] 06-03-PLAN.md — pluginval validation at level 5, RT safety audit, Bitwig state persistence verification
 
 ## Progress
 
