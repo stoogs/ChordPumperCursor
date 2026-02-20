@@ -1,6 +1,7 @@
 #include "ProgressionStrip.h"
 #include "PadComponent.h"
 #include "ChordPumperLookAndFeel.h"
+#include "midi/MidiFileBuilder.h"
 
 namespace chordpumper {
 
@@ -13,12 +14,15 @@ ProgressionStrip::ProgressionStrip(PersistentState& state, juce::CriticalSection
     }
 
     addAndMakeVisible(clearButton);
+    addAndMakeVisible(exportButton);
     updateClearButton();
+    updateExportButton();
     clearButton.onClick = [this]
     {
         clear();
         repaint();
     };
+    exportButton.onClick = [this] { exportProgression(); };
 }
 
 void ProgressionStrip::addChord(const Chord& chord)
@@ -34,6 +38,7 @@ void ProgressionStrip::addChord(const Chord& chord)
     }
 
     updateClearButton();
+    updateExportButton();
     repaint();
 }
 
@@ -47,6 +52,7 @@ void ProgressionStrip::setChords(const std::vector<Chord>& newChords)
     }
 
     updateClearButton();
+    updateExportButton();
     repaint();
 }
 
@@ -60,6 +66,7 @@ void ProgressionStrip::clear()
     }
 
     updateClearButton();
+    updateExportButton();
     repaint();
 }
 
@@ -70,6 +77,7 @@ void ProgressionStrip::refreshFromState()
         chords = persistentState.progression;
     }
     updateClearButton();
+    updateExportButton();
     repaint();
 }
 
@@ -112,7 +120,7 @@ void ProgressionStrip::itemDragExit(const SourceDetails&)
 int ProgressionStrip::getChordIndexAtPosition(juce::Point<int> pos) const
 {
     auto area = getLocalBounds();
-    auto slotArea = area.removeFromLeft(area.getWidth() - 60);
+    auto slotArea = area.removeFromLeft(area.getWidth() - 120);
 
     if (!slotArea.contains(pos))
         return -1;
@@ -150,7 +158,7 @@ void ProgressionStrip::mouseDown(const juce::MouseEvent& event)
 void ProgressionStrip::paint(juce::Graphics& g)
 {
     auto area = getLocalBounds();
-    auto slotArea = area.removeFromLeft(area.getWidth() - 60);
+    auto slotArea = area.removeFromLeft(area.getWidth() - 120);
 
     auto slotWidth = (slotArea.getWidth() - (kMaxChords - 1) * 4) / kMaxChords;
     auto font = juce::Font(juce::FontOptions(13.0f));
@@ -189,11 +197,41 @@ void ProgressionStrip::resized()
 {
     auto area = getLocalBounds();
     clearButton.setBounds(area.removeFromRight(56).reduced(0, 4));
+    area.removeFromRight(4);
+    exportButton.setBounds(area.removeFromRight(56).reduced(0, 4));
 }
 
 void ProgressionStrip::updateClearButton()
 {
     clearButton.setEnabled(!chords.empty());
+}
+
+void ProgressionStrip::updateExportButton()
+{
+    exportButton.setEnabled(!chords.empty());
+}
+
+void ProgressionStrip::exportProgression()
+{
+    if (chords.empty())
+        return;
+
+    fileChooser = std::make_unique<juce::FileChooser>(
+        "Export Progression as MIDI",
+        juce::File::getSpecialLocation(juce::File::userHomeDirectory)
+            .getChildFile("ChordPumper-Progression.mid"),
+        "*.mid", true, false, this);
+
+    constexpr int flags = juce::FileBrowserComponent::saveMode
+                        | juce::FileBrowserComponent::canSelectFiles
+                        | juce::FileBrowserComponent::warnAboutOverwriting;
+
+    fileChooser->launchAsync(flags, [this](const juce::FileChooser& chooser) {
+        auto file = chooser.getResult();
+        if (file == juce::File())
+            return;
+        MidiFileBuilder::exportProgression(chords, 4, file);
+    });
 }
 
 } // namespace chordpumper

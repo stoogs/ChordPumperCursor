@@ -36,12 +36,16 @@ public:
 
 private:
     void updateClearButton();
+    void updateExportButton();
+    void exportProgression();
     int getChordIndexAtPosition(juce::Point<int> pos) const;
 
     PersistentState& persistentState;
     juce::CriticalSection& stateLock;
     std::vector<Chord> chords;
     juce::TextButton clearButton{"Clear"};
+    juce::TextButton exportButton{"Export"};
+    std::unique_ptr<juce::FileChooser> fileChooser;
     bool isReceivingDrag = false;
 };
 

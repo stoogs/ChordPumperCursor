@@ -3,6 +3,7 @@
 #include "engine/Chord.h"
 #include <juce_audio_basics/juce_audio_basics.h>
 #include <juce_core/juce_core.h>
+#include <vector>
 
 namespace chordpumper {
 
@@ -13,6 +14,8 @@ public:
     static juce::File exportToDirectory(const Chord& chord, int octave,
                                          const juce::File& directory,
                                          float velocity = 0.8f);
+    static bool exportProgression(const std::vector<Chord>& chords, int octave,
+                                   const juce::File& file, float velocity = 0.8f);
 
 private:
     static void buildSequence(juce::MidiMessageSequence& seq,
