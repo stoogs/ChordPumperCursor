@@ -15,7 +15,7 @@ ChordPumperEditor::ChordPumperEditor(ChordPumperProcessor& p)
     addAndMakeVisible(progressionStrip);
     progressionStrip.onPressStart = [this](const Chord& c) {
         auto& ks = processor.getKeyboardState();
-        auto notes = c.midiNotes(4);
+        auto notes = c.midiNotes(4 + c.octaveOffset);
         for (auto n : notes) ks.noteOn(1, n, 0.8f);
         stripActiveNotes = std::vector<int>(notes.begin(), notes.end());
     };

@@ -73,7 +73,7 @@ GridPanel::~GridPanel()
 void GridPanel::startPreview(const Chord& chord)
 {
     releaseCurrentChord();
-    auto voiced = optimalVoicing(chord, activeNotes, defaultOctave);
+    auto voiced = optimalVoicing(chord, activeNotes, defaultOctave + chord.octaveOffset);
     for (auto note : voiced.midiNotes)
         keyboardState.noteOn(midiChannel, note, velocity);
     activeNotes.assign(voiced.midiNotes.begin(), voiced.midiNotes.end());
