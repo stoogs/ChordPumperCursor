@@ -140,6 +140,7 @@ void PadComponent::mouseDown(const juce::MouseEvent& event)
 {
     if (event.mods.isPopupMenu())
     {
+        pressedQuadrant = quadrantAt(event.getPosition());
         bool shiftHeld = event.mods.isShiftDown();
         pendingOctaveOffset_ = shiftHeld ? -1 : +1;
 
