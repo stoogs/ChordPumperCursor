@@ -10,16 +10,16 @@ See: .planning/PROJECT.md (updated 2026-02-19)
 ## Current Position
 
 Phase: 7 of 7 (UX Polish & Progression Workflow)
-Plan: 0 of 0 in current phase (not yet planned)
-Status: Phase 7 added, ready for planning
-Last activity: 2026-02-20 — Phase 7 added: drag-to-add progression strip, click-to-play strip chords, MIDI file export, visual polish
+Plan: 1 of 3 complete in current phase
+Status: Executing Phase 7
+Last activity: 2026-02-20 — 07-01 complete: click/drag disambiguation + intra-plugin DnD to strip
 
-Progress: [█████████░] 93%
+Progress: [█████████░] 95%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 15
+- Total plans completed: 16
 - Average duration: ~7 min
 - Total execution time: ~1.5 hours
 
@@ -35,9 +35,10 @@ Progress: [█████████░] 93%
 | 5. Capture & Export | 3 | ~14 min | ~5 min |
 
 | 6. State Persistence | 3 | ~22 min | ~7 min |
+| 7. UX Polish & Progression | 1 | ~5 min | ~5 min |
 
 **Recent Trend:**
-- Last 5 plans: 2min, 5min, 7min, 10min, 4min
+- Last 5 plans: 7min, 10min, 4min, 5min, 5min
 - Trend: → (steady)
 
 *Updated after each plan completion*
@@ -97,6 +98,10 @@ Recent decisions affecting current work:
 - [06-02]: State references stored in UI components rather than copied — single source of truth in Processor
 - [06-03]: LTO disabled for Release glibc-compat builds (-fno-lto) — --wrap linker fails with LTO on glibc symbols
 - [06-03]: CLAP pluginval unsupported on platform — documented; VST3 validation suffices for production gate
+- [07-01]: mouseUp-based onClick with isDragInProgress guard and 6px threshold for click/drag disambiguation
+- [07-01]: startDragging on DragAndDropContainer for intra-plugin DnD instead of performExternalDragDropOfFiles
+- [07-01]: shouldDropFilesWhenDraggedExternally on editor provides external DnD fallback transparently
+- [07-01]: Kept MidiFileBuilder include in PadComponent.cpp — right-click export still needs it (plan deviation)
 
 ### Roadmap Evolution
 
@@ -114,5 +119,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Phase 7 added to roadmap. Ready for planning.
+Stopped at: Completed 07-01-PLAN.md (click/drag disambiguation + intra-plugin DnD)
 Resume file: None
