@@ -3,6 +3,47 @@
 
 namespace chordpumper {
 
+namespace {
+
+std::array<Chord, 4> makeSubChords(PitchClass root,
+                                    ChordType tl, ChordType tr,
+                                    ChordType bl, ChordType br)
+{
+    return { Chord{root, tl}, Chord{root, tr}, Chord{root, bl}, Chord{root, br} };
+}
+
+void applySubVariations(PadComponent& pad, const Chord& chord)
+{
+    switch (chord.type)
+    {
+        case ChordType::Major:
+            pad.setSubVariations(true, makeSubChords(chord.root,
+                ChordType::Major, ChordType::Maj7, ChordType::Maj9, ChordType::Maj13));
+            break;
+        case ChordType::Minor:
+            pad.setSubVariations(true, makeSubChords(chord.root,
+                ChordType::Minor, ChordType::Min7, ChordType::Min9, ChordType::Min11));
+            break;
+        case ChordType::Maj7:
+            pad.setSubVariations(true, makeSubChords(chord.root,
+                ChordType::Maj7, ChordType::Maj9, ChordType::Maj11, ChordType::Maj13));
+            break;
+        case ChordType::Min7:
+            pad.setSubVariations(true, makeSubChords(chord.root,
+                ChordType::Min7, ChordType::Min9, ChordType::Min11, ChordType::Min13));
+            break;
+        case ChordType::Dom7:
+            pad.setSubVariations(true, makeSubChords(chord.root,
+                ChordType::Dom7, ChordType::Dom9, ChordType::Dom11, ChordType::Dom13));
+            break;
+        default:
+            pad.setSubVariations(false, {});
+            break;
+    }
+}
+
+} // anonymous namespace
+
 GridPanel::GridPanel(juce::MidiKeyboardState& ks,
                      PersistentState& state,
                      juce::CriticalSection& lock)
@@ -50,9 +91,11 @@ void GridPanel::morphTo(const Chord& chord)
 
     for (int i = 0; i < 64; ++i)
     {
-        pads[i]->setChord(suggestions[static_cast<size_t>(i)].chord);
-        pads[i]->setRomanNumeral(suggestions[static_cast<size_t>(i)].romanNumeral);
-        pads[i]->setScore(suggestions[static_cast<size_t>(i)].score);
+        const auto& suggestion = suggestions[static_cast<size_t>(i)];
+        pads[i]->setChord(suggestion.chord);
+        pads[i]->setRomanNumeral(suggestion.romanNumeral);
+        pads[i]->setScore(suggestion.score);
+        applySubVariations(*pads[i], suggestion.chord);
     }
 
     {
@@ -85,9 +128,11 @@ void GridPanel::refreshFromState()
     {
         for (int i = 0; i < 64; ++i)
         {
-            pads[i]->setChord(persistentState.gridChords[static_cast<size_t>(i)]);
+            const auto& c = persistentState.gridChords[static_cast<size_t>(i)];
+            pads[i]->setChord(c);
             pads[i]->setRomanNumeral(persistentState.romanNumerals[static_cast<size_t>(i)]);
             pads[i]->setScore(-1.0f);
+            applySubVariations(*pads[i], c);
         }
         activeNotes = persistentState.lastVoicing;
     }
@@ -96,9 +141,11 @@ void GridPanel::refreshFromState()
         auto palette = chromaticPalette();
         for (int i = 0; i < 64; ++i)
         {
-            pads[i]->setChord(palette[static_cast<size_t>(i)]);
+            const auto& c = palette[static_cast<size_t>(i)];
+            pads[i]->setChord(c);
             pads[i]->setRomanNumeral({});
             pads[i]->setScore(-1.0f);
+            applySubVariations(*pads[i], c);
         }
         activeNotes.clear();
     }
