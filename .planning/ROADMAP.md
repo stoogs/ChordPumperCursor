@@ -19,6 +19,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 5: Capture & Export** - Drag chords to DAW as MIDI clips, progression strip
 - [x] **Phase 6: State Persistence & Validation** - Session recall, pluginval, real-time safety verification
 - [x] **Phase 7: UX Polish & Progression Workflow** - Drag-to-add progression strip, click-to-play strip chords, MIDI file export, visual polish
+- [ ] **Phase 8: Grid UX Overhaul** - Hold-to-preview, drag-to-morph flow, harmonic similarity colours, 8×8 grid
 
 **Parallelization:** Phase 5 can execute in parallel with Phase 4 (both depend on Phase 3, neither depends on the other).
 
@@ -134,10 +135,26 @@ Plans:
 - [x] 07-02-PLAN.md — Strip click-to-play + multi-chord MIDI export with async FileChooser
 - [x] 07-03-PLAN.md — Visual polish with chord-type accent colours, gradient fills, refined styling
 
+### Phase 8: Grid UX Overhaul
+**Goal**: Refined grid interaction model with hold-to-preview, strip-driven morphing, harmonic similarity colour coding, and expanded 8×8 (64-pad) grid
+**Depends on**: Phase 7
+**Success Criteria** (what must be TRUE):
+  1. Clicking a grid pad previews the chord with sustained note-on while held (note-off on mouse release)
+  2. Grid does NOT morph on pad click — morphing only triggers when a chord is dragged into the progression strip
+  3. Clicking a chord in the progression strip morphs the main grid to show suggestions for that chord
+  4. Pad colours indicate harmonic similarity: blue (very similar) → green (good) → orange (bold) → purple (exotic) → red (extremely dissimilar)
+  5. Grid is 8×8 (64 pads) while maintaining current individual pad size (plugin window grows to accommodate)
+**Plans**: 3 plans
+
+Plans:
+- [ ] 08-01-PLAN.md — Hold-to-preview + strip-driven morph (decouple click from morph)
+- [ ] 08-02-PLAN.md — 8×8 grid + engine expansion (64 pads, 7th chords, state v2 migration)
+- [ ] 08-03-PLAN.md — Harmonic similarity colours (5-stop score gradient on pad borders)
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6 → 7
+Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6 → 7 → 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -148,3 +165,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 (parallel with 5) → 6 →
 | 5. Capture & Export | 3/3 | Complete | 2026-02-19 |
 | 6. State Persistence & Validation | 3/3 | Complete | 2026-02-20 |
 | 7. UX Polish & Progression Workflow | 3/3 | Complete | 2026-02-20 |
+| 8. Grid UX Overhaul | 0/3 | Planned | — |
